@@ -5,8 +5,8 @@ let res = null;
 //     .then(response => response.json())
 //     .then(json => LForms.Util.addFormToPage(json, 'formContainer'));
 
-// const response = await fetch('https://3hxhninubinga65uw3i5jkpssm0bbgxs.lambda-url.us-east-1.on.aws/');
-const response = await fetch('https://czp2w6uy37.execute-api.us-east-1.amazonaws.com/test/Questionnaire');
+const response = await fetch('https://3hxhninubinga65uw3i5jkpssm0bbgxs.lambda-url.us-east-1.on.aws/');
+// const response = await fetch('https://czp2w6uy37.execute-api.us-east-1.amazonaws.com/test/Questionnaire');
 const json = await response.json();
 LForms.Util.addFormToPage(json, 'formContainer')
 console.log(json);
