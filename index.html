@@ -3,12 +3,23 @@
     <title>Display Questionnaire</title>
 <!--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
 <!--    <link rel="stylesheet" href="src/resources/css.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h2>PHQ9 Questionnaire</h2>
 <link href="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/styles.css" media="screen" rel="stylesheet" />
-<div id="formContainer"></div>
-<button id="Save">Save</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>PHQ9</h2>
+        </div>
+    </div>
+    <div class="container" id="formContainer"></div>
+    <div class="row">
+    <div class="col-md-12 text-center">
+        <button id="Submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
+</div>
 <script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/assets/lib/zone.min.js"></script>
 <script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/scripts.js"></script>
 <script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/runtime-es5.js"></script>

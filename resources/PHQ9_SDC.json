@@ -8,11 +8,11 @@
         "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
     ],
         "tag": [
-        {
+            {
             "code": "lformsVersion: 30.1.3"
-        }
-    ]
-},
+            }
+        ]
+    },
     "extension": [],
     "identifier": [
     {
@@ -28,9 +28,9 @@
     }
 ],
     "subjectType": [
-    "Patient",
-    "Person"
-],
+        "Patient",
+        "Person"
+    ],
     "status": "draft",
     "name": "PHQ-9 quick depression assessment panel",
     "title": "PHQ-9 quick depression assessment panel",
