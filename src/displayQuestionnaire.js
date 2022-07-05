@@ -5,19 +5,9 @@ let res = null;
 //     .then(response => response.json())
 //     .then(json => LForms.Util.addFormToPage(json, 'formContainer'));
 try {
-    let questionnaire_name = 'PHQ-9 quick depression assessment panel';
-    const response = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_name='PHQ-9 quick depression assessment panel'")
-    //     method: 'GET',
-    //     // body: JSON.stringify(res),
-    //     headers: {
-    //         "Access-Control-Allow-Headers" : "Content-Type",
-    //         "Access-Control-Allow-Origin": 'http://localhost:63342',
-    //         "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-    //     }
-    // });
-    // const response = await fetch('https://3hxhninubinga65uw3i5jkpssm0bbgxs.lambda-url.us-east-1.on.aws/');
-    // const response = await fetch('https://czp2w6uy37.execute-api.us-east-1.amazonaws.com/test/Questionnaire');
-    const json = await response.json();
+    const get_res = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_name='PHQ-9 quick depression assessment panel'")
+
+    const json = await get_res.json();
     console.log(json[0]);
     LForms.Util.addFormToPage(json[0], 'formContainer')
 }
@@ -27,22 +17,25 @@ catch (e){
 
 async function handleResponse(){
     res = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-    res.subject = {"reference": "Patient/some_patient_id"};
+    res.subject = {"reference": "Patient/patient_id"};
     res.extension ={
         "score": null,
-        "questionnaire_id": "d92e6f03-958c-455f-b732-f4abcfebbc43",
-        "encounter_date" : "01/07/22"
+        "questionnaire_id": "786e8353-5b07-4947-98be-8e2928eb6d7d",
+        "encounter_date" : "05/07/22"
     }
     console.log(res);
+    try {
+        const result = fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
+            method: 'POST',
+            body: JSON.stringify(res),
+            headers: {'Content-Type': 'application/json'}
+        }).then(res => res.json)
+            .then(json => console.log(json));
+    }
+    catch (e){
+            console.log(e)
+    }
     // textFileAsBlob = new Blob([JSON.stringify(res,null,4)], {type : 'application/json'});
-
-    // const result = fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
-    //     method: 'POST',
-    //     body: JSON.stringify(res),
-    //     headers: { 'Content-Type': 'application/json' }
-    // }).then(res => res.json())
-    //     .then(json => console.log(json));
-
     // const a = document.createElement("a");
     // const file = new Blob([JSON.stringify(res,null,4)], {type : 'application/json'});
     // a.href = URL.createObjectURL(file);
