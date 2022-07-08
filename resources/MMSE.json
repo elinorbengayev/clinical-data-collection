@@ -1,0 +1,148 @@
+{
+  "id": "TO-CHANGE",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2022-04-24T03:13:27.000-04:00",
+    "source": "#VgVMCvSD3VUyNdel",
+    "profile": [
+      "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
+    ],
+    "tag": [
+      {
+        "code": "lformsVersion: 30.1.3"
+      }
+    ]
+  },
+  "extension": [],
+  "identifier": [
+    {
+      "system": "http://loinc.org",
+      "value": "44249-1"
+    }
+  ],
+  "code": [
+    {
+      "system": "http://loinc.org",
+      "code": "44249-1",
+      "display": "PHQ-9 quick depression assessment panel"
+    }
+  ],
+  "subjectType": [
+    "Patient",
+    "Person"
+  ],
+  "status": "draft",
+  "name": "MMSE Mini mental state examination",
+  "title": "MMSE Mini mental state examination",
+  "resourceType": "Questionnaire",
+  "item": [
+    {
+      "type": "group",
+      "linkId": "/X111",
+      "text": "Orientation",
+      "item": [
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/1",
+          "text": "Year/Season/Month/Date/Time (one point for each answer)."
+        },
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/2",
+          "text": "Country/Town/District/Hospital/Ward/Floor (one point for each answer)."
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X222",
+      "text": "Registration",
+      "item": [
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/3",
+          "text": "Examiner names three objects (e.g. apple, table. penny) and asks the patient to repeat (1 point for each correct. THEN the patient learns te 3 names repeating until correct)."
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X333",
+      "text": "Attention and Calculation",
+      "item": [
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/4",
+          "text": "Subtract 7 from 100, then repeat from result. Continue five times: 100, 93, 86, 79, 72, 65 (Alternative: spell 'WORLD' backwards: 'DLROW')."
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X444",
+      "text": "Recall",
+      "item": [
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/5",
+          "text": "Ask for the names of the three objects learned earlier - one point for each object."
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X555",
+      "text": "Language",
+      "item": [
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/6",
+          "text": "Name two objects (e.g pen, watch) - one point for each object."
+        },
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/7",
+          "text": "Repeat 'No ifs, and, or buts'."
+        },
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/8",
+          "text": "Give a three-stage. Score 1 for each stage. (e.g 'Place index finger of right hand on your nose and then on your left ear')."
+        },
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/9",
+          "text": "Ask the patient to read and obey a written command on a piece of paper. The written instruction is :'Close your eyes'."
+        },
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/10",
+          "text": "Ask the patient to write a sentence. Score 1 if it is sensible and has a subject and a verb."
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X666",
+      "text": "Copying",
+      "item": [
+        {
+          "type": "int",
+          "required": true,
+          "linkId": "/11",
+          "text": "Ask the patient to copy a pair of intersecting pentagons (one point if copy was successful)."
+        }
+      ]
+    }
+  ]
+}
