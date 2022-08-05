@@ -1,20 +1,26 @@
 
+// import fs from 'fs'
 
 // let questions = await fetch("./resources/MMSE_bucket.json");
 // questions = await questions.json()
 // console.log(questions);
 // LForms.Util.addFormToPage(questions, 'formContainer')
 // extractNumOfItems(questions)
+// const urlParams = new URLSearchParams(window.location.search);
+// const q_id = urlParams.get('q_id');
+// console.log(q_id);
 let questions = null
 try {
     //PHQ-9
     // questions = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='786e8353-5b07-4947-98be-8e2928eb6d7d'")
     //MMSE
-    questions = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='1f971dfa-cb6b-4cc2-9eaf-d4de58afe9a9'")
+    // questions = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='1f971dfa-cb6b-4cc2-9eaf-d4de58afe9a9'")
 
+    questions = await fetch("./resources/baselineVisit.json");
     questions = await questions.json();
-    console.log(questions[0]);
-    questions = questions[0]
+    // questions = questions[0]
+    // write JSON string to a file
+
     LForms.Util.addFormToPage(questions, 'formContainer')
     setTimeout(function() { createButton(); }, 1000);
 }
