@@ -1,0 +1,553 @@
+{
+  "id": "44249-1-x",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2022-04-24T03:13:27.000-04:00",
+    "source": "#VgVMCvSD3VUyNdel",
+    "profile": [
+      "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
+    ],
+    "tag": [
+      {
+        "code": "lformsVersion: 30.1.3"
+      }
+    ]
+  },
+  "extension": [],
+  "identifier": [
+    {
+      "system": "http://loinc.org",
+      "value": "44249-1"
+    }
+  ],
+  "code": [
+    {
+      "system": "http://loinc.org",
+      "code": "44249-1",
+      "display": "Baseline Visit Questionnaire"
+    }
+  ],
+  "subjectType": [
+    "Patient",
+    "Person"
+  ],
+  "status": "draft",
+  "name": "Baseline Visit Questionnaire",
+  "title": "Baseline Visit Questionnaire",
+  "resourceType": "Questionnaire",
+  "item": [
+{
+  "type": "group",
+  "text": "Clinical Condition(s) - Part B",
+  "linkId": "/X783",
+  "item": [
+    {
+      "type": "open-choice",
+      "repeats": true,
+      "code": [
+        {
+          "code": "44250-16",
+          "display": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)"
+        }
+      ],
+      "required": true,
+      "linkId": "/44250-16",
+      "text": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "LA6572-0",
+            "display": "Alzheimer or Dementia"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-1",
+            "display": "Amyotrophic Lateral Sclerosis"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-2",
+            "display": "Ataxia"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-3",
+            "display": "Concussion"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-4",
+            "display": "Brain Tumor"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-5",
+            "display": "Cerebral Palsy"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-6",
+            "display": "Epilepsy or Other Seizure Disorder"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-7",
+            "display": "Multiple Sclerosis"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-8",
+            "display": "Parkinson's Disease"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-9",
+            "display": "Stroke"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-10",
+            "display": "Traumatic Brain Injury"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA6572-11",
+            "display": "I have never suffered from any of the conditions listed above"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X124",
+      "text": "Alzheimer/Dementia Details",
+      "item": [
+        {
+          "type": "open-choice",
+          "code": [
+            {
+              "system": "http://loinc.org",
+              "code": "44250-18",
+              "display": "If your physician suspects that you suffer from a specific type of dementia, please select it here:"
+            }
+          ],
+          "required": true,
+          "linkId": "/44250-18",
+          "text": "If your physician suspects that you suffer from a specific type of dementia, please select it here:",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "LA6573-0",
+                "display": "Probable Alzheimer's Disease"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6573-1",
+                "display": "Probable Dementia With Lew Bodies"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6573-2",
+                "display": "Probable Vascular Dementia"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6573-3",
+                "display": "Probable Frontotemporal Dementia"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6573-3",
+                "display": "Probable Mixed Dementia"
+              }
+            }
+          ]
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-0"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X125",
+      "text": "Concussion Details",
+      "item": [
+        {
+          "type": "open-choice",
+          "code": [
+            {
+              "system": "http://loinc.org",
+              "code": "44250-20",
+              "display": "When did you experience your last concussion?"
+            }
+          ],
+          "required": true,
+          "linkId": "/44250-20",
+          "text": "When did you experience your last concussion?",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "LA6574-0",
+                "display": "Within the last 24 hours"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6574-1",
+                "display": "Within the last 48 hours"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6574-2",
+                "display": "Within the last week"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6574-3",
+                "display": "Within the last month"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6574-4",
+                "display": "Within the last year"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6574-5",
+                "display": "Longer than a year ago"
+              }
+            }
+          ]
+        },
+        {
+          "type": "open-choice",
+          "code": [
+            {
+              "system": "http://loinc.org",
+              "code": "44250-21",
+              "display": "How many concussions have you had in your life?"
+            }
+          ],
+          "required": true,
+          "linkId": "/44250-21",
+          "text": "How many concussions have you had in your life?",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "LA6575-0",
+                "display": "1"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6575-1",
+                "display": "2"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6575-2",
+                "display": "3"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "LA6575-3",
+                "display": "More than 3"
+              }
+            }
+          ]
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-3"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X220",
+      "text": "Amyotrophic Lateral Sclerosis Diagnosis Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-0",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-0",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-1"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X221",
+      "text": "Ataxia Diagnosis Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-1",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-1",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-2"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X222",
+      "text": "Brain Tumor Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-2",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-2",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-4"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X223",
+      "text": "Cerebral Palsy Diagnosis Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-3",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-3",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-5"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X224",
+      "text": "Epilepsy or Other Seizure Diagnosis Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-4",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-4",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-6"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X225",
+      "text": "Multiple Sclerosis Diagnosis Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-5",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-5",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-7"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X226",
+      "text": "Parkinson's Disease Diagnosis Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-6",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-6",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-8"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X227",
+      "text": "Stroke Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-7",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-7",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-9"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "linkId": "/X228",
+      "text": "Traumatic Brain Injury Details",
+      "item": [
+        {
+          "type": "date",
+          "code": [
+            {
+              "code": "55250-8",
+              "display": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+            }
+          ],
+          "required": true,
+          "linkId": "/55250-8",
+          "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
+        }
+      ],
+      "enableWhen": [
+        {
+          "answerCoding": {
+            "code": "LA6572-10"
+          },
+          "question": "/44250-16",
+          "operator": "="
+        }
+      ]
+    }
+  ]
+}
+  ]
+}
