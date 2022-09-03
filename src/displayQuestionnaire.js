@@ -16,12 +16,17 @@ try {
     //MMSE
     // questions = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='1f971dfa-cb6b-4cc2-9eaf-d4de58afe9a9'")
 
+    // questions = await fetch("./resources/followupVisit.json");
+    // questions = await fetch("./resources/PHQ-9.json");
     questions = await fetch("./resources/baselineVisit.json");
+    // questions = await fetch("./resources/PartA.json");
+    // questions = await fetch("./resources/followUp/followupUpdate.json");
     questions = await questions.json();
     // questions = questions[0]
     // write JSON string to a file
 
     LForms.Util.addFormToPage(questions, 'formContainer')
+
     setTimeout(function() { createButton(); }, 1000);
 }
 catch (e){
@@ -38,7 +43,8 @@ function createButton(){
 }
 async function handleResponse(){
     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-    let missing_questions = validation_check(questions, response);
+    // let missing_questions = validation_check(questions, response);
+    let missing_questions = [];
     if(missing_questions.length !==0 ) {
         swal({
             title: "Missing answers",
@@ -52,26 +58,29 @@ async function handleResponse(){
         response.extension = {
             "score": null,
             "questionnaire_id": questions.id,
-            "encounter_date" : "07/07/22"
+            "encounter_date" : "07/07/22",
+            "encounter_id": null,
+            "visit_id": null,
+            "is_follow_up": true
         }
-        // const a = document.createElement("a");
-        // const file = new Blob([JSON.stringify(response,null,4)], {type : 'application/json'});
-        // a.href = URL.createObjectURL(file);
-        // a.download = 'response.json';
-        // a.click();
+        const a = document.createElement("a");
+        const file = new Blob([JSON.stringify(response,null,4)], {type : 'application/json'});
+        a.href = URL.createObjectURL(file);
+        a.download = 'response.json';
+        a.click();
         console.log(response);
-        window.location.replace("approval.html"); //Need to do only if approval was sent from the post
-        try {
-            const result = fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
-                method: 'POST',
-                body: JSON.stringify(response),
-                headers: {'Content-Type': 'application/json'}
-            }).then(response => response.json)
-                .then(json => console.log(json));
-        }
-        catch (e){
-                console.log(e)
-        }
+        // try {
+        //     const result = fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
+        //         method: 'POST',
+        //         body: JSON.stringify(response),
+        //         headers: {'Content-Type': 'application/json'}
+        //     }).then(result => console.log("returned", result));
+        //
+        //     window.location.replace("approval.html"); //Need to do only if approval was sent from the post
+        // }
+        // catch (e){
+        //         console.log(e)
+        // }
     }
 }
 
@@ -108,13 +117,12 @@ function validation_check(questions, response){
         missing_questions = "None of the questions were answered, please review the questionnaire again."
     }
     else{
+        missing_questions = "Please answer the following question(s) before continuing:\n"
         let questions_dic = extractNumOfItems(questions)
         let answers_dic = extractNumOfItems(response, false)
-        let count = 1;
         for(const question in questions_dic){
             if(!answers_dic.hasOwnProperty(question)){
-                missing_questions = missing_questions.concat(count, ") ", questions_dic[question]+"\n");
-                count+=1
+                missing_questions = missing_questions.concat(questions_dic[question]+"\n");
             }
         }
         console.log(missing_questions);
