@@ -28,7 +28,7 @@ try {
     // questions = questions[0]
     LForms.Util.addFormToPage(questions, 'formContainer')
 
-    setTimeout(function() { createButton(); }, 1000);
+    // setTimeout(function() { createButton(); }, 1000);
 }
 catch (e){
     console.log(e)
@@ -55,7 +55,7 @@ async function handleResponse(){
         })
     }
     else {
-        response.subject = {"reference": "Patient/5d25c96f3cae1051b7dfef23"};
+        response.subject = {"reference": "Patient/patient_id"};
         response.extension = {
             "score": null,
             "questionnaire_id": questions_id,
