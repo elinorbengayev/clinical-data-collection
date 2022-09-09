@@ -1,0 +1,144 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
+    ],
+    "tag": [
+      {
+        "code": "lformsVersion: 30.0.0"
+      }
+    ]
+  },
+  "status": "completed",
+  "authored": "2022-09-07T06:34:48.395Z",
+  "item": [
+    {
+      "linkId": "b6fa4004-16b7-4f6b-8e7c-e540449808ec",
+      "text": "Little interest or pleasure in doing things?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 1,
+            "display": "Several days"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "9965e0d6-b63e-4f32-b5e7-29f68e07ed92",
+      "text": "Feeling down, depressed, or hopeless?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 0,
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "5005a2ed-a142-4740-bce8-3937e56a679f",
+      "text": "Trouble falling or staying asleep, or sleeping too much?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 0,
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "e40f4b44-843b-42ac-ac64-9c9913064b60",
+      "text": "Feeling tired or having little energy?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 0,
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "52cab6ee-3016-4cec-a448-6c3d36f939ec",
+      "text": "Poor appetite or overeating?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 0,
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "12bf079f-42e2-45b0-8b74-421cf20b0476",
+      "text": "Feeling bad about yourself-or that you are a failure or have let yourself or your family down?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 0,
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "f83d837e-e6fa-4239-baa1-13a13067c7e8",
+      "text": "Trouble concentrating on things, such as reading the newspaper or watching television?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 0,
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "5279618a-5b4f-4113-af2b-4a406ae65a45",
+      "text": "Moving or speaking so slowly that other people could have noticed. Or the opposite-being so fidgety or restless that you have been moving around a lot more than usual?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 0,
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "92061ea8-49a6-4e4a-982b-4e2d5dfd2b0b",
+      "text": "Thoughts that you would be better off dead, or of hurting yourself in some way?",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": 1,
+            "display": "Several days"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "7ec05f8d-32bf-4689-9513-f84228996b97",
+      "text": "Patient health questionnaire 9 item total score",
+      "answer": [
+        {
+          "valueDecimal": 2
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/7ec05f8d-32bf-4689-9513-f84228996b97"
+  },
+  "extension": {
+    "score": null,
+    "questionnaire_id": "33805677-47df-4a77-bd01-f6f01bd82ab0",
+    "encounter_date": "07/09/22",
+    "encounter_id": null,
+    "visit_id": null
+  }
+}

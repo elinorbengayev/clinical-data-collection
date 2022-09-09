@@ -1,14 +1,15 @@
 
 // import fs from 'fs'
-
-// let questions = await fetch("./resources/MMSE_bucket.json");
-// questions = await questions.json()
-// console.log(questions);
-// LForms.Util.addFormToPage(questions, 'formContainer')
-// extractNumOfItems(questions)
-// const urlParams = new URLSearchParams(window.location.search);
-// const q_id = urlParams.get('q_id');
-// console.log(q_id);
+// let questions_id;
+// let questions = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='33805677-47df-4a77-bd01-f6f01bd82ab0'")
+//     .then(response => response.json())
+//     .then(async q => {
+//         questions_id = q[0].id
+//         console.log(q)
+//         // var lformsQ = LForms.Util.convertFHIRQuestionnaireToLForms(q, 'R4');
+//         LForms.Util.addFormToPage(q[0], 'formContainer')
+//         setTimeout(function() { createButton(); }, 1000);
+//     })
 let questions = null
 try {
     //PHQ-9
@@ -19,12 +20,12 @@ try {
     // questions = await fetch("./resources/followupVisit.json");
     // questions = await fetch("./resources/PHQ-9.json");
     questions = await fetch("./resources/baselineVisit.json");
-    // questions = await fetch("./resources/PartA.json");
+    // questions = await fetch("./resources/simple_test.json");
+    // questions = await fetch("./resources/ParstA.json");
     // questions = await fetch("./resources/followUp/followupUpdate.json");
+    console.log(questions)
     questions = await questions.json();
     // questions = questions[0]
-    // write JSON string to a file
-
     LForms.Util.addFormToPage(questions, 'formContainer')
 
     setTimeout(function() { createButton(); }, 1000);
@@ -43,44 +44,66 @@ function createButton(){
 }
 async function handleResponse(){
     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-    // let missing_questions = validation_check(questions, response);
-    let missing_questions = [];
+    let missing_questions = validation_check(questions, response);
+    // let missing_questions = [];
     if(missing_questions.length !==0 ) {
         swal({
             title: "Missing answers",
             text: missing_questions,
-            icon: "error",
+            icon: "warning",
             button: 'Got it',
         })
     }
-    else{
-        response.subject = {"reference": "Patient/patient_id"};
+    else {
+        response.subject = {"reference": "Patient/5d25c96f3cae1051b7dfef23"};
         response.extension = {
             "score": null,
-            "questionnaire_id": questions.id,
-            "encounter_date" : "07/07/22",
-            "encounter_id": null,
-            "visit_id": null,
-            "is_follow_up": true
+            "questionnaire_id": questions_id,
+            "encounter_date": "07/09/22",
+            "encounter_id": "73d0da36-e27f-4dec-b443-a948bd404a28",
+            "visit_id": null
         }
-        const a = document.createElement("a");
-        const file = new Blob([JSON.stringify(response,null,4)], {type : 'application/json'});
-        a.href = URL.createObjectURL(file);
-        a.download = 'response.json';
-        a.click();
-        console.log(response);
-        // try {
-        //     const result = fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
-        //         method: 'POST',
-        //         body: JSON.stringify(response),
-        //         headers: {'Content-Type': 'application/json'}
-        //     }).then(result => console.log("returned", result));
-        //
-        //     window.location.replace("approval.html"); //Need to do only if approval was sent from the post
-        // }
-        // catch (e){
-        //         console.log(e)
-        // }
+        // "is_follow_up": true
+        // const a = document.createElement("a");
+        // const file = new Blob([JSON.stringify(response,null,4)], {type : 'application/json'});
+        // a.href = URL.createObjectURL(file);
+        // a.download = 'response.json';
+        // a.click();
+        // let response = await fetch("./converting_response/done_response.json")
+        //                 .then(result => result.json())
+        //                 .then(async body => {
+        //                     console.log(body)
+        //                     fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
+        //                         method: 'POST',
+        //                         body: JSON.stringify(body),
+        //                         headers: {'Content-Type': 'application/json'}
+        //                         })
+        //                         .then(result => result.json())
+        //                         .then(async body => {
+        //                             console.log(body)
+        //                         })
+        //                         .catch((error) => {
+        //                             console.log(error)
+        //                         });
+        //                 })
+        // console.log(response);
+        try {
+            const result = fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
+                method: 'POST',
+                body: JSON.stringify(response),
+                headers: {'Content-Type': 'application/json'}
+            }).then(result => console.log(result))
+                // .then(async body => {
+                //     console.log(body)
+                // })
+                .catch((error) => {
+                    console.log(error)
+                });
+
+            // window.location.replace("approval.html"); //Need to do only if approval was sent from the post
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
 
