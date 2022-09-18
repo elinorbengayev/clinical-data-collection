@@ -1,0 +1,1426 @@
+{
+  "patient_id": {
+    "0": "57cec86fa1a1a6d77668a42a",
+    "1": "5805d57ab0e108bc06f75703",
+    "2": "584676540ea4f53537d8cdab",
+    "3": "595e45f0844fdd363ec0a426",
+    "4": "5967214ae1e78f74fc796674",
+    "5": "59a7c90ae1e78f74fc79956b",
+    "6": "59aced37e1e78f74fc799753",
+    "7": "59be7118e1e78f74fc799f56",
+    "8": "5a1411351c94b97eb55d64ac",
+    "9": "5a8d234eaa1e352d75de1f2e",
+    "10": "5ad47eccd6b7647d3f8057ca",
+    "11": "5b22538f39884c7de4f500dd",
+    "12": "5b866f68e4273e2eeaf3ab06",
+    "13": "57cec86fa1a1a6d77668a42c",
+    "14": "58e9d4f5e325a6609b0c9121",
+    "15": "5950abb429488f18cacad50a",
+    "16": "5953974829488f18cacad9d6",
+    "17": "59ae4156e1e78f74fc7997c6",
+    "18": "5ac1fbbaaa1e352d75de455b",
+    "19": "5ad5a553d6b7647d3f805941",
+    "20": "5adc3355d6b7647d3f805f20",
+    "21": "5b614da6c3d52b58137f5980",
+    "22": "5b6fcef5c3d52b58137f64c0",
+    "23": "5b73c70ec3d52b58137f6883",
+    "24": "5bf2b9eba5258c12933d4fa7",
+    "25": "5847c3a30ea4f53537d8cefe",
+    "26": "586a318c4c02b9581ed070a0",
+    "27": "58918e606ac3154127209940",
+    "28": "58b6dcf11f81ac1ef93f98b7",
+    "29": "58c53e88e325a6609b0c7871",
+    "30": "58e22950e325a6609b0c89e0",
+    "31": "58fde09189afc347ed2a8862",
+    "32": "596c56bde1e78f74fc7968e5",
+    "33": "599e800be1e78f74fc798914",
+    "34": "59ab9916e1e78f74fc7996f2",
+    "35": "59c104c5e1e78f74fc79a137",
+    "36": "59dc9eb8e1e78f74fc79b2e7",
+    "37": "5a82e048aa1e352d75de1670",
+    "38": "5a8c08a7aa1e352d75de1df9",
+    "39": "5a8d3fa9aa1e352d75de1f48",
+    "40": "5a9512f1aa1e352d75de24e4",
+    "41": "5ae99aaed6b7647d3f806a9e",
+    "42": "5afa88aad6b7647d3f8077f5",
+    "43": "5b3ca2a1c3d52b58137f3eac",
+    "44": "5b4c91b4c3d52b58137f4abc",
+    "45": "5b59775bc3d52b58137f54ee",
+    "46": "5d67a8e93cae1051b7e00f43",
+    "47": "5d6e17bc3cae1051b7e010ba",
+    "48": "5d6e5b2c3cae1051b7e010f7",
+    "49": "5d74b4243cae1051b7e0139d",
+    "50": "5d78dab13cae1051b7e01557",
+    "51": "5dcd596685bbf7234ddcdae9",
+    "52": "5ddd09de85bbf7234ddce1c9",
+    "53": "5e392c6185bbf7234ddd0b40",
+    "54": "5c0f9f04a5258c12933d6740",
+    "55": "5e55187e85bbf7234ddd16ae",
+    "56": "57ea5dc06fb60c320f682d4e",
+    "57": "5817017303086d3115084416",
+    "58": "581edc2403086d3115084873",
+    "59": "5820293d03086d3115084892",
+    "60": "585a49194c02b9581ed067a9",
+    "61": "58a3f8a4b66e9061a05725c2",
+    "63": "5948cfca29488f18cacacd9c",
+    "64": "595e16f5844fdd363ec0a3e1",
+    "65": "596b3b04e1e78f74fc7968bf",
+    "66": "596c8ccae1e78f74fc79691f",
+    "67": "599d62e6e1e78f74fc7987d5",
+    "68": "59dc769ae1e78f74fc79b2c1",
+    "69": "59e723d7e1e78f74fc79ba6d",
+    "70": "59e73dbde1e78f74fc79ba83",
+    "71": "59eee96ce1e78f74fc79bf92",
+    "72": "59ef1d28e1e78f74fc79bfac",
+    "73": "5a0956eee1e78f74fc79d52f",
+    "74": "5a30e3981c94b97eb55d8b77",
+    "75": "5a4358e7caa3665bb4c8afdd",
+    "76": "5a4ccac2caa3665bb4c8b627",
+    "77": "5a55db78aa1e352d75ddf572",
+    "78": "5a5ddebeaa1e352d75ddfb57",
+    "79": "5a702441aa1e352d75de08a1",
+    "80": "5a76b926aa1e352d75de0dbb",
+    "81": "5a797c8baa1e352d75de0f30",
+    "82": "5a7ab56daa1e352d75de1075",
+    "83": "5a7ae242aa1e352d75de10a7",
+    "84": "5a83e14eaa1e352d75de17ff",
+    "85": "5a856c76aa1e352d75de19a3",
+    "86": "5a84093faa1e352d75de182b",
+    "87": "5a8427c9aa1e352d75de183f",
+    "88": "5a893030aa1e352d75de1c3f",
+    "89": "5a9fa721aa1e352d75de2c89",
+    "90": "5ab201aaaa1e352d75de3ab9",
+    "91": "5ab25b12aa1e352d75de3b0e",
+    "92": "5ae57cb4d6b7647d3f806761",
+    "93": "5ae987bdd6b7647d3f806a7a",
+    "94": "5b17952639884c7de4f4f62f",
+    "95": "5b338432c3d52b58137f36fa",
+    "96": "5b3a08d8c3d52b58137f3be1",
+    "97": "5b43224fc3d52b58137f4312",
+    "98": "5b445233c3d52b58137f44c4",
+    "99": "5b829fbde4273e2eeaf3a895",
+    "100": "5bb61ab4e4273e2eeaf3cc21",
+    "101": "5c63d965a5258c12933d90f6",
+    "102": "5c80fd52a5258c12933d9e92",
+    "103": "57e37d9d6fb60c320f682b14",
+    "104": "580f0218720a40af0616370a",
+    "105": "585a323e2cda33ef1919fbfd",
+    "106": "58cfca7be325a6609b0c7e7b",
+    "107": "5a13daee1c94b97eb55d647e",
+    "108": "5a3775c17f4289574d02b0ba",
+    "109": "5a814653aa1e352d75de147c",
+    "110": "5adeedccd6b7647d3f806160",
+    "111": "5b067756c47302772de23221",
+    "112": "5b8e694ee4273e2eeaf3ae4e",
+    "113": "5b8f7d0de4273e2eeaf3afcb",
+    "114": "599ebfa6e1e78f74fc79894f",
+    "115": "59b66449e1e78f74fc799bf8",
+    "116": "59e70a01e1e78f74fc79ba5e",
+    "117": "5a002d96e1e78f74fc79cc7f",
+    "118": "5a378d5c7f4289574d02b0d5",
+    "119": "5a38d041caa3665bb4c8a651",
+    "120": "5a8a9757aa1e352d75de1cb6",
+    "121": "5a969752aa1e352d75de2695",
+    "122": "5ab22c04aa1e352d75de3ae5",
+    "123": "5abb4374aa1e352d75de4154",
+    "124": "5aba2af0aa1e352d75de3fcb",
+    "125": "5abcd598aa1e352d75de42b1",
+    "126": "5ac1e43caa1e352d75de454c",
+    "127": "5acb27b6aa1e352d75de4a2c",
+    "128": "5ad6e3aad6b7647d3f805b20",
+    "129": "5ae045cbd6b7647d3f8062d3",
+    "130": "5b0550ecc47302772de2307c",
+    "131": "5b20c38239884c7de4f4ff0c",
+    "132": "5b29f9e439884c7de4f5072f",
+    "133": "5b30c456c3d52b58137f33ad",
+    "134": "5b55842cc3d52b58137f50cf",
+    "135": "5b5596f0c3d52b58137f50d8",
+    "136": "5b57034ec3d52b58137f521e",
+    "137": "5b5f06c6c3d52b58137f5794",
+    "138": "5b67f5d9c3d52b58137f5d2e",
+    "139": "5b682724c3d52b58137f5d3c",
+    "140": "5bbdcbc2e4273e2eeaf3d167",
+    "141": "5c876b83a5258c12933da0b2",
+    "142": "5c8a3daba5258c12933da268"
+  },
+  "response_E1_QIDS": {
+    "0": {
+      "encounter_date": "2016-09-06",
+      "patient_id": "57cec86fa1a1a6d77668a42a",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "0a945b84-393b-49f0-ba52-4812ad1b088c",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 14
+      }
+    },
+    "1": {
+      "encounter_date": "2016-10-18",
+      "patient_id": "5805d57ab0e108bc06f75703",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f5b76e41-7b84-4aae-8dff-3fad0b80a143",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "2": {
+      "encounter_date": "2016-12-06",
+      "patient_id": "584676540ea4f53537d8cdab",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "c8e223f7-f623-4dfc-b8b7-c53b7e8d3460",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 14
+      }
+    },
+    "3": {
+      "encounter_date": "2017-07-06",
+      "patient_id": "595e45f0844fdd363ec0a426",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "6ea15eb5-72ee-455b-9837-a17997c40d75",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 22
+      }
+    },
+    "4": {
+      "encounter_date": "2017-07-13",
+      "patient_id": "5967214ae1e78f74fc796674",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "eaead9ac-9c29-4058-90d3-8664308574e8",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "5": {
+      "encounter_date": "2017-08-31",
+      "patient_id": "59a7c90ae1e78f74fc79956b",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "436f67cb-2d37-4268-93ff-51e861f37286",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 27
+      }
+    },
+    "6": {
+      "encounter_date": "2017-09-04",
+      "patient_id": "59aced37e1e78f74fc799753",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f485bdfd-1830-48d7-9d8b-5f466f69390c",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 25
+      }
+    },
+    "7": {
+      "encounter_date": "2017-09-17",
+      "patient_id": "59be7118e1e78f74fc799f56",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f1f4ec7d-ab60-4e56-a814-864a94b36760",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 15
+      }
+    },
+    "8": {
+      "encounter_date": "2017-11-21",
+      "patient_id": "5a1411351c94b97eb55d64ac",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "a1ea91ed-ee97-495f-86e9-752af1a7a871",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "9": {
+      "encounter_date": "2018-02-21",
+      "patient_id": "5a8d234eaa1e352d75de1f2e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "0f751487-3dbc-4b20-83e3-722209d30888",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 1
+      }
+    },
+    "10": {
+      "encounter_date": "2018-04-16",
+      "patient_id": "5ad47eccd6b7647d3f8057ca",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f1c6b7a2-1c5d-4ca2-9932-9fd5560b9fe1",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 10
+      }
+    },
+    "11": {
+      "encounter_date": "2018-06-14",
+      "patient_id": "5b22538f39884c7de4f500dd",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "20e3c89f-caf1-45a7-a0ff-e383f1f00c6e",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "12": {
+      "encounter_date": "2018-08-29",
+      "patient_id": "5b866f68e4273e2eeaf3ab06",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "53ab5c03-396d-4b84-9de0-5c6324d00c88",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 22
+      }
+    },
+    "13": {
+      "encounter_date": "2016-09-06",
+      "patient_id": "57cec86fa1a1a6d77668a42c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "04cb44da-f0a5-47b3-a3a6-16d6f7aacca9",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 13
+      }
+    },
+    "14": {
+      "encounter_date": "2017-04-03",
+      "patient_id": "58e9d4f5e325a6609b0c9121",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "a817e90b-3217-4607-95b6-353784e0cec9",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 8
+      }
+    },
+    "15": {
+      "encounter_date": "2017-06-19",
+      "patient_id": "5950abb429488f18cacad50a",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "d94bc312-2d0e-48a9-a2df-e7e179527c5d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 27
+      }
+    },
+    "16": {
+      "encounter_date": "2017-06-28",
+      "patient_id": "5953974829488f18cacad9d6",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "7dac7363-6247-4858-b76a-7bacd4db8e54",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 13
+      }
+    },
+    "17": {
+      "encounter_date": "2017-08-27",
+      "patient_id": "59ae4156e1e78f74fc7997c6",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "46115fe2-6c3f-4a29-a437-bd25ea03646f",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 22
+      }
+    },
+    "18": {
+      "encounter_date": "2018-04-02",
+      "patient_id": "5ac1fbbaaa1e352d75de455b",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "9507e567-6dca-4fe5-abb2-be0ec341faab",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 7
+      }
+    },
+    "19": {
+      "encounter_date": "2018-03-20",
+      "patient_id": "5ad5a553d6b7647d3f805941",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "7462e775-8101-4ea3-82de-c6e391cfdcf3",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 10
+      }
+    },
+    "20": {
+      "encounter_date": "2018-03-20",
+      "patient_id": "5adc3355d6b7647d3f805f20",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "7d51cf4d-1a22-486a-b530-51acbb2da926",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 26
+      }
+    },
+    "21": {
+      "encounter_date": "2018-07-24",
+      "patient_id": "5b614da6c3d52b58137f5980",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "75af07e5-1f8b-4b83-87f5-86b0b81e969d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "22": {
+      "encounter_date": "2018-08-12",
+      "patient_id": "5b6fcef5c3d52b58137f64c0",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "af93c13f-d712-4351-a35d-de228deb50e4",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 15
+      }
+    },
+    "23": {
+      "encounter_date": "2018-08-15",
+      "patient_id": "5b73c70ec3d52b58137f6883",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ea1e32c3-b276-4801-8a2a-dd6feaaa4114",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "24": {
+      "encounter_date": "2018-10-31",
+      "patient_id": "5bf2b9eba5258c12933d4fa7",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "6fa6d32d-9f24-4f3b-b7b8-7cf1dd7fa05b",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 2
+      }
+    },
+    "25": {
+      "encounter_date": "2016-12-07",
+      "patient_id": "5847c3a30ea4f53537d8cefe",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "14480081-1e49-4d93-9e55-af84d8637e25",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "26": {
+      "encounter_date": "2017-01-02",
+      "patient_id": "586a318c4c02b9581ed070a0",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ec126d47-87ce-4f0f-a4ab-bca1487b3875",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 3
+      }
+    },
+    "27": {
+      "encounter_date": "2017-01-30",
+      "patient_id": "58918e606ac3154127209940",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "76f3b60c-7546-40c2-9b46-6cbd0af29b53",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "28": {
+      "encounter_date": "2017-03-01",
+      "patient_id": "58b6dcf11f81ac1ef93f98b7",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ee1bbfe2-c762-4108-81d8-49ccd24f29ac",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "29": {
+      "encounter_date": "2017-03-12",
+      "patient_id": "58c53e88e325a6609b0c7871",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "0f8401e2-16fe-40b9-903d-3b8a5ce3e39b",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 21
+      }
+    },
+    "30": {
+      "encounter_date": "2017-04-03",
+      "patient_id": "58e22950e325a6609b0c89e0",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "e750f63e-9aec-41cc-8740-56d9c2feb48c",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 6
+      }
+    },
+    "31": {
+      "encounter_date": "2017-04-24",
+      "patient_id": "58fde09189afc347ed2a8862",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f290f1a8-5b4c-4cef-b6a8-d7b55169efe6",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "32": {
+      "encounter_date": "2017-07-17",
+      "patient_id": "596c56bde1e78f74fc7968e5",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "00bc0594-ac98-4974-9596-a446d1a52f94",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "33": {
+      "encounter_date": "2017-08-24",
+      "patient_id": "599e800be1e78f74fc798914",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "cb3fa6ce-d2ac-413e-a310-bb9a181f8089",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "34": {
+      "encounter_date": "2017-08-31",
+      "patient_id": "59ab9916e1e78f74fc7996f2",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "b3327a17-1c12-4858-af84-96b04a43ff16",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 2
+      }
+    },
+    "35": {
+      "encounter_date": "2017-09-19",
+      "patient_id": "59c104c5e1e78f74fc79a137",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ca468275-d716-4182-a95f-b81c760717c6",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 2
+      }
+    },
+    "36": {
+      "encounter_date": "2017-10-10",
+      "patient_id": "59dc9eb8e1e78f74fc79b2e7",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "249dbc9f-92c9-474c-aada-cdeee4668cc6",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "37": {
+      "encounter_date": "2018-02-13",
+      "patient_id": "5a82e048aa1e352d75de1670",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "2213611e-2c85-40d8-a422-a3fdf674f356",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 18
+      }
+    },
+    "38": {
+      "encounter_date": "2018-02-20",
+      "patient_id": "5a8c08a7aa1e352d75de1df9",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "3f2a1374-285a-4265-a42b-ead8240681e0",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "39": {
+      "encounter_date": "2018-02-21",
+      "patient_id": "5a8d3fa9aa1e352d75de1f48",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "63b73cb4-5c5b-4891-a02e-b97f985d2e88",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 20
+      }
+    },
+    "40": {
+      "encounter_date": "2018-02-27",
+      "patient_id": "5a9512f1aa1e352d75de24e4",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f7057c3b-d946-48a4-aadc-ff312550484c",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "41": {
+      "encounter_date": "2018-05-02",
+      "patient_id": "5ae99aaed6b7647d3f806a9e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "26f6df7d-a5c5-460d-86ef-35abaf00db1d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "42": {
+      "encounter_date": "2018-05-15",
+      "patient_id": "5afa88aad6b7647d3f8077f5",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "4af3f5f0-6b9d-40aa-8dea-4b391c739a09",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 13
+      }
+    },
+    "43": {
+      "encounter_date": "2018-04-07",
+      "patient_id": "5b3ca2a1c3d52b58137f3eac",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "7bd1a450-7b1c-4e81-80fc-a3d6310f0cee",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 15
+      }
+    },
+    "44": {
+      "encounter_date": "2018-07-16",
+      "patient_id": "5b4c91b4c3d52b58137f4abc",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "2aec4965-2886-4960-870a-d53ddf2156f3",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "45": {
+      "encounter_date": "2018-07-26",
+      "patient_id": "5b59775bc3d52b58137f54ee",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ad0a5a89-b4d9-4695-b20d-ffa7c93cb227",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "46": {
+      "encounter_date": "2019-08-29",
+      "patient_id": "5d67a8e93cae1051b7e00f43",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "838c49c5-7a68-44d5-8b22-353af69ae8bf",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 26
+      }
+    },
+    "47": {
+      "encounter_date": "2019-03-09",
+      "patient_id": "5d6e17bc3cae1051b7e010ba",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "d58e5098-4a96-4c01-8524-24828b937f83",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "48": {
+      "encounter_date": "2019-03-09",
+      "patient_id": "5d6e5b2c3cae1051b7e010f7",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "e897fbfa-d7d3-477a-aefd-87fa9ea0a88d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 18
+      }
+    },
+    "49": {
+      "encounter_date": "2019-08-09",
+      "patient_id": "5d74b4243cae1051b7e0139d",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "52651267-588b-4e8a-bf4c-63c3abbd9326",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 27
+      }
+    },
+    "50": {
+      "encounter_date": "2019-11-09",
+      "patient_id": "5d78dab13cae1051b7e01557",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "09d0fb3f-7d2e-4efc-8178-2672d1d15554",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "51": {
+      "encounter_date": "2019-11-14",
+      "patient_id": "5dcd596685bbf7234ddcdae9",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "60985195-279b-41d8-beb7-013feb484ebf",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "52": {
+      "encounter_date": "2019-11-26",
+      "patient_id": "5ddd09de85bbf7234ddce1c9",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "886adc6d-89ae-4ba8-a8c5-91c50583d09e",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 26
+      }
+    },
+    "53": {
+      "encounter_date": "2020-04-02",
+      "patient_id": "5e392c6185bbf7234ddd0b40",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "b1d99491-1080-4fd3-b4bc-ac9f8a24c6c5",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "54": {
+      "encounter_date": "2018-12-11",
+      "patient_id": "5c0f9f04a5258c12933d6740",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "6a007fa1-5e25-4935-9ecc-6471eddfca55",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 24
+      }
+    },
+    "55": {
+      "encounter_date": "2020-02-25",
+      "patient_id": "5e55187e85bbf7234ddd16ae",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "cb1675a2-d906-479f-aa0a-c4c0394c9d58",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 5
+      }
+    },
+    "56": {
+      "encounter_date": "2016-09-27",
+      "patient_id": "57ea5dc06fb60c320f682d4e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "be46cdca-6d3a-481c-9df8-361fd9c0d194",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "57": {
+      "encounter_date": "2016-10-31",
+      "patient_id": "5817017303086d3115084416",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "8674205c-eb3a-4181-a270-5834bdaa034f",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 7
+      }
+    },
+    "58": {
+      "encounter_date": "2016-11-06",
+      "patient_id": "581edc2403086d3115084873",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f5f09652-2866-4e2f-bc52-51ee407c6432",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 1
+      }
+    },
+    "59": {
+      "encounter_date": "2016-11-07",
+      "patient_id": "5820293d03086d3115084892",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "c0481d3e-5682-452c-8b48-a499901a8406",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 18
+      }
+    },
+    "60": {
+      "encounter_date": "2016-12-21",
+      "patient_id": "585a49194c02b9581ed067a9",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "1f518c14-6ec8-4c72-8fc7-3c43d6875708",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 6
+      }
+    },
+    "61": {
+      "encounter_date": "2017-02-13",
+      "patient_id": "58a3f8a4b66e9061a05725c2",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "eb0afa6f-b57a-4ce8-be6e-c0b48c3f527d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 27
+      }
+    },
+    "63": {
+      "encounter_date": "2017-06-20",
+      "patient_id": "5948cfca29488f18cacacd9c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "db780afb-7067-4e9a-88a9-d272d3657ed9",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "64": {
+      "encounter_date": "2017-07-06",
+      "patient_id": "595e16f5844fdd363ec0a3e1",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "6e8e87ed-c681-4c87-b44f-9d3d8158f874",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "65": {
+      "encounter_date": "2017-07-16",
+      "patient_id": "596b3b04e1e78f74fc7968bf",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "8cc1d834-c786-4326-82ab-d7e6d6afb78a",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "66": {
+      "encounter_date": "2017-07-17",
+      "patient_id": "596c8ccae1e78f74fc79691f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "c87bad99-328d-4407-ba7f-48d6b81517e2",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "67": {
+      "encounter_date": "2017-08-23",
+      "patient_id": "599d62e6e1e78f74fc7987d5",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "e3da5e44-40fb-4cf5-a653-ab5905a8a45c",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 23
+      }
+    },
+    "68": {
+      "encounter_date": "2017-10-10",
+      "patient_id": "59dc769ae1e78f74fc79b2c1",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "4319a5db-70a3-498b-af9c-01044ff67886",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 7
+      }
+    },
+    "69": {
+      "encounter_date": "2017-10-18",
+      "patient_id": "59e723d7e1e78f74fc79ba6d",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ea547257-8372-4673-9f34-46e620aefb9b",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 7
+      }
+    },
+    "70": {
+      "encounter_date": "2017-10-18",
+      "patient_id": "59e73dbde1e78f74fc79ba83",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "85a8848d-b15b-4fe0-9400-51d14b6fc2fd",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 22
+      }
+    },
+    "71": {
+      "encounter_date": "2017-10-15",
+      "patient_id": "59eee96ce1e78f74fc79bf92",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "a2e033d7-510b-45ca-bc09-83290f4df0f9",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 10
+      }
+    },
+    "72": {
+      "encounter_date": "2017-10-24",
+      "patient_id": "59ef1d28e1e78f74fc79bfac",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "4fb052ff-c42f-4ab5-93b1-7d5ed5edcf83",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 7
+      }
+    },
+    "73": {
+      "encounter_date": "2017-11-13",
+      "patient_id": "5a0956eee1e78f74fc79d52f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f41e03a2-b3f0-429d-abfb-8dccd83e0a8b",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 0
+      }
+    },
+    "74": {
+      "encounter_date": "2017-12-13",
+      "patient_id": "5a30e3981c94b97eb55d8b77",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "2a0b2a5f-3f36-4207-b012-24d6fd10d68d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 0
+      }
+    },
+    "75": {
+      "encounter_date": "2017-12-26",
+      "patient_id": "5a4358e7caa3665bb4c8afdd",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "62d99c08-917a-4b3a-9f56-f05499709960",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 10
+      }
+    },
+    "76": {
+      "encounter_date": "2018-01-03",
+      "patient_id": "5a4ccac2caa3665bb4c8b627",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "631a47a6-cb19-499a-b1a1-18083b94e197",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "77": {
+      "encounter_date": "2018-01-10",
+      "patient_id": "5a55db78aa1e352d75ddf572",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "bf56e4de-c67e-43b5-9738-a68d33a64f41",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 8
+      }
+    },
+    "78": {
+      "encounter_date": "2018-01-16",
+      "patient_id": "5a5ddebeaa1e352d75ddfb57",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "294240f1-dc25-49ba-a297-83dca9a0132f",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 5
+      }
+    },
+    "79": {
+      "encounter_date": "2018-01-30",
+      "patient_id": "5a702441aa1e352d75de08a1",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "a4edc0df-1800-4855-b005-85acbe8c9f06",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 5
+      }
+    },
+    "80": {
+      "encounter_date": "2018-01-31",
+      "patient_id": "5a76b926aa1e352d75de0dbb",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "cc012d2f-ae46-48f8-86f2-1ea33298f359",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 20
+      }
+    },
+    "81": {
+      "encounter_date": "2018-02-06",
+      "patient_id": "5a797c8baa1e352d75de0f30",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "9ee70b52-1969-4fb5-8a3d-52e5ce00a11b",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 6
+      }
+    },
+    "82": {
+      "encounter_date": "2018-02-07",
+      "patient_id": "5a7ab56daa1e352d75de1075",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "5de5846c-984e-41a5-b5ab-8b343209fc65",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 10
+      }
+    },
+    "83": {
+      "encounter_date": "2018-02-07",
+      "patient_id": "5a7ae242aa1e352d75de10a7",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "c0978fa9-46bf-4e07-a932-82af52349cbe",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 10
+      }
+    },
+    "84": {
+      "encounter_date": "2018-02-13",
+      "patient_id": "5a83e14eaa1e352d75de17ff",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "fb0ae899-3765-4f4e-a32f-f3b4fada0bd2",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 25
+      }
+    },
+    "85": {
+      "encounter_date": "2018-02-13",
+      "patient_id": "5a856c76aa1e352d75de19a3",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "6a30182b-e07f-4ea8-b5b1-7efa9ce43c0d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "86": {
+      "encounter_date": "2018-02-14",
+      "patient_id": "5a84093faa1e352d75de182b",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "fd1b3a80-93ff-45bd-9530-1c0cdff3aefa",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "87": {
+      "encounter_date": "2018-02-14",
+      "patient_id": "5a8427c9aa1e352d75de183f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "be4d25f9-2c00-4b78-8f8b-268fe704f332",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "88": {
+      "encounter_date": "2018-02-18",
+      "patient_id": "5a893030aa1e352d75de1c3f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "66e368b3-ddbf-4504-887e-85b816f67387",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 20
+      }
+    },
+    "89": {
+      "encounter_date": "2018-03-05",
+      "patient_id": "5a9fa721aa1e352d75de2c89",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "bf1f3a53-0b9a-49c6-8e86-a308537a08ee",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "90": {
+      "encounter_date": "2018-03-21",
+      "patient_id": "5ab201aaaa1e352d75de3ab9",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "f381d582-ad44-465f-b79a-ba7043e9a172",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 26
+      }
+    },
+    "91": {
+      "encounter_date": "2018-03-21",
+      "patient_id": "5ab25b12aa1e352d75de3b0e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "cab07f4b-e791-46c5-9911-74bbb79100c7",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 24
+      }
+    },
+    "92": {
+      "encounter_date": "2018-04-29",
+      "patient_id": "5ae57cb4d6b7647d3f806761",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "47c5e23d-d393-448d-8744-45add6588d51",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 0
+      }
+    },
+    "93": {
+      "encounter_date": "2018-05-02",
+      "patient_id": "5ae987bdd6b7647d3f806a7a",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "0a9b1752-1d13-4190-8b50-e91d13df77bb",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 24
+      }
+    },
+    "94": {
+      "encounter_date": "2018-06-06",
+      "patient_id": "5b17952639884c7de4f4f62f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "0aa5ea77-6f60-425b-b537-bd4394290108",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 23
+      }
+    },
+    "95": {
+      "encounter_date": "2018-06-27",
+      "patient_id": "5b338432c3d52b58137f36fa",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "46c93e84-a2b3-418a-8b01-f087555534a9",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "96": {
+      "encounter_date": "2018-02-07",
+      "patient_id": "5b3a08d8c3d52b58137f3be1",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "672b03c1-82ba-47a2-9c61-31757949b402",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 21
+      }
+    },
+    "97": {
+      "encounter_date": "2018-09-07",
+      "patient_id": "5b43224fc3d52b58137f4312",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "a23a8b4e-9091-4aba-a238-e552d8763ee5",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "98": {
+      "encounter_date": "2018-10-07",
+      "patient_id": "5b445233c3d52b58137f44c4",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "12e5a02f-2428-4a24-bc09-9dacae9b2f33",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "99": {
+      "encounter_date": "2018-08-26",
+      "patient_id": "5b829fbde4273e2eeaf3a895",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "e09d2d2e-a81d-49b8-9715-23c2328e2c6e",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 1
+      }
+    },
+    "100": {
+      "encounter_date": "2018-04-10",
+      "patient_id": "5bb61ab4e4273e2eeaf3cc21",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "6fed442e-045a-44ce-a873-5f515f8cb50e",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 27
+      }
+    },
+    "101": {
+      "encounter_date": "2019-02-13",
+      "patient_id": "5c63d965a5258c12933d90f6",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "4ca361e5-1d00-4899-b0f8-36f54c85fb65",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 23
+      }
+    },
+    "102": {
+      "encounter_date": "2019-07-03",
+      "patient_id": "5c80fd52a5258c12933d9e92",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "db76614e-238a-4a54-a1b4-634be24d85a5",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 3
+      }
+    },
+    "103": {
+      "encounter_date": "2016-09-22",
+      "patient_id": "57e37d9d6fb60c320f682b14",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "4c2d6089-6c99-403a-ad6d-b98dc0ed624e",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 11
+      }
+    },
+    "104": {
+      "encounter_date": "2016-10-25",
+      "patient_id": "580f0218720a40af0616370a",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "00c2ece8-01b2-4765-be8b-4ce7383428bf",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 25
+      }
+    },
+    "105": {
+      "encounter_date": "2016-12-21",
+      "patient_id": "585a323e2cda33ef1919fbfd",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "296ef6cf-4f8a-485d-89ee-46360c4e586e",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 26
+      }
+    },
+    "106": {
+      "encounter_date": "2017-03-20",
+      "patient_id": "58cfca7be325a6609b0c7e7b",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "9c0dc536-97af-4218-b832-b62e47369a26",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 21
+      }
+    },
+    "107": {
+      "encounter_date": "2017-11-21",
+      "patient_id": "5a13daee1c94b97eb55d647e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "2f2b35ab-b769-4526-a69e-ff7a19d3b328",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 1
+      }
+    },
+    "108": {
+      "encounter_date": "2017-12-17",
+      "patient_id": "5a3775c17f4289574d02b0ba",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "e937c55c-8ebb-4f8a-b9be-db583a06d192",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 21
+      }
+    },
+    "109": {
+      "encounter_date": "2018-02-12",
+      "patient_id": "5a814653aa1e352d75de147c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "2b880170-5439-42b7-af52-42ec990f860a",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 24
+      }
+    },
+    "110": {
+      "encounter_date": "2018-04-24",
+      "patient_id": "5adeedccd6b7647d3f806160",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "aeebb9da-311d-4715-ba57-16c63c4f2d57",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 15
+      }
+    },
+    "111": {
+      "encounter_date": "2018-05-24",
+      "patient_id": "5b067756c47302772de23221",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "6e37251d-a96c-4a50-8bc4-8abd3cfbd81a",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 24
+      }
+    },
+    "112": {
+      "encounter_date": "2018-09-04",
+      "patient_id": "5b8e694ee4273e2eeaf3ae4e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ebd049a3-d1f3-4234-8ff5-dd68241603bd",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 20
+      }
+    },
+    "113": {
+      "encounter_date": "2018-09-05",
+      "patient_id": "5b8f7d0de4273e2eeaf3afcb",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "4431442a-6a49-4f94-bb4a-8ce27db7b3b0",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "114": {
+      "encounter_date": "2017-08-24",
+      "patient_id": "599ebfa6e1e78f74fc79894f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "30872bc1-f552-4d1d-a83d-6905ec8f28f0",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "115": {
+      "encounter_date": "2017-09-10",
+      "patient_id": "59b66449e1e78f74fc799bf8",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "5abafbdf-6c90-42d9-9fcc-2311437237ef",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 7
+      }
+    },
+    "116": {
+      "encounter_date": "2017-10-18",
+      "patient_id": "59e70a01e1e78f74fc79ba5e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "364d897b-5457-41a7-9c8d-a3a6ee847095",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 13
+      }
+    },
+    "117": {
+      "encounter_date": "2017-11-01",
+      "patient_id": "5a002d96e1e78f74fc79cc7f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "430385d6-aee5-4d7e-b3d4-3767f60e2a8d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 24
+      }
+    },
+    "118": {
+      "encounter_date": "2017-12-18",
+      "patient_id": "5a378d5c7f4289574d02b0d5",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "93cddb00-1b4c-4aca-b62d-9cf2252b2726",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 18
+      }
+    },
+    "119": {
+      "encounter_date": "2017-12-18",
+      "patient_id": "5a38d041caa3665bb4c8a651",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "979a9ea2-4165-4388-8622-f3ecebd88cfa",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 9
+      }
+    },
+    "120": {
+      "encounter_date": "2018-02-19",
+      "patient_id": "5a8a9757aa1e352d75de1cb6",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "4f5a0caf-1420-41fe-8e6e-c6e55cdd4d7c",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 22
+      }
+    },
+    "121": {
+      "encounter_date": "2018-02-28",
+      "patient_id": "5a969752aa1e352d75de2695",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "88220e91-53e3-4e26-b31d-f43b9d5f6f7d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "122": {
+      "encounter_date": "2018-03-21",
+      "patient_id": "5ab22c04aa1e352d75de3ae5",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "208398e4-0be2-4f57-85d5-5ddcef4f81bf",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "123": {
+      "encounter_date": "2018-03-27",
+      "patient_id": "5abb4374aa1e352d75de4154",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "fd47942f-54d9-4f74-85c4-059f5216d8df",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 27
+      }
+    },
+    "124": {
+      "encounter_date": "2018-03-27",
+      "patient_id": "5aba2af0aa1e352d75de3fcb",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "53b108fc-ac99-47bc-a0ea-35557a196558",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 6
+      }
+    },
+    "125": {
+      "encounter_date": "2018-03-28",
+      "patient_id": "5abcd598aa1e352d75de42b1",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "fbc7d3fb-d28a-492e-81b1-93092e3841cb",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "126": {
+      "encounter_date": "2018-04-02",
+      "patient_id": "5ac1e43caa1e352d75de454c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ed76098d-b76a-42ec-a85c-8f30e689eb53",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "127": {
+      "encounter_date": "2018-04-08",
+      "patient_id": "5acb27b6aa1e352d75de4a2c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "707a0e5b-5b4f-4b1f-80e0-907105d0e749",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "128": {
+      "encounter_date": "2018-04-18",
+      "patient_id": "5ad6e3aad6b7647d3f805b20",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "8b2983c8-d5c9-40da-a4fb-aad94015f037",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 25
+      }
+    },
+    "129": {
+      "encounter_date": "2018-04-25",
+      "patient_id": "5ae045cbd6b7647d3f8062d3",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "93beb172-6966-4aa3-9708-2b2e0038dc83",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 2
+      }
+    },
+    "130": {
+      "encounter_date": "2018-05-23",
+      "patient_id": "5b0550ecc47302772de2307c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "8212f954-8b78-4a8f-b818-8b3b1c4bf75b",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "131": {
+      "encounter_date": "2018-06-13",
+      "patient_id": "5b20c38239884c7de4f4ff0c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ed27401d-b62c-40d2-80b2-5c2c6d30f2fe",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 2
+      }
+    },
+    "132": {
+      "encounter_date": "2018-06-20",
+      "patient_id": "5b29f9e439884c7de4f5072f",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "3a184fc9-ef9d-48ed-8f6d-582f876c7407",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 16
+      }
+    },
+    "133": {
+      "encounter_date": "2018-06-25",
+      "patient_id": "5b30c456c3d52b58137f33ad",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "a8ad88c2-fd0a-4bb9-968d-dd380c7c4ba1",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 12
+      }
+    },
+    "134": {
+      "encounter_date": "2018-07-23",
+      "patient_id": "5b55842cc3d52b58137f50cf",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "b23e7beb-9332-41d4-80d9-cdcd86a876f9",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "135": {
+      "encounter_date": "2018-07-22",
+      "patient_id": "5b5596f0c3d52b58137f50d8",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ba6e09a3-8d68-4780-8bdc-66ca747c7ac9",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 4
+      }
+    },
+    "136": {
+      "encounter_date": "2018-07-24",
+      "patient_id": "5b57034ec3d52b58137f521e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "357abbc2-6c87-4cd5-a170-f54e66db18e4",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 2
+      }
+    },
+    "137": {
+      "encounter_date": "2018-07-30",
+      "patient_id": "5b5f06c6c3d52b58137f5794",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "23208d89-9fa6-4b4c-b059-6e9de22f0f0d",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 19
+      }
+    },
+    "138": {
+      "encounter_date": "2018-06-08",
+      "patient_id": "5b67f5d9c3d52b58137f5d2e",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "c3a1f2a7-3539-4d06-9e97-f7d9b820372c",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 25
+      }
+    },
+    "139": {
+      "encounter_date": "2018-06-08",
+      "patient_id": "5b682724c3d52b58137f5d3c",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "948dbdf4-c408-4050-94fa-a2eb081cc667",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "140": {
+      "encounter_date": "2018-09-10",
+      "patient_id": "5bbdcbc2e4273e2eeaf3d167",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "ee017f44-a481-4241-a532-a0ad78ae6a01",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    },
+    "141": {
+      "encounter_date": "2019-12-03",
+      "patient_id": "5c876b83a5258c12933da0b2",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "d4fdee11-254f-4e47-8705-86d0e4ea77f8",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 1
+      }
+    },
+    "142": {
+      "encounter_date": "2019-03-14",
+      "patient_id": "5c8a3daba5258c12933da268",
+      "questionnaire_id": "5715b2d9-09ef-4874-a52c-07a0489878df",
+      "encounter_id": "51a67276-23db-475f-9593-1422e42613e6",
+      "response": {
+        "7ec05f8d-32bf-4689-9513-f84228996b97": 17
+      }
+    }
+  }
+}

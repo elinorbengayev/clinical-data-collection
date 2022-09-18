@@ -12,7 +12,7 @@ SINGLE_QR = Template("""
                 }
             ]
         }""")
-PREFIX_RESPONSE = """{
+PREFIX_RESPONSE = Template("""{
     "resourceType": "QuestionnaireResponse",
     "meta": {
         "profile": [
@@ -25,8 +25,8 @@ PREFIX_RESPONSE = """{
         ]
     },
     "status": "completed",
-    "authored": "2022-09-05T22:24:09.522Z",
-    "item": ["""
+    "authored": "$authored_date",
+    "item": [""")
 SUFFIX_RESPONSE = Template("""    ],
     "subject": {
         "reference": "Patient/$patient_id"
@@ -41,37 +41,56 @@ SUFFIX_RESPONSE = Template("""    ],
 POST_RESPONSE_URL = "https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse/"
 
 HEADERS = {"Content-Type": "application/json"}
-def convert_to_qr():
-    with open ('smartTrialNewFormat.json', 'r') as f:
-        all_patients__responses = json.loads(f.read()).get('responses')
 
-    for single_patient_response in all_patients__responses:
+TOTAL_SCORE_IDS = [
+        "6d5a9f6c-cc2c-4f1a-9784-722ef2123c83",
+        "2aa92bec-6bd3-4f62-9575-bbe7486ef713",
+        "daf62842-5c9a-4edd-8e21-5082cfa8e273",
+        "57fdae6c-97e0-44c4-a224-ca381c1972ca",
+        "7ec05f8d-32bf-4689-9513-f84228996b97",
+        "2b28a297-09ea-4ff8-b11f-19b841dbee61",
+        "cbadb314-e547-4ac7-a95b-4ae5428dc31d"
+]
+
+def convert_to_qr():
+    with open ('SmartTrial Data CHDR.json', 'r') as f:
+        all_patients__responses = json.loads(f.read())
+    del all_patients__responses["patient_id"]
+    all_patients__responses = all_patients__responses[list(all_patients__responses.keys())[0]]
+    for single_patient_response in all_patients__responses.values():
         all_questions_responses = single_patient_response.get('response')
-        result = PREFIX_RESPONSE
+        encounter_date = single_patient_response.get('encounter_date')
+        result = PREFIX_RESPONSE.substitute(authored_date = encounter_date)
         patient_id = single_patient_response.get('patient_id')
         questionnaire_id = single_patient_response.get('questionnaire_id')
         encounter_id = single_patient_response.get('encounter_id')
-        print("patient_id: ", patient_id, "\nquestionnaire_id: ", questionnaire_id,
-                "encounter_id: ", encounter_id)
-        # for question_id, single_answer in all_questions_responses.items():
         responses_list_length = len(all_questions_responses.keys())
+        score = json.dumps(None)
         for i in range(responses_list_length):
             question_id = list(all_questions_responses.keys())[i]
-            answer = list(all_questions_responses.values())[i]
-            formatted_response = SINGLE_QR.substitute(linkId = question_id, answer = answer)
-            result += formatted_response
-            if i != responses_list_length - 1:
-                result+=','
+            if(question_id in TOTAL_SCORE_IDS):
+                score = list(all_questions_responses.values())[i]
             else:
-                result+='\n'
-        formatted_response = SUFFIX_RESPONSE.substitute(patient_id = patient_id, score = json.dumps(None), questionnaire_id = questionnaire_id, encounter_id = encounter_id)
+                answer = list(all_questions_responses.values())[i]
+                formatted_response = SINGLE_QR.substitute(linkId = question_id, answer = answer)
+                result += formatted_response
+                if i != responses_list_length - 1:
+                    result+=','
+                else:
+                    result+='\n'
+        formatted_response = SUFFIX_RESPONSE.substitute(patient_id = patient_id, score = score,
+         questionnaire_id = questionnaire_id, encounter_id = encounter_id)
         result += formatted_response
 #         with open ('done_response.json', 'w') as f:
 #             f.write(result)
+#         print(result)
+#         x = requests.post(url = POST_RESPONSE_URL, json = json.loads(result), headers=HEADERS).json()
         print(result)
-        x = requests.post(url = POST_RESPONSE_URL, json = json.loads(result), headers=HEADERS).json()
-        print("response "+x)
         break
 
+
+
 convert_to_qr()
+
+
 

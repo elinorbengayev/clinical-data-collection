@@ -1,0 +1,122 @@
+{
+    "resourceType": "QuestionnaireResponse",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
+        ],
+        "tag": [
+            {
+                "code": "lformsVersion: 30.0.0"
+            }
+        ]
+    },
+    "status": "completed",
+    "authored": "2018-04-11",
+    "item": [
+        {
+            "linkId": "12ad2b05-ac01-4d7f-bd8e-8c7c8dada28e",
+            "answer": [
+                {
+                    "valueDecimal": 4
+                }
+            ]
+        },
+        {
+            "linkId": "60c68d2a-a409-4ba5-b0db-60941d699fc8",
+            "answer": [
+                {
+                    "valueDecimal": 5
+                }
+            ]
+        },
+        {
+            "linkId": "135eca07-ace2-4681-bd70-edb8ae5dc338",
+            "answer": [
+                {
+                    "valueDecimal": 3
+                }
+            ]
+        },
+        {
+            "linkId": "9dd5cf9c-ae84-43e7-b133-f075bf15dd91",
+            "answer": [
+                {
+                    "valueDecimal": 5
+                }
+            ]
+        },
+        {
+            "linkId": "c8bd4d9c-b170-4cc0-9171-784d6498fb75",
+            "answer": [
+                {
+                    "valueDecimal": 1
+                }
+            ]
+        },
+        {
+            "linkId": "d0e8ecb9-87cb-4fea-bf84-1811bf5a285e",
+            "answer": [
+                {
+                    "valueDecimal": 2
+                }
+            ]
+        },
+        {
+            "linkId": "5c7f8d20-e33c-4ab1-89b3-49823eb33c2e",
+            "answer": [
+                {
+                    "valueDecimal": 1
+                }
+            ]
+        },
+        {
+            "linkId": "5a6401c3-2222-438a-9869-d14d95193a5d",
+            "answer": [
+                {
+                    "valueDecimal": 3
+                }
+            ]
+        },
+        {
+            "linkId": "5942f394-eec6-4dd2-8fc2-6ef0002a60e7",
+            "answer": [
+                {
+                    "valueDecimal": 1
+                }
+            ]
+        },
+        {
+            "linkId": "6743090d-d488-4561-9a07-3cd37a651048",
+            "answer": [
+                {
+                    "valueDecimal": 1
+                }
+            ]
+        },
+        {
+            "linkId": "e0032af9-96f0-431e-9ba3-370946631185",
+            "answer": [
+                {
+                    "valueDecimal": 1
+                }
+            ]
+        },
+        {
+            "linkId": "2b28a297-09ea-4ff8-b11f-19b841dbee61",
+            "answer": [
+                {
+                    "valueDecimal": 27
+                }
+            ]
+        }
+    ],
+    "subject": {
+        "reference": "Patient/5ae0e882d6b7647d3f8063df"
+    },
+    "extension": {
+        "score": 27,
+        "questionnaire_id": "c7f60131-0add-495b-a541-a730f2306425",
+        "encounter_id": "41de0f87-51cf-4f73-8b53-908966038948"
+    },
+    "id": "48982381-bd28-4d46-8602-9c9ee8875d6e"
+}

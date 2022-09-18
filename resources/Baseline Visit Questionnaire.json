@@ -1,9 +1,8 @@
 {
-  "id": "44249-1-x",
+  "id": "02f8b6c1-3768-4f30-902e-5e3677955bb8",
   "meta": {
     "versionId": "1",
-    "lastUpdated": "2022-04-24T03:13:27.000-04:00",
-    "source": "#VgVMCvSD3VUyNdel",
+    "lastUpdated": "2022-09-11",
     "profile": [
       "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
     ],
@@ -14,51 +13,34 @@
     ]
   },
   "extension": [],
-  "identifier": [
-    {
-      "system": "http://loinc.org",
-      "value": "44250-1"
-    }
-  ],
-  "code": [
-    {
-      "system": "http://loinc.org",
-      "code": "44250-1",
-      "display": "Follow-up Visit Questionnaire"
-    }
-  ],
   "subjectType": [
     "Patient",
     "Person"
   ],
   "status": "draft",
-  "name": "Follow-up Visit Questionnaire",
-  "title": "Follow-up Visit Questionnaire",
+  "name": "Baseline Visit Questionnaire",
+  "title": "Baseline Visit Questionnaire",
   "resourceType": "Questionnaire",
-  "description": "Follow-up Visit Questionnaire",
+  "description": "Baseline Visit Questionnaire",
   "item": [
     {
       "type": "group",
       "text": "Active Symptom(s)",
-      "linkId": "/X10",
-      "extension": [
-        {
-          "baselineLinkId": "/X789"
-        }
-      ],
+      "linkId": "618cc88b-1c09-4564-bcee-adba7a3d546e",
       "item": [
         {
           "type": "open-choice",
           "repeats": true,
-          "extension": [
-            {
-              "baselineLinkId": "/44250-9"
-            }
-          ],
           "required": true,
-          "linkId": "/1",
+          "linkId": "cb6dd1b6-3e50-4599-a1fa-2c0b15eb4341",
           "text": "Have you been frequently experiencing any of the symptoms listed below in the past month? (Please select all that apply, multiple responses are possible)?",
           "answerOption": [
+            {
+              "valueCoding": {
+                "code": "LA6571-15",
+                "display": "No Symptoms"
+              }
+            },
             {
               "valueCoding": {
                 "code": "LA6568-0",
@@ -148,34 +130,18 @@
                 "code": "LA6571-14",
                 "display": "Other Symptoms"
               }
-            },
-            {
-              "valueCoding": {
-                "code": "LA6571-15",
-                "display": "No Symptoms"
-              }
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X11",
+          "linkId": "bf45fa24-0418-42fd-8e5a-70da183fae61",
           "text": "Other Symptoms",
-          "extension": [
-            {
-              "baselineLinkId": "/X147"
-            }
-          ],
           "item": [
             {
               "type": "string",
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-10"
-                }
-              ],
               "required": true,
-              "linkId": "/44250-10",
+              "linkId": "55da7f3c-9ca9-4970-867b-53eda080d54a",
               "text": "If other, please specify the symptoms you are experiencing: "
             }
           ],
@@ -184,7 +150,7 @@
               "answerCoding": {
                 "code": "LA6571-14"
               },
-              "question": "/44250-9",
+              "question": "cb6dd1b6-3e50-4599-a1fa-2c0b15eb4341",
               "operator": "="
             }
           ]
@@ -193,41 +159,47 @@
     },
     {
       "type": "display",
-      "text": "Below reflects the response of the last visit, please update them to best reflect your current situation:",
-      "linkId": "/X34",
-      "extension": [
-        {
-          "baselineLinkId": "/X345"
-        }
-      ]
+      "text": "Please answer the following questions to the best of your knowledge:",
+      "linkId": "679353fe-9731-4258-b5f5-d6caf036a5bd"
     },
     {
       "type": "group",
       "text": "Clinical Condition(s) - Part A",
-      "linkId": "/X11",
-      "extension": [
-        {
-          "baselineLinkId": "/X785"
-        }
-      ],
+      "linkId": "9e0f5ddf-ef43-414b-a246-9dacf2a41ac6",
       "item": [
         {
           "type": "open-choice",
           "repeats": true,
-          "code": [
-            {
-              "system": "http://loinc.org",
-              "code": "2",
-              "display": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)"
-            }
-          ],
           "extension": [
             {
-              "baselineLinkId": "/44250-11"
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationLinkPeriod",
+              "valueDuration": {
+                "value": 100,
+                "unit": "year",
+                "system": "http://unitsofmeasure.org",
+                "code": "a"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract",
+              "valueBoolean": true
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ],
+                "text": "Drop down"
+              }
             }
           ],
           "required": true,
-          "linkId": "/2",
+          "linkId": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
           "text": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)",
           "answerOption": [
             {
@@ -263,7 +235,7 @@
             {
               "valueCoding": {
                 "code": "LA6568-5",
-                "display": "Borderline Personality disorder"
+                "display": "Borderline Personality Disorder"
               }
             },
             {
@@ -293,7 +265,7 @@
             {
               "valueCoding": {
                 "code": "LA6568-10",
-                "display": "Post-traumatic-stress disorder"
+                "display": "Post-traumatic-stress Disorder"
               }
             },
             {
@@ -305,31 +277,21 @@
             {
               "valueCoding": {
                 "code": "LA6568-12",
-                "display": "Never suffered from any of the conditions listed above"
+                "display": "I have never suffered from any of the conditions listed above"
               }
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X110",
+          "linkId": "b4119c0f-c798-45b2-b9b7-ccaa514c5687",
           "text": "Attention deficit disorder (ADHD) Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X140"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/240-1",
+              "linkId": "c5516dd9-af27-46a4-bf0c-1d27b6617b84",
               "text": "Was the Attention deficit disorder (ADHD) diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/2400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -348,19 +310,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/250-1",
+              "linkId": "0e4de6c0-3024-4e91-b0e8-14cd9d48f205",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/2500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA2400-1"
                   },
-                  "question": "/2400-1",
+                  "question": "c5516dd9-af27-46a4-bf0c-1d27b6617b84",
                   "operator": "="
                 }
               ]
@@ -368,13 +325,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/260-1",
+              "linkId": "052448b4-2801-4c88-82c2-594e51bf8146",
               "text": "When was the last time you had symptoms related to the Attention deficit disorder (ADHD)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/2600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -411,13 +363,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/270-1",
+              "linkId": "6527d3ae-ac2f-43ad-bcab-9f4a454e2072",
               "text": "Do you currently take medication for Attention deficit disorder (ADHD)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/2700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -435,9 +382,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_17"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -464,16 +408,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_17_fu",
+              "linkId": "3ac06eed-65bb-417f-9ba0-547b3aa5f17f",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_17"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -488,7 +429,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_17_ru",
+                  "linkId": "14f83632-4aea-438f-a6d4-56aaaecdd8ae",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -499,7 +440,7 @@
                   "answerCoding": {
                     "code": "LA2700-1"
                   },
-                  "question": "/2700-1",
+                  "question": "6527d3ae-ac2f-43ad-bcab-9f4a454e2072",
                   "operator": "="
                 }
               ]
@@ -510,31 +451,21 @@
               "answerCoding": {
                 "code": "LA6568-0"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X111",
+          "linkId": "26d36a0a-e700-4fb3-a3f7-06568c06eef7",
           "text": "Addiction Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X141"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/340-1",
+              "linkId": "086329b2-6068-484d-a03d-34d580215bb7",
               "text": "Was the Addiction diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/3400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -553,19 +484,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/350-1",
+              "linkId": "e6f491c6-8a8b-4011-b073-9c00673b5a41",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/3500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA3400-0"
                   },
-                  "question": "/3400-1",
+                  "question": "086329b2-6068-484d-a03d-34d580215bb7",
                   "operator": "="
                 }
               ]
@@ -573,13 +499,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/360-1",
+              "linkId": "b694ece0-86c8-40db-b61b-71bdac0a4ed7",
               "text": "When was the last time you had symptoms related to Addiction?",
-              "extension": [
-                {
-                  "baselineLinkId": "/3600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -616,13 +537,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/370-1",
+              "linkId": "bbf86d82-15be-433c-9fc6-f292893a1553",
               "text": "Do you currently take medication for Addiction?",
-              "extension": [
-                {
-                  "baselineLinkId": "/3700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -640,9 +556,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_2"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -669,16 +582,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_2_fu",
+              "linkId": "4c20787e-0222-43b6-80ad-beee202a3711",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_2"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -693,7 +603,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_2_ru",
+                  "linkId": "c2389e24-6c8b-45a8-aa6d-b9aa02a21539",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -704,7 +614,7 @@
                   "answerCoding": {
                     "code": "LA3700-0"
                   },
-                  "question": "/3700-1",
+                  "question": "bbf86d82-15be-433c-9fc6-f292893a1553",
                   "operator": "="
                 }
               ]
@@ -715,31 +625,21 @@
               "answerCoding": {
                 "code": "LA6568-1"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X112",
+          "linkId": "86d430ce-7947-4b8a-a8ed-be056093da3f",
           "text": "Anxiety Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X142"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/440-1",
+              "linkId": "2d355cbc-97db-4a05-939c-b7ac0459c0ba",
               "text": "Was the Anxiety Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/4400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -758,19 +658,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/450-1",
+              "linkId": "a8f82588-39e9-4f7d-b512-7f5ca88ffefa",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/4500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA4400-0"
                   },
-                  "question": "/4400-1",
+                  "question": "2d355cbc-97db-4a05-939c-b7ac0459c0ba",
                   "operator": "="
                 }
               ]
@@ -778,13 +673,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/460-1",
+              "linkId": "e58e6bf7-aa42-4621-b232-45d3bfc01f54",
               "text": "When was the last time you had symptoms related to Anxiety Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/4600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -821,13 +711,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/470-1",
+              "linkId": "82412c9d-c1a4-4b09-9e06-7c9bce9ed053",
               "text": "Do you currently take medication for Anxiety Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/4700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -845,9 +730,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_18"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -874,16 +756,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_18_fu",
+              "linkId": "a30035c9-a73b-4541-af0d-ea79d1201845",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_18"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -898,7 +777,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_18_ru",
+                  "linkId": "079c5e4d-2155-41e8-a70a-65ea53a4e36c",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -909,7 +788,7 @@
                   "answerCoding": {
                     "code": "LA4700-0"
                   },
-                  "question": "/4700-1",
+                  "question": "82412c9d-c1a4-4b09-9e06-7c9bce9ed053",
                   "operator": "="
                 }
               ]
@@ -920,31 +799,21 @@
               "answerCoding": {
                 "code": "LA6568-2"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X113",
+          "linkId": "c7f1c901-7c9b-4c15-9c1a-2746557e5315",
           "text": "Autism Spectrum Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X143"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/540-1",
+              "linkId": "eca086b1-5842-44f2-88bc-c12992296009",
               "text": "Was the Autism Spectrum Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/5400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -963,19 +832,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/550-1",
+              "linkId": "2dddb965-c7b3-4795-91e7-799da2edf0cd",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/5500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA5400-0"
                   },
-                  "question": "/5400-1",
+                  "question": "eca086b1-5842-44f2-88bc-c12992296009",
                   "operator": "="
                 }
               ]
@@ -983,13 +847,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/560-1",
+              "linkId": "24db96de-165e-4dd7-97f6-32c0a69e5e8c",
               "text": "When was the last time you had symptoms related to Autism Spectrum Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/5600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1026,13 +885,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/570-1",
+              "linkId": "0cdfd64b-92f2-4448-9e13-280675143253",
               "text": "Do you currently take medication for Autism Spectrum Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/5700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1050,9 +904,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_4"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -1079,16 +930,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_4_fu",
+              "linkId": "af8d9972-f3bd-4c50-8b38-4b4afc825007",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_4"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -1103,7 +951,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_4_fu",
+                  "linkId": "d042441e-60d5-439f-ae23-13f1e2232796",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -1114,7 +962,7 @@
                   "answerCoding": {
                     "code": "LA5700-0"
                   },
-                  "question": "/5700-1",
+                  "question": "0cdfd64b-92f2-4448-9e13-280675143253",
                   "operator": "="
                 }
               ]
@@ -1125,31 +973,21 @@
               "answerCoding": {
                 "code": "LA6568-3"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X114",
+          "linkId": "e01de18c-1c0c-463a-b38a-2816ea4fc01a",
           "text": "Bipolar Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X144"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/640-1",
+              "linkId": "005c0083-b5c7-4773-8824-66a0fa2855a6",
               "text": "Was the Bipolar Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/6400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1168,19 +1006,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/650-1",
+              "linkId": "c858d030-0074-48af-b9a4-73b17c6feee8",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/6500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA6400-0"
                   },
-                  "question": "/6400-1",
+                  "question": "005c0083-b5c7-4773-8824-66a0fa2855a6",
                   "operator": "="
                 }
               ]
@@ -1188,13 +1021,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/660-1",
+              "linkId": "aba804f6-3cf3-4acd-8cbe-81e070fa194d",
               "text": "When was the last time you had symptoms related to Bipolar Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/6600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1231,13 +1059,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/670-1",
+              "linkId": "adf89d31-02c8-4a5e-b261-fd36029f953c",
               "text": "Do you currently take medication for Bipolar Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/6700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1255,9 +1078,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_5"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -1284,16 +1104,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_5_fu",
+              "linkId": "fd806019-bcf2-4d72-9208-fe093d207ddf",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_5"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -1308,7 +1125,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_5_fu",
+                  "linkId": "75e69801-854d-4ad9-abf0-40d38fb6ec42",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -1319,7 +1136,7 @@
                   "answerCoding": {
                     "code": "LA6700-0"
                   },
-                  "question": "/6700-1",
+                  "question": "adf89d31-02c8-4a5e-b261-fd36029f953c",
                   "operator": "="
                 }
               ]
@@ -1330,31 +1147,21 @@
               "answerCoding": {
                 "code": "LA6568-4"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X115",
+          "linkId": "dc1e3693-15a8-4a8f-868e-147afc66088b",
           "text": "Borderline Personality Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X145"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/740-1",
+              "linkId": "8cfd3adf-8b38-4e63-a773-672ecb5890f3",
               "text": "Was the Borderline Personality Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/7400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1373,19 +1180,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/750-1",
+              "linkId": "c014ba66-12c2-46ea-b307-66ad4dbf92ae",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/7500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA7400-0"
                   },
-                  "question": "/7400-1",
+                  "question": "8cfd3adf-8b38-4e63-a773-672ecb5890f3",
                   "operator": "="
                 }
               ]
@@ -1393,13 +1195,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/760-1",
+              "linkId": "ac1bac30-a438-4639-9f64-eec19e80b4d2",
               "text": "When was the last time you had symptoms related to Borderline Personality Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/7600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1436,13 +1233,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/770-1",
+              "linkId": "ac161444-480b-4593-9027-af3cab2e0d9d",
               "text": "Do you currently take medication for Borderline Personality Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/7700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1460,9 +1252,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_6"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -1489,16 +1278,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_6_fu",
+              "linkId": "5fd4f5b9-103f-4098-a490-4c12a2c515c0",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_6"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -1513,7 +1299,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_6_fu",
+                  "linkId": "9bbcd5f3-01bd-4da4-84ab-c23bce8ed5f5",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -1524,7 +1310,7 @@
                   "answerCoding": {
                     "code": "LA7700-0"
                   },
-                  "question": "/7700-1",
+                  "question": "ac161444-480b-4593-9027-af3cab2e0d9d",
                   "operator": "="
                 }
               ]
@@ -1535,31 +1321,21 @@
               "answerCoding": {
                 "code": "LA6568-5"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X116",
+          "linkId": "d946735e-7e38-45b8-84da-62ee0a8e846d",
           "text": "Depression Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X146"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/840-1",
+              "linkId": "385f4712-bb5f-45ce-9ced-2d6938f0a54b",
               "text": "Was the Depression diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/8400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1578,19 +1354,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/850-1",
+              "linkId": "828487c3-b300-406c-962b-c44c78c4f634",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/8500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA8400-0"
                   },
-                  "question": "/8400-1",
+                  "question": "385f4712-bb5f-45ce-9ced-2d6938f0a54b",
                   "operator": "="
                 }
               ]
@@ -1598,13 +1369,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/860-1",
+              "linkId": "a74d7d50-f6f0-49dc-b011-32a8757354f8",
               "text": "When was the last time you had symptoms related to Depression?",
-              "extension": [
-                {
-                  "baselineLinkId": "/8600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1641,13 +1407,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/870-1",
+              "linkId": "c2d28992-2dbd-42a6-bd63-b80910e2e67d",
               "text": "Do you currently take medication for Depression?",
-              "extension": [
-                {
-                  "baselineLinkId": "/8700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1665,9 +1426,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_7"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -1694,16 +1452,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_7_fu",
+              "linkId": "3d45d56e-79ba-4b3a-98ca-6ff0c59bf428",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_7"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -1718,7 +1473,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_7_fu",
+                  "linkId": "69d4b446-4824-4fd4-b11f-7e2544ba4654",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -1729,7 +1484,7 @@
                   "answerCoding": {
                     "code": "LA8700-0"
                   },
-                  "question": "/8700-1",
+                  "question": "c2d28992-2dbd-42a6-bd63-b80910e2e67d",
                   "operator": "="
                 }
               ]
@@ -1740,31 +1495,21 @@
               "answerCoding": {
                 "code": "LA6568-6"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X117",
+          "linkId": "4e5c28fa-4695-4345-8aee-97a75b3a3070",
           "text": "Depression Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X147"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/940-1",
+              "linkId": "b71140b5-73c2-49bd-a027-040003922d72",
               "text": "Was the Learning Disability diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/9400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1783,19 +1528,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/950-1",
+              "linkId": "1107cd67-5beb-432c-911d-4d4b2df15601",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/9500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA9400-0"
                   },
-                  "question": "/9400-1",
+                  "question": "b71140b5-73c2-49bd-a027-040003922d72",
                   "operator": "="
                 }
               ]
@@ -1803,13 +1543,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/960-1",
+              "linkId": "0c9f4b1b-ad53-42a6-8d26-4198ac01d832",
               "text": "When was the last time you had symptoms related to Learning Disability?",
-              "extension": [
-                {
-                  "baselineLinkId": "/9600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1846,13 +1581,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/970-1",
+              "linkId": "c7181d1e-c42c-4228-8ef8-f8e2eee95690",
               "text": "Do you currently take medication for Learning Disability?",
-              "extension": [
-                {
-                  "baselineLinkId": "/9700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1870,9 +1600,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_8"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -1899,16 +1626,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_8_fu",
+              "linkId": "4cb3530e-c22e-4f8b-86a5-d475b44e19d6",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_8"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -1923,7 +1647,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_8_fu",
+                  "linkId": "c3211786-4304-4f94-ac4f-030aa0607161",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -1934,7 +1658,7 @@
                   "answerCoding": {
                     "code": "LA9700-0"
                   },
-                  "question": "/9700-1",
+                  "question": "c7181d1e-c42c-4228-8ef8-f8e2eee95690",
                   "operator": "="
                 }
               ]
@@ -1945,31 +1669,21 @@
               "answerCoding": {
                 "code": "LA6568-7"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X118",
+          "linkId": "09a9fbcf-6a13-4d70-a7ee-8f71e75ede1c",
           "text": "Mild Cognitive Impairment Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X148"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/140-1",
+              "linkId": "b10b4930-0dae-431f-bd88-26a916ff06c1",
               "text": "Was the Mild Cognitive Impairment diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1400-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -1988,19 +1702,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/150-1",
+              "linkId": "1144189d-48d4-40cc-a124-7c422b1dcecd",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/1500-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA1400-0"
                   },
-                  "question": "/1400-1",
+                  "question": "b10b4930-0dae-431f-bd88-26a916ff06c1",
                   "operator": "="
                 }
               ]
@@ -2008,13 +1717,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/160-1",
+              "linkId": "e2c516d3-c38b-4132-9ea3-23e3ceb36c9b",
               "text": "When was the last time you had symptoms related to Mild Cognitive Impairment?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1600-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2051,13 +1755,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/170-1",
+              "linkId": "eadda4d1-5a2b-42d9-a08b-082f39ef2f9e",
               "text": "Do you currently take medication for Mild Cognitive Impairment?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1700-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2075,9 +1774,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_9"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -2104,16 +1800,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_9_fu",
+              "linkId": "6bd9653b-dfe1-4c7b-814f-8ed743b5cc94",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_9"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -2128,7 +1821,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_9_fu",
+                  "linkId": "e6a9c29c-16f7-411b-8547-652445e89b47",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -2139,7 +1832,7 @@
                   "answerCoding": {
                     "code": "LA1700-0"
                   },
-                  "question": "/1700-1",
+                  "question": "eadda4d1-5a2b-42d9-a08b-082f39ef2f9e",
                   "operator": "="
                 }
               ]
@@ -2150,31 +1843,21 @@
               "answerCoding": {
                 "code": "LA6568-8"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X119",
+          "linkId": "cb87922c-65d4-4e57-9f0d-131c70ffbb70",
           "text": "Obsessive Compulsive Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X149"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/141-1",
+              "linkId": "2e368602-10bc-4a32-90c2-b5f5afd08093",
               "text": "Was the Obsessive Compulsive Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1401-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2193,19 +1876,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/151-1",
+              "linkId": "48db95c8-f5a1-4379-bcb5-81be3fedc588",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/1501-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA1401-0"
                   },
-                  "question": "/1401-1",
+                  "question": "2e368602-10bc-4a32-90c2-b5f5afd08093",
                   "operator": "="
                 }
               ]
@@ -2213,13 +1891,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/161-1",
+              "linkId": "3b3868cc-41c6-42ea-a38f-e1c916169c31",
               "text": "When was the last time you had symptoms related to Obsessive Compulsive Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1601-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2256,13 +1929,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/171-1",
+              "linkId": "5c40e911-b3ed-4c11-8a63-b8e7beeaadc4",
               "text": "Do you currently take medication for Obsessive Compulsive Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1701-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2280,9 +1948,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_10"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -2309,16 +1974,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_10_fu",
+              "linkId": "8ed842a9-b375-4fbf-ba93-72500fcb5fd0",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_10"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -2333,7 +1995,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_10_fu",
+                  "linkId": "197caaab-4e02-4804-9775-5b75caeadb4f",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -2344,7 +2006,7 @@
                   "answerCoding": {
                     "code": "LA1701-0"
                   },
-                  "question": "/1701-1",
+                  "question": "5c40e911-b3ed-4c11-8a63-b8e7beeaadc4",
                   "operator": "="
                 }
               ]
@@ -2355,31 +2017,21 @@
               "answerCoding": {
                 "code": "LA6568-9"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X1500",
+          "linkId": "27bb36d5-c366-48a4-9a56-d33304b8de99",
           "text": "Post-traumatic-stress Disorder Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X150"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/142-1",
+              "linkId": "e71af4bd-34fc-48f7-a1ba-dccb9486fc1b",
               "text": "Was the Post-traumatic-stress Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1402-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2398,19 +2050,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/152-1",
+              "linkId": "b4d7aee7-d9e8-4e5d-90ed-6ba3d8ceaf20",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/1502-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA1402-0"
                   },
-                  "question": "/1402-1",
+                  "question": "e71af4bd-34fc-48f7-a1ba-dccb9486fc1b",
                   "operator": "="
                 }
               ]
@@ -2418,13 +2065,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/162-1",
+              "linkId": "91fa2179-2e06-4ebb-b556-1f75eaa87fc9",
               "text": "When was the last time you had symptoms related to Post-traumatic-stress Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1602-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2461,13 +2103,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/172-1",
+              "linkId": "364f74a3-3e9f-4ae9-b9b7-73d202258ee3",
               "text": "Do you currently take medication for Post-traumatic-stress Disorder?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1702-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2485,9 +2122,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_11"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -2514,16 +2148,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_11_fu",
+              "linkId": "98de0f25-fa67-49c8-a29f-85f46ce103b8",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_11"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -2538,7 +2169,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_11_fu",
+                  "linkId": "228662c3-296e-4907-8e3d-aea7572f7858",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -2549,7 +2180,7 @@
                   "answerCoding": {
                     "code": "LA1702-0"
                   },
-                  "question": "/1702-1",
+                  "question": "364f74a3-3e9f-4ae9-b9b7-73d202258ee3",
                   "operator": "="
                 }
               ]
@@ -2560,31 +2191,21 @@
               "answerCoding": {
                 "code": "LA6568-10"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X1510",
+          "linkId": "73e295b3-d02a-4d32-b0c1-0e955e1dc030",
           "text": "Schizophrenia Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X151"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/1403-1",
+              "linkId": "6cc09a0d-6c56-4c03-861f-54b966d93a00",
               "text": "Was the Schizophrenia diagnosed by a clinician (e.g., physician or psychologist)?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1403-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2603,19 +2224,14 @@
             {
               "type": "date",
               "required": true,
-              "linkId": "/153-1",
+              "linkId": "968fafed-94e2-4949-8389-9db3b41c73a9",
               "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
-              "extension": [
-                {
-                  "baselineLinkId": "/1503-1"
-                }
-              ],
               "enableWhen": [
                 {
                   "answerCoding": {
                     "code": "LA1403-0"
                   },
-                  "question": "/1403-1",
+                  "question": "6cc09a0d-6c56-4c03-861f-54b966d93a00",
                   "operator": "="
                 }
               ]
@@ -2623,13 +2239,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/163-1",
+              "linkId": "2bb76dde-ab8e-4939-8a7e-5a10e33834b2",
               "text": "When was the last time you had symptoms related to Schizophrenia?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1603-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2666,13 +2277,8 @@
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/173-1",
+              "linkId": "381ecea3-48dc-4ecf-87cd-53f03ad661f2",
               "text": "Do you currently take medication for Schizophrenia?",
-              "extension": [
-                {
-                  "baselineLinkId": "/1703-1"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -2690,9 +2296,6 @@
             },
             {
               "extension": [
-                {
-                  "baselineLinkId": "medications_table_12"
-                },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
                   "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
@@ -2719,16 +2322,13 @@
                   }
                 }
               ],
-              "linkId": "medications_table_12_fu",
+              "linkId": "e7c9efbe-7980-42e1-a1c6-8863fa2007ef",
               "text": "Medications",
               "type": "group",
               "repeats": true,
               "item": [
                 {
                   "extension": [
-                    {
-                      "baselineLinkId": "medication_12"
-                    },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
                       "valueCodeableConcept": {
@@ -2743,7 +2343,7 @@
                       }
                     }
                   ],
-                  "linkId": "medication_12_fu",
+                  "linkId": "c5448402-9b46-4856-89bf-64041a8f95dd",
                   "text": "Medication Name",
                   "type": "choice",
                   "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
@@ -2754,7 +2354,7 @@
                   "answerCoding": {
                     "code": "LA1703-0"
                   },
-                  "question": "/1703-1",
+                  "question": "381ecea3-48dc-4ecf-87cd-53f03ad661f2",
                   "operator": "="
                 }
               ]
@@ -2765,7 +2365,7 @@
               "answerCoding": {
                 "code": "LA6568-11"
               },
-              "question": "/44250-11",
+              "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
               "operator": "="
             }
           ]
@@ -2775,29 +2375,13 @@
     {
       "type": "group",
       "text": "Clinical Condition(s) - Part B",
-      "linkId": "/X16",
-      "extension": [
-        {
-          "baselineLinkId": "/X783"
-        }
-      ],
+      "linkId": "bdda441e-d6aa-4227-9727-0da3ca863b73",
       "item": [
         {
           "type": "open-choice",
           "repeats": true,
-          "code": [
-            {
-              "code": "6",
-              "display": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)"
-            }
-          ],
-          "extension": [
-            {
-              "baselineLinkId": "/44250-16"
-            }
-          ],
           "required": true,
-          "linkId": "/6",
+          "linkId": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
           "text": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)",
           "answerOption": [
             {
@@ -2844,7 +2428,7 @@
             },
             {
               "valueCoding": {
-                "code": "LA6572-7",
+                "code": "LA6572-1",
                 "display": "Multiple Sclerosis"
               }
             },
@@ -2876,30 +2460,13 @@
         },
         {
           "type": "group",
-          "linkId": "/X14",
+          "linkId": "156e6ecc-92c4-4765-ad43-347eded6e149",
           "text": "Alzheimer/Dementia Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X124"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
-              "code": [
-                {
-                  "system": "http://loinc.org",
-                  "code": "18",
-                  "display": "If your physician suspects that you suffer from a specific type of dementia, please select it here:"
-                }
-              ],
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-18"
-                }
-              ],
               "required": true,
-              "linkId": "18",
+              "linkId": "352c1b8a-e035-48dc-bfc8-1726f5f6825b",
               "text": "If your physician suspects that you suffer from a specific type of dementia, please select it here:",
               "answerOption": [
                 {
@@ -2940,37 +2507,20 @@
               "answerCoding": {
                 "code": "LA6572-0"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X18",
+          "linkId": "cdd70f62-452a-4b3f-a179-94f62bdf88bb",
           "text": "Concussion Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X125"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
-              "code": [
-                {
-                  "system": "http://loinc.org",
-                  "code": "44250-20",
-                  "display": "When did you experience your last concussion?"
-                }
-              ],
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-20"
-                }
-              ],
               "required": true,
-              "linkId": "/20",
+              "linkId": "a0baf4e0-a6e0-4be2-b4d1-587730356108",
               "text": "When did you experience your last concussion?",
               "answerOption": [
                 {
@@ -3013,20 +2563,8 @@
             },
             {
               "type": "open-choice",
-              "code": [
-                {
-                  "system": "http://loinc.org",
-                  "code": "21",
-                  "display": "How many concussions have you had in your life?"
-                }
-              ],
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-21"
-                }
-              ],
               "required": true,
-              "linkId": "21",
+              "linkId": "abd3dc88-60a2-4978-9372-eb186d88c03e",
               "text": "How many concussions have you had in your life?",
               "answerOption": [
                 {
@@ -3061,31 +2599,21 @@
               "answerCoding": {
                 "code": "LA6572-3"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2200",
+          "linkId": "b99157ac-9ea6-4fd4-86e7-ab4845b69c81",
           "text": "Amyotrophic Lateral Sclerosis Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X220"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-0",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-0"
-                }
-              ]
+              "linkId": "e140c674-5b3f-4866-bd53-040e0a876bbb",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3093,31 +2621,21 @@
               "answerCoding": {
                 "code": "LA6572-1"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2210",
+          "linkId": "d655a646-23e4-4f1b-9ed7-4663be45029d",
           "text": "Ataxia Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X221"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-1",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-1"
-                }
-              ]
+              "linkId": "7cad09e1-e866-44da-b462-d005c6a0192a",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3125,31 +2643,21 @@
               "answerCoding": {
                 "code": "LA6572-2"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2220",
+          "linkId": "0368864d-1bfc-49aa-9c78-cc264109ac28",
           "text": "Brain Tumor Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X222"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-2",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-2"
-                }
-              ]
+              "linkId": "f154e4ef-796e-4ff9-b073-da0330cfd66f",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3157,31 +2665,21 @@
               "answerCoding": {
                 "code": "LA6572-4"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2230",
+          "linkId": "7ef0f02b-8f5c-467c-98e4-d09ef179c5e7",
           "text": "Cerebral Palsy Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X223"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-3",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-3"
-                }
-              ]
+              "linkId": "6aa08d8c-fae6-4bde-bd6f-ef27b6554657",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3189,31 +2687,21 @@
               "answerCoding": {
                 "code": "LA6572-5"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2240",
+          "linkId": "0228b081-c6ae-4289-830e-a9b732d5fdb8",
           "text": "Epilepsy or Other Seizure Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X224"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-4",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-4"
-                }
-              ]
+              "linkId": "a70baf15-23e0-45d6-8063-9871ac38af77",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3221,31 +2709,21 @@
               "answerCoding": {
                 "code": "LA6572-6"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2250",
+          "linkId": "c91d6b7e-27b3-497e-af9c-c916f8073a04",
           "text": "Multiple Sclerosis Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X225"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-5",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-5"
-                }
-              ]
+              "linkId": "ca621a83-3c8b-4e0d-bb4a-ad9bffc62dd9",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3253,31 +2731,21 @@
               "answerCoding": {
                 "code": "LA6572-7"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2260",
+          "linkId": "43d1d134-0f5f-4b71-b99a-602b858526d0",
           "text": "Parkinson's Disease Diagnosis Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X226"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/55250-6",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-6"
-                }
-              ]
+              "linkId": "3cd09bb2-70f0-4746-96e6-8238bef49649",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3285,31 +2753,21 @@
               "answerCoding": {
                 "code": "LA6572-8"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2270",
+          "linkId": "9fb6323e-3d2a-4fc3-ba61-f80f07aa8315",
           "text": "Stroke Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X227"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-7",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-7"
-                }
-              ]
+              "linkId": "0beaa61d-3780-49bd-9b01-83c887b0c729",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3317,31 +2775,21 @@
               "answerCoding": {
                 "code": "LA6572-9"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
         },
         {
           "type": "group",
-          "linkId": "/X2280",
+          "linkId": "a6965a97-c0cc-4ee1-8d88-8a05535dd83c",
           "text": "Traumatic Brain Injury Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X228"
-            }
-          ],
           "item": [
             {
               "type": "date",
               "required": true,
-              "linkId": "/5250-8",
-              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
-              "extension": [
-                {
-                  "baselineLinkId": "/55250-8"
-                }
-              ]
+              "linkId": "35f00e64-cb3e-4dc1-aeff-2d2db0006307",
+              "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)"
             }
           ],
           "enableWhen": [
@@ -3349,7 +2797,7 @@
               "answerCoding": {
                 "code": "LA6572-10"
               },
-              "question": "/44250-16",
+              "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
               "operator": "="
             }
           ]
@@ -3359,28 +2807,12 @@
     {
       "type": "group",
       "text": "Clinical Condition(s) - Not Listed Before",
-      "linkId": "/X17",
-      "extension": [
-        {
-          "baselineLinkId": "/X745"
-        }
-      ],
+      "linkId": "7b215b4f-e105-42a9-886a-4b9bf0f2dbf0",
       "item": [
         {
           "type": "open-choice",
-          "code": [
-            {
-              "code": "22",
-              "display": "Have you ever suffered from a psychiatric, neurological of neuro-developmental condition that was not listed before?"
-            }
-          ],
-          "extension": [
-            {
-              "baselineLinkId": "/44250-22"
-            }
-          ],
           "required": true,
-          "linkId": "/22",
+          "linkId": "21bdcf49-129e-4b4c-a60d-17a1dc05a8ea",
           "text": "Have you ever suffered from a psychiatric, neurological of neuro-developmental condition that was not listed before?",
           "answerOption": [
             {
@@ -3399,35 +2831,20 @@
         },
         {
           "type": "group",
-          "linkId": "/X21",
+          "linkId": "2334eb23-9d09-4490-b035-e97ed99d6edd",
           "text": "Additional Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X131"
-            }
-          ],
           "item": [
             {
               "type": "string",
               "required": true,
-              "linkId": "/23",
-              "text": "Please indicate the condition here",
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-23"
-                }
-              ]
+              "linkId": "ac276b3c-b1a9-454b-ba94-74029e4d4ed9",
+              "text": "Please indicate the condition here"
             },
             {
               "type": "open-choice",
               "required": true,
-              "linkId": "/24",
+              "linkId": "1aad1f16-1db2-4067-bdc3-65a5bd2e59b7",
               "text": "Is this condition still acute?",
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-24"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -3449,7 +2866,7 @@
               "answerCoding": {
                 "code": "LA6574-0"
               },
-              "question": "/44250-22",
+              "question": "21bdcf49-129e-4b4c-a60d-17a1dc05a8ea",
               "operator": "="
             }
           ]
@@ -3459,23 +2876,13 @@
     {
       "type": "group",
       "text": "Pain Condition(s)",
-      "linkId": "/X74",
-      "extension": [
-        {
-          "baselineLinkId": "/X774"
-        }
-      ],
+      "linkId": "c02a144d-1bcb-422d-96b1-4c8db27805a6",
       "item": [
         {
           "type": "open-choice",
           "required": true,
-          "linkId": "/25",
+          "linkId": "9e5d6711-09e5-45a6-b837-16b5baf3f292",
           "text": "Do you suffer from a chronic pain condition?",
-          "extension": [
-            {
-              "baselineLinkId": "/44250-25"
-            }
-          ],
           "answerOption": [
             {
               "valueCoding": {
@@ -3493,31 +2900,15 @@
         },
         {
           "type": "group",
-          "linkId": "/X172",
+          "linkId": "df3ce84e-fc36-4a86-b829-e48c9f7e9080",
           "text": "Chronic Pain Details",
-          "extension": [
-            {
-              "baselineLinkId": "/X127"
-            }
-          ],
           "item": [
             {
               "type": "open-choice",
               "repeats": true,
-              "code": [
-                {
-                  "code": "26",
-                  "display": "Please select the chronic pain condition here (can select multiple conditions)"
-                }
-              ],
               "required": true,
-              "linkId": "/26",
+              "linkId": "b5bde583-893d-458d-ac39-9c9b0121f430",
               "text": "Please select the chronic pain condition here (can select multiple conditions)",
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-26"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -3571,30 +2962,14 @@
             },
             {
               "type": "group",
-              "linkId": "/X187",
+              "linkId": "ff44a4d9-37af-45bd-b781-a85d4bcf9bd2",
               "text": "Other Chronic Pain State",
-              "extension": [
-                {
-                  "baselineLinkId": "/X178"
-                }
-              ],
               "item": [
                 {
                   "type": "string",
-                  "code": [
-                    {
-                      "code": "27",
-                      "display": "If other, please state the chronic pain condition: "
-                    }
-                  ],
                   "required": true,
-                  "linkId": "/27",
-                  "text": "If other, please state the chronic pain condition: ",
-                  "extension": [
-                    {
-                      "baselineLinkId": "/44250-27"
-                    }
-                  ]
+                  "linkId": "766fdb82-6cc0-479f-89e5-8754490529a3",
+                  "text": "If other, please state the chronic pain condition: "
                 }
               ],
               "enableWhen": [
@@ -3602,7 +2977,7 @@
                   "answerCoding": {
                     "code": "LA6577-7"
                   },
-                  "question": "/44250-26",
+                  "question": "b5bde583-893d-458d-ac39-9c9b0121f430",
                   "operator": "="
                 }
               ]
@@ -3613,7 +2988,7 @@
               "answerCoding": {
                 "code": "LA6576-0"
               },
-              "question": "/44250-25",
+              "question": "9e5d6711-09e5-45a6-b837-16b5baf3f292",
               "operator": "="
             }
           ]
@@ -3623,28 +2998,12 @@
     {
       "type": "group",
       "text": "Sleeping Disorder(s)",
-      "linkId": "/X71",
-      "extension": [
-        {
-          "baselineLinkId": "/X781"
-        }
-      ],
+      "linkId": "0c720b0a-fb60-4cc0-8c27-1dd637a120af",
       "item": [
         {
           "type": "open-choice",
-          "code": [
-            {
-              "code": "28",
-              "display": "Do you suffer from a sleeping disorder?"
-            }
-          ],
-          "extension": [
-            {
-              "baselineLinkId": "/44250-28"
-            }
-          ],
           "required": true,
-          "linkId": "/28",
+          "linkId": "bf7d6228-f5d2-4492-b781-07ed301a46db",
           "text": "Do you suffer from a sleeping disorder?",
           "answerOption": [
             {
@@ -3663,25 +3022,15 @@
         },
         {
           "type": "group",
-          "linkId": "/X20",
-          "extension": [
-            {
-              "baselineLinkId": "/X128"
-            }
-          ],
+          "linkId": "9610573d-0d56-40a4-8ae0-ae56ea47e057",
           "text": "Sleeping Disorder Details",
           "item": [
             {
               "type": "open-choice",
               "repeats": true,
               "required": true,
-              "linkId": "/29",
+              "linkId": "16fdf424-c76b-4fe5-b932-9b7bc126e011",
               "text": "Please select the sleeping disorder(s) here (you can select multiple conditions)",
-              "extension": [
-                {
-                  "baselineLinkId": "/44250-29"
-                }
-              ],
               "answerOption": [
                 {
                   "valueCoding": {
@@ -3729,29 +3078,13 @@
             },
             {
               "type": "group",
-              "linkId": "/X185",
+              "linkId": "1690e042-4b78-4db1-84c3-d2970976414e",
               "text": "Other Sleeping Order State",
-              "extension": [
-                {
-                  "baselineLinkId": "/X179"
-                }
-              ],
               "item": [
                 {
                   "type": "string",
-                  "code": [
-                    {
-                      "code": "30",
-                      "display": "If other, please state the sleeping disorder here: "
-                    }
-                  ],
-                  "extension": [
-                    {
-                      "baselineLinkId": "/44250-30"
-                    }
-                  ],
                   "required": true,
-                  "linkId": "/30",
+                  "linkId": "9bdd997b-68f9-46bd-a74a-96ae95bf841d",
                   "text": "If other, please state the sleeping disorder here: "
                 }
               ],
@@ -3760,7 +3093,7 @@
                   "answerCoding": {
                     "code": "LA6579-7"
                   },
-                  "question": "/44250-29",
+                  "question": "16fdf424-c76b-4fe5-b932-9b7bc126e011",
                   "operator": "="
                 }
               ]
@@ -3771,7 +3104,7 @@
               "answerCoding": {
                 "code": "LA6578-0"
               },
-              "question": "/44250-28",
+              "question": "bf7d6228-f5d2-4492-b781-07ed301a46db",
               "operator": "="
             }
           ]
@@ -3781,29 +3114,13 @@
     {
       "type": "group",
       "text": "Medication(s) Not Listed Before",
-      "linkId": "/X76",
-      "extension": [
-        {
-          "baselineLinkId": "/X786"
-        }
-      ],
+      "linkId": "829bcfdb-0c58-4763-b290-b9e31b064238",
       "item": [
         {
           "type": "open-choice",
-          "code": [
-            {
-              "code": "31",
-              "display": "Do you currently take any medication on a daily basis that was not part of this questionnaire yet?"
-            }
-          ],
           "required": true,
-          "linkId": "/31",
+          "linkId": "f196acb4-652a-4db2-b93a-ddf04ac0a7da",
           "text": "Do you currently take any medication on a daily basis that was not part of this questionnaire yet?",
-          "extension": [
-            {
-              "baselineLinkId": "/44250-31"
-            }
-          ],
           "answerOption": [
             {
               "valueCoding": {
@@ -3821,20 +3138,15 @@
         },
         {
           "type": "string",
-          "linkId": "/X132",
+          "linkId": "7a5fd010-2b22-4e24-980c-01976422c310",
           "repeats": true,
           "text": "Medication Name",
-          "extension": [
-            {
-              "baselineLinkId": "/X130"
-            }
-          ],
           "enableWhen": [
             {
               "answerCoding": {
                 "code": "LA6579-0"
               },
-              "question": "/44250-31",
+              "question": "f196acb4-652a-4db2-b93a-ddf04ac0a7da",
               "operator": "="
             }
           ]

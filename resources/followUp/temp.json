@@ -1,0 +1,121 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
+    ],
+    "tag": [
+      {
+        "code": "lformsVersion: 30.0.0"
+      }
+    ]
+  },
+  "status": "completed",
+  "authored": "2018-03-21",
+  "item": [
+    {
+      "linkId": "12ad2b05-ac01-4d7f-bd8e-8c7c8dada28e",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "60c68d2a-a409-4ba5-b0db-60941d699fc8",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "135eca07-ace2-4681-bd70-edb8ae5dc338",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "9dd5cf9c-ae84-43e7-b133-f075bf15dd91",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "c8bd4d9c-b170-4cc0-9171-784d6498fb75",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "d0e8ecb9-87cb-4fea-bf84-1811bf5a285e",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "5c7f8d20-e33c-4ab1-89b3-49823eb33c2e",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "5a6401c3-2222-438a-9869-d14d95193a5d",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "5942f394-eec6-4dd2-8fc2-6ef0002a60e7",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "6743090d-d488-4561-9a07-3cd37a651048",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "e0032af9-96f0-431e-9ba3-370946631185",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    },
+    {
+      "linkId": "e0032af9-96f0-431e-9ba3-370946631185",
+      "answer": [
+        {
+          "valueString": ".c"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/58b877721f81ac1ef93f9a6e"
+  },
+  "extension": {
+    "score": null,
+    "questionnaire_id": "c7f60131-0add-495b-a541-a730f2306425",
+    "encounter_id": "ee0cbcb8-053b-41fc-9916-adbd46cd9300"
+  }
+}

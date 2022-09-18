@@ -1,0 +1,3789 @@
+{
+    "id": "c40f5137-fb19-4306-b18b-d40cb81151b2",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2022-04-24T03:13:27.000-04:00",
+        "source": "#VgVMCvSD3VUyNdel",
+        "profile": [
+            "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
+        ],
+        "tag": [
+            {
+                "code": "lformsVersion: 30.1.3"
+            }
+        ]
+    },
+    "extension": [],
+    "identifier": [
+        {
+            "system": "http://loinc.org",
+            "value": "44250-1"
+        }
+    ],
+    "code": [
+        {
+            "system": "http://loinc.org",
+            "code": "44250-1",
+            "display": "Follow-up Visit Questionnaire"
+        }
+    ],
+    "subjectType": [
+        "Patient",
+        "Person"
+    ],
+    "status": "draft",
+    "name": "Follow-up Visit Questionnaire",
+    "title": "Follow-up Visit Questionnaire",
+    "resourceType": "Questionnaire",
+    "description": "Follow-up Visit Questionnaire",
+    "item": [
+        {
+            "type": "group",
+            "text": "Active Symptom(s)",
+            "linkId": "/X789",
+            "extension": [
+                {
+                    "baselineLinkId": "618cc88b-1c09-4564-bcee-adba7a3d546e"
+                }
+            ],
+            "item": [
+                {
+                    "type": "open-choice",
+                    "repeats": true,
+                    "extension": [
+                        {
+                            "baselineLinkId": "cb6dd1b6-3e50-4599-a1fa-2c0b15eb4341"
+                        }
+                    ],
+                    "required": true,
+                    "linkId": "b1b5c6d2-d617-450c-9070-53a8a939be09",
+                    "text": "Have you been frequently experiencing any of the symptoms listed below in the past month? (Please select all that apply, multiple responses are possible)?",
+                    "answerOption": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-0",
+                                "display": "Anxiety"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6569-1",
+                                "display": "Attention Problems"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6570-2",
+                                "display": "Confusion"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-3",
+                                "display": "Fatigue"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-4",
+                                "display": "Fogginess"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-5",
+                                "display": "Hallucinations"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-6",
+                                "display": "Headaches"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-7",
+                                "display": "Increased Sleepiness"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-8",
+                                "display": "Lethargy"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-9",
+                                "display": "Memory Problems"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-10",
+                                "display": "Poor motor coordination"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-11",
+                                "display": "Sadness"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-12",
+                                "display": "Sleeping Problems"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-13",
+                                "display": "Stress"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-14",
+                                "display": "Other Symptoms"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-15",
+                                "display": "No Symptoms"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X147",
+                    "text": "Other Symptoms",
+                    "extension": [
+                        {
+                            "baselineLinkId": "bf45fa24-0418-42fd-8e5a-70da183fae61"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "string",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "55da7f3c-9ca9-4970-867b-53eda080d54a"
+                                }
+                            ],
+                            "required": true,
+                            "linkId": "bdf73824-a89f-4f6a-8559-f156a98115f5",
+                            "text": "If other, please specify the symptoms you are experiencing: "
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6571-14"
+                            },
+                            "question": "cb6dd1b6-3e50-4599-a1fa-2c0b15eb4341",
+                            "operator": "="
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "display",
+            "text": "Below reflects the response of the last visit, please update them to best reflect your current situation:",
+            "linkId": "/X345",
+            "extension": [
+                {
+                    "baselineLinkId": "679353fe-9731-4258-b5f5-d6caf036a5bd"
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "text": "Clinical Condition(s) - Part A",
+            "linkId": "/X785",
+            "extension": [
+                {
+                    "baselineLinkId": "9e0f5ddf-ef43-414b-a246-9dacf2a41ac6"
+                }
+            ],
+            "item": [
+                {
+                    "type": "open-choice",
+                    "repeats": true,
+                    "code": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "2",
+                            "display": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)"
+                        }
+                    ],
+                    "extension": [
+                        {
+                            "baselineLinkId": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00"
+                        }
+                    ],
+                    "required": true,
+                    "linkId": "3792d777-651c-4925-ac5a-22456040cf12",
+                    "text": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)",
+                    "answerOption": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-0",
+                                "display": "Attention deficit disorder (ADHD)"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-1",
+                                "display": "Addiction"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-2",
+                                "display": "Anxiety Disorder"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-3",
+                                "display": "Autism Spectrum Disorder"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-4",
+                                "display": "Bipolar Disorder"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-5",
+                                "display": "Borderline Personality disorder"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-6",
+                                "display": "Depression"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-7",
+                                "display": "Learning Disability"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-8",
+                                "display": "Mild Cognitive Impairment"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-9",
+                                "display": "Obsessive Compulsive Disorder"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-10",
+                                "display": "Post-traumatic-stress disorder"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-11",
+                                "display": "Schizophrenia"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-12",
+                                "display": "Never suffered from any of the conditions listed above"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X140",
+                    "text": "Attention deficit disorder (ADHD) Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "b4119c0f-c798-45b2-b9b7-ccaa514c5687"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "4cecc015-2bb5-4cd2-969c-70444b4c351a",
+                            "text": "Was the Attention deficit disorder (ADHD) diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "c5516dd9-af27-46a4-bf0c-1d27b6617b84"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2400-1",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2400-2",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "bfc5d07f-affa-4e71-acbe-84063f03d89b",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "0e4de6c0-3024-4e91-b0e8-14cd9d48f205"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA2400-1"
+                                    },
+                                    "question": "c5516dd9-af27-46a4-bf0c-1d27b6617b84",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "a06209ca-de28-463d-9cf5-519fb509aac3",
+                            "text": "When was the last time you had symptoms related to the Attention deficit disorder (ADHD)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "052448b4-2801-4c88-82c2-594e51bf8146"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "a6e49796-c614-4278-987e-d1fa44c4bcba",
+                            "text": "Do you currently take medication for Attention deficit disorder (ADHD)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "6527d3ae-ac2f-43ad-bcab-9f4a454e2072"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2700-1",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2700-2",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "3ac06eed-65bb-417f-9ba0-547b3aa5f17f"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_17",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "14f83632-4aea-438f-a6d4-56aaaecdd8ae"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "aad4e1cc-7de3-4d0e-9e2c-645f5a38ea83",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA2700-1"
+                                    },
+                                    "question": "6527d3ae-ac2f-43ad-bcab-9f4a454e2072",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-0"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X141",
+                    "text": "Addiction Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "26d36a0a-e700-4fb3-a3f7-06568c06eef7"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "667c860f-5a0b-4077-8ab1-da3d4b1cb044",
+                            "text": "Was the Addiction diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "086329b2-6068-484d-a03d-34d580215bb7"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "9ab3bc21-83df-45a3-bcde-50caad259901",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "e6f491c6-8a8b-4011-b073-9c00673b5a41"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA3400-0"
+                                    },
+                                    "question": "086329b2-6068-484d-a03d-34d580215bb7",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "8c7f07dc-9262-4723-8270-2eb566852328",
+                            "text": "When was the last time you had symptoms related to Addiction?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "b694ece0-86c8-40db-b61b-71bdac0a4ed7"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "d8e637e9-c6f3-4950-8506-1b1786f54517",
+                            "text": "Do you currently take medication for Addiction?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "bbf86d82-15be-433c-9fc6-f292893a1553"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "4c20787e-0222-43b6-80ad-beee202a3711"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_2",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "c2389e24-6c8b-45a8-aa6d-b9aa02a21539"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "0c7c6cef-86ba-473b-845c-5fdcdec13176",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA3700-0"
+                                    },
+                                    "question": "bbf86d82-15be-433c-9fc6-f292893a1553",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-1"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X142",
+                    "text": "Anxiety Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "86d430ce-7947-4b8a-a8ed-be056093da3f"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "156299a3-2d40-4f9f-9f74-88ddb25bfa9b",
+                            "text": "Was the Anxiety Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "2d355cbc-97db-4a05-939c-b7ac0459c0ba"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "d85d466c-0faf-44f5-9aeb-629418fde9f7",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "a8f82588-39e9-4f7d-b512-7f5ca88ffefa"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA4400-0"
+                                    },
+                                    "question": "2d355cbc-97db-4a05-939c-b7ac0459c0ba",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "e77010b7-4bec-41d8-975c-dab9adf02140",
+                            "text": "When was the last time you had symptoms related to Anxiety Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "e58e6bf7-aa42-4621-b232-45d3bfc01f54,"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "61393255-c338-4455-9059-4f65385b729d",
+                            "text": "Do you currently take medication for Anxiety Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "82412c9d-c1a4-4b09-9e06-7c9bce9ed053"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA4700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "a30035c9-a73b-4541-af0d-ea79d1201845"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_18",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "079c5e4d-2155-41e8-a70a-65ea53a4e36c"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "3811b394-f970-4188-b1da-7a2c203eb182",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA4700-0"
+                                    },
+                                    "question": "82412c9d-c1a4-4b09-9e06-7c9bce9ed053",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-2"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X143",
+                    "text": "Autism Spectrum Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "c7f1c901-7c9b-4c15-9c1a-2746557e5315"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "fe63c0db-ce4e-4d7f-828b-f5dcda8812c7",
+                            "text": "Was the Autism Spectrum Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "eca086b1-5842-44f2-88bc-c12992296009"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "a8d9bfdb-c3aa-47eb-8894-7fb4ce638b9d",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "2dddb965-c7b3-4795-91e7-799da2edf0cd"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA5400-0"
+                                    },
+                                    "question": "eca086b1-5842-44f2-88bc-c12992296009",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "f4e6f5ff-ef55-4726-a24c-5356256413b7",
+                            "text": "When was the last time you had symptoms related to Autism Spectrum Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "24db96de-165e-4dd7-97f6-32c0a69e5e8c"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "49ff14f3-ceb6-44cb-bdd6-20b2266245c0",
+                            "text": "Do you currently take medication for Autism Spectrum Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "0cdfd64b-92f2-4448-9e13-280675143253"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA5700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "af8d9972-f3bd-4c50-8b38-4b4afc825007"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_4",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "d042441e-60d5-439f-ae23-13f1e2232796"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "d195d269-fc96-4b3b-be01-e72aab30321b",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA5700-0"
+                                    },
+                                    "question": "0cdfd64b-92f2-4448-9e13-280675143253",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-3"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X144",
+                    "text": "Bipolar Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "e01de18c-1c0c-463a-b38a-2816ea4fc01a"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "772a3053-8b55-4d80-901a-bf2389be6ac5",
+                            "text": "Was the Bipolar Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "005c0083-b5c7-4773-8824-66a0fa2855a6"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "23d82de7-c161-492e-a41f-83ae88600891",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "c858d030-0074-48af-b9a4-73b17c6feee8"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA6400-0"
+                                    },
+                                    "question": "005c0083-b5c7-4773-8824-66a0fa2855a6",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "8ac34f71-6e90-4672-8ce4-3031d954cee6",
+                            "text": "When was the last time you had symptoms related to Bipolar Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "aba804f6-3cf3-4acd-8cbe-81e070fa194d"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "27923467-2e27-4158-8f6e-42fbcf11d8b7",
+                            "text": "Do you currently take medication for Bipolar Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "adf89d31-02c8-4a5e-b261-fd36029f953c"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "fd806019-bcf2-4d72-9208-fe093d207ddf"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_5",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "medication_5"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "8aa6d556-ff11-49a5-8eb1-6f0a4517df4e",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA6700-0"
+                                    },
+                                    "question": "adf89d31-02c8-4a5e-b261-fd36029f953c",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-4"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X145",
+                    "text": "Borderline Personality Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "dc1e3693-15a8-4a8f-868e-147afc66088b"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "c12870ae-fbf2-4371-bce6-d9802b286889",
+                            "text": "Was the Borderline Personality Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "8cfd3adf-8b38-4e63-a773-672ecb5890f3"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "68500a4c-c284-40f1-8acd-7e692a8627a1",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "c014ba66-12c2-46ea-b307-66ad4dbf92ae"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA7400-0"
+                                    },
+                                    "question": "8cfd3adf-8b38-4e63-a773-672ecb5890f3",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "48c404dc-23b9-4bb9-9450-06a4a5a2b846",
+                            "text": "When was the last time you had symptoms related to Borderline Personality Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "ac1bac30-a438-4639-9f64-eec19e80b4d2"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "4e2c2b0c-4491-439a-93a5-6b5fa62febaa",
+                            "text": "Do you currently take medication for Borderline Personality Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "ac161444-480b-4593-9027-af3cab2e0d9d"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA7700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "5fd4f5b9-103f-4098-a490-4c12a2c515c0"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_6",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "9bbcd5f3-01bd-4da4-84ab-c23bce8ed5f5"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "281ada89-7a29-4dc4-8283-6633c2907e3d",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA7700-0"
+                                    },
+                                    "question": "ac161444-480b-4593-9027-af3cab2e0d9d",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-5"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X146",
+                    "text": "Depression Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "d946735e-7e38-45b8-84da-62ee0a8e846d"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "ebcde725-8573-419f-8337-6dbf32f59cc3",
+                            "text": "Was the Depression diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "385f4712-bb5f-45ce-9ced-2d6938f0a54b"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "a2ba8b40-1f24-4ea7-9612-2205ed0d3a92",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "828487c3-b300-406c-962b-c44c78c4f634"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA8400-0"
+                                    },
+                                    "question": "385f4712-bb5f-45ce-9ced-2d6938f0a54b",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "54109434-ccc5-4f0f-9048-84da3b713735",
+                            "text": "When was the last time you had symptoms related to Depression?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "a74d7d50-f6f0-49dc-b011-32a8757354f8"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "58b34ac5-e082-4d25-b9f1-ee9b21d634af",
+                            "text": "Do you currently take medication for Depression?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "c2d28992-2dbd-42a6-bd63-b80910e2e67d"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA8700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "3d45d56e-79ba-4b3a-98ca-6ff0c59bf428"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_7",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "69d4b446-4824-4fd4-b11f-7e2544ba4654"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "b9ec92d9-2ebd-41d8-93e4-fec535525cff",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA8700-0"
+                                    },
+                                    "question": "c2d28992-2dbd-42a6-bd63-b80910e2e67d",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-6"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X147",
+                    "text": "Depression Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "4e5c28fa-4695-4345-8aee-97a75b3a3070"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "7f9f2764-7da4-45aa-9765-4026a341bb33",
+                            "text": "Was the Learning Disability diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "b71140b5-73c2-49bd-a027-040003922d72"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "a62c5782-2387-49ee-9ae4-07cc5cc74a09",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "1107cd67-5beb-432c-911d-4d4b2df15601"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA9400-0"
+                                    },
+                                    "question": "b71140b5-73c2-49bd-a027-040003922d72",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "65498ec9-c4ea-4c9a-9197-0613be10246e",
+                            "text": "When was the last time you had symptoms related to Learning Disability?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "0c9f4b1b-ad53-42a6-8d26-4198ac01d832"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "1b36584c-6523-4bb0-9e0d-00693120cbd1",
+                            "text": "Do you currently take medication for Learning Disability?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "c7181d1e-c42c-4228-8ef8-f8e2eee95690"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA9700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "4cb3530e-c22e-4f8b-86a5-d475b44e19d6"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_8",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "c3211786-4304-4f94-ac4f-030aa0607161"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "7e0545aa-35b6-41b6-8dcb-f4353425def6",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA9700-0"
+                                    },
+                                    "question": "c7181d1e-c42c-4228-8ef8-f8e2eee95690",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-7"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X148",
+                    "text": "Mild Cognitive Impairment Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "09a9fbcf-6a13-4d70-a7ee-8f71e75ede1c"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "9fcfad10-0b03-403e-b1a0-070355927711",
+                            "text": "Was the Mild Cognitive Impairment diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "b10b4930-0dae-431f-bd88-26a916ff06c1"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1400-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1400-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "753ef502-ead4-460b-914e-d42094ee0323",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "1144189d-48d4-40cc-a124-7c422b1dcecd"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1400-0"
+                                    },
+                                    "question": "b10b4930-0dae-431f-bd88-26a916ff06c1",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "f312e3bb-31d6-480c-be45-da156c803a25",
+                            "text": "When was the last time you had symptoms related to Mild Cognitive Impairment?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "e2c516d3-c38b-4132-9ea3-23e3ceb36c9b"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1600-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1600-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1600-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "b387a4f5-c729-4bca-a084-39d0af54b160",
+                            "text": "Do you currently take medication for Mild Cognitive Impairment?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "eadda4d1-5a2b-42d9-a08b-082f39ef2f9e"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1700-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1700-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "6bd9653b-dfe1-4c7b-814f-8ed743b5cc94"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_9",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "e6a9c29c-16f7-411b-8547-652445e89b47"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "4f182539-e700-4dde-bd57-bb54e981fc0e",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1700-0"
+                                    },
+                                    "question": "eadda4d1-5a2b-42d9-a08b-082f39ef2f9e",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-8"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X149",
+                    "text": "Obsessive Compulsive Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "cb87922c-65d4-4e57-9f0d-131c70ffbb70"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "7a6977ef-5eff-487e-92a1-bfbc5eb8b28b",
+                            "text": "Was the Obsessive Compulsive Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "2e368602-10bc-4a32-90c2-b5f5afd08093"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1401-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1401-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "becc71df-5842-440c-bfdb-a4236993fd89",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "48db95c8-f5a1-4379-bcb5-81be3fedc588"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1401-0"
+                                    },
+                                    "question": "2e368602-10bc-4a32-90c2-b5f5afd08093",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "b358d358-212c-48e2-a2a2-b1eb0ae98a1c",
+                            "text": "When was the last time you had symptoms related to Obsessive Compulsive Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "3b3868cc-41c6-42ea-a38f-e1c916169c31"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1601-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1601-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1601-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1601-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1601-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "10038348-9fa6-41ea-9e33-59afcc5f1a6a",
+                            "text": "Do you currently take medication for Obsessive Compulsive Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "5c40e911-b3ed-4c11-8a63-b8e7beeaadc4"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1701-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1701-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "8ed842a9-b375-4fbf-ba93-72500fcb5fd0"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_10",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "197caaab-4e02-4804-9775-5b75caeadb4f"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "078f0bb4-57cb-44ab-8065-0c1f14bff343",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1701-0"
+                                    },
+                                    "question": "5c40e911-b3ed-4c11-8a63-b8e7beeaadc4",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-9"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X150",
+                    "text": "Post-traumatic-stress Disorder Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "27bb36d5-c366-48a4-9a56-d33304b8de99"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "beb07537-68f6-44bd-9cee-4cd9f5077b67",
+                            "text": "Was the Post-traumatic-stress Disorder diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "e71af4bd-34fc-48f7-a1ba-dccb9486fc1b"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1402-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1402-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "f72d7a10-434a-46a0-b65e-79fb06494d7f",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "b4d7aee7-d9e8-4e5d-90ed-6ba3d8ceaf20"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1402-0"
+                                    },
+                                    "question": "e71af4bd-34fc-48f7-a1ba-dccb9486fc1b",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "7ac954b5-922e-4dd1-95ca-994e972f5875",
+                            "text": "When was the last time you had symptoms related to Post-traumatic-stress Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "91fa2179-2e06-4ebb-b556-1f75eaa87fc9"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1602-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1602-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1602-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1602-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1602-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "21181891-11c2-44e8-adfc-d79a467fce60",
+                            "text": "Do you currently take medication for Post-traumatic-stress Disorder?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "364f74a3-3e9f-4ae9-b9b7-73d202258ee3"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1702-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1702-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "98de0f25-fa67-49c8-a29f-85f46ce103b8"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_11",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "228662c3-296e-4907-8e3d-aea7572f7858"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "357969d3-83c4-464e-8b8a-31a2a9474b84",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1702-0"
+                                    },
+                                    "question": "364f74a3-3e9f-4ae9-b9b7-73d202258ee3",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-10"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X151",
+                    "text": "Schizophrenia Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "73e295b3-d02a-4d32-b0c1-0e955e1dc030"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "7340e5e7-44d9-41a2-affe-ba2f194ca06b",
+                            "text": "Was the Schizophrenia diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "6cc09a0d-6c56-4c03-861f-54b966d93a00"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1403-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1403-1",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "145f678b-6472-4689-8919-74f074839dc4",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "968fafed-94e2-4949-8389-9db3b41c73a9"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1403-0"
+                                    },
+                                    "question": "6cc09a0d-6c56-4c03-861f-54b966d93a00",
+                                    "operator": "="
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "2915c52a-bda0-4265-a36d-15bb34f35ac2",
+                            "text": "When was the last time you had symptoms related to Schizophrenia?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "2bb76dde-ab8e-4939-8a7e-5a10e33834b2"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1603-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1603-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1603-2",
+                                        "display": "Between 1-12 months ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1603-3",
+                                        "display": "Between 1-3 years ago"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1603-4",
+                                        "display": "More then 3 years ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "dccef667-2bd6-4981-8567-6e0e22223552",
+                            "text": "Do you currently take medication for Schizophrenia?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "381ecea3-48dc-4ecf-87cd-53f03ad661f2"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1703-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA1703-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "baselineLinkId": "e7c9efbe-7980-42e1-a1c6-8863fa2007ef"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/terminology-server",
+                                    "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                    "valueCodeableConcept": {
+                                        "coding": [
+                                            {
+                                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                "code": "gtable",
+                                                "display": "Group Table"
+                                            }
+                                        ],
+                                        "text": "Group Table"
+                                    }
+                                },
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/variable",
+                                    "valueExpression": {
+                                        "name": "strengthFormLookup",
+                                        "language": "application/x-fhir-query",
+                                        "expression": "https://clinicaltables.nlm.nih.gov/fhir/R4/CodeSystem/$lookup?system=https://clinicaltables.nlm.nih.gov/fhir/CodeSystem/rxterms&code={{item.where(linkId='medication').answer.valueCoding.code}}&property=STRENGTHS_AND_FORMS"
+                                    }
+                                }
+                            ],
+                            "linkId": "medications_table_12",
+                            "text": "Medications",
+                            "type": "group",
+                            "repeats": true,
+                            "item": [
+                                {
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "c5448402-9b46-4856-89bf-64041a8f95dd"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                                            "valueCodeableConcept": {
+                                                "coding": [
+                                                    {
+                                                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                                        "code": "autocomplete",
+                                                        "display": "Auto-complete"
+                                                    }
+                                                ],
+                                                "text": "Auto-complete"
+                                            }
+                                        }
+                                    ],
+                                    "linkId": "0dcca719-ab3a-41df-a74d-5aa18748159f",
+                                    "text": "Medication Name",
+                                    "type": "choice",
+                                    "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/rxterms"
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA1703-0"
+                                    },
+                                    "question": "381ecea3-48dc-4ecf-87cd-53f03ad661f2",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6568-11"
+                            },
+                            "question": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                            "operator": "="
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "text": "Clinical Condition(s) - Part B",
+            "linkId": "/X783",
+            "extension": [
+                {
+                    "baselineLinkId": "bdda441e-d6aa-4227-9727-0da3ca863b73"
+                }
+            ],
+            "item": [
+                {
+                    "type": "open-choice",
+                    "repeats": true,
+                    "extension": [
+                        {
+                            "baselineLinkId": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0"
+                        }
+                    ],
+                    "required": true,
+                    "linkId": "f16d9d6d-e326-4599-baee-671f0d1506db",
+                    "text": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)",
+                    "answerOption": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-0",
+                                "display": "Alzheimer or Dementia"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-1",
+                                "display": "Amyotrophic Lateral Sclerosis"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-2",
+                                "display": "Ataxia"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-3",
+                                "display": "Concussion"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-4",
+                                "display": "Brain Tumor"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-5",
+                                "display": "Cerebral Palsy"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-6",
+                                "display": "Epilepsy or other seizure disorder"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-7",
+                                "display": "Multiple Sclerosis"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-8",
+                                "display": "Parkinson's Disease"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-9",
+                                "display": "Stroke"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-10",
+                                "display": "Traumatic Brain Injury"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-11",
+                                "display": "I have never suffered from any of the conditions listed above"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X124",
+                    "text": "Alzheimer/Dementia Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "156e6ecc-92c4-4765-ad43-347eded6e149"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "352c1b8a-e035-48dc-bfc8-1726f5f6825b"
+                                }
+                            ],
+                            "required": true,
+                            "linkId": "5c5aad8d-f8d3-483a-b5cc-5e4f7e89a631",
+                            "text": "If your physician suspects that you suffer from a specific type of dementia, please select it here:",
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6573-0",
+                                        "display": "Probable Alzheimer's Disease"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6573-1",
+                                        "display": "Probable Dementia With Lew Bodies"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6573-2",
+                                        "display": "Probable Vascular Dementia"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6573-3",
+                                        "display": "Probable Frontotemporal Dementia"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6573-3",
+                                        "display": "Probable Mixed Dementia"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-0"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X125",
+                    "text": "Concussion Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "cdd70f62-452a-4b3f-a179-94f62bdf88bb"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "code": [
+                                {
+                                    "system": "http://loinc.org",
+                                    "code": "44250-20",
+                                    "display": "When did you experience your last concussion?"
+                                }
+                            ],
+                            "extension": [
+                                {
+                                    "baselineLinkId": "a0baf4e0-a6e0-4be2-b4d1-587730356108"
+                                }
+                            ],
+                            "required": true,
+                            "linkId": "4d3a69f2-20ed-43c6-9a2a-aea8c7e1e5d4",
+                            "text": "When did you experience your last concussion?",
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6574-0",
+                                        "display": "Within the last 24 hours"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6574-1",
+                                        "display": "Within the last 48 hours"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6574-2",
+                                        "display": "Within the last week"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6574-3",
+                                        "display": "Within the last month"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6574-4",
+                                        "display": "Within the last year"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6574-5",
+                                        "display": "Longer than a year ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "abd3dc88-60a2-4978-9372-eb186d88c03e"
+                                }
+                            ],
+                            "required": true,
+                            "linkId": "a6c2710a-911f-4ad3-8e5b-76d5804186cb",
+                            "text": "How many concussions have you had in your life?",
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6575-0",
+                                        "display": "1"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6575-1",
+                                        "display": "2"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6575-2",
+                                        "display": "3"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6575-3",
+                                        "display": "More than 3"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-3"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X220",
+                    "text": "Amyotrophic Lateral Sclerosis Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "b99157ac-9ea6-4fd4-86e7-ab4845b69c81"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "7454826e-e0ac-4f45-b409-b14496cbc56d",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "e140c674-5b3f-4866-bd53-040e0a876bbb"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-1"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X221",
+                    "text": "Ataxia Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "d655a646-23e4-4f1b-9ed7-4663be45029d"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "1fa3d4ae-3a92-485b-8b0b-1e6479edf177",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "7cad09e1-e866-44da-b462-d005c6a0192a"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-2"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X222",
+                    "text": "Brain Tumor Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "0368864d-1bfc-49aa-9c78-cc264109ac28"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "9d67983a-977e-40ba-a447-cfd5d569bc34",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "f154e4ef-796e-4ff9-b073-da0330cfd66f"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-4"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X223",
+                    "text": "Cerebral Palsy Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "7ef0f02b-8f5c-467c-98e4-d09ef179c5e7"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "ab73b662-25e8-4559-8bfa-c58b9813d078",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "6aa08d8c-fae6-4bde-bd6f-ef27b6554657"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-5"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X224",
+                    "text": "Epilepsy or Other Seizure Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "0228b081-c6ae-4289-830e-a9b732d5fdb8"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "7a4530b8-f0d5-4b54-affa-1d8f47bff1c7",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "a70baf15-23e0-45d6-8063-9871ac38af77"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-6"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X225",
+                    "text": "Multiple Sclerosis Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "c91d6b7e-27b3-497e-af9c-c916f8073a04"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "95e8fa9f-3a28-4141-8ed7-8755f56e0d02",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "ca621a83-3c8b-4e0d-bb4a-ad9bffc62dd9"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-7"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X226",
+                    "text": "Parkinson's Disease Diagnosis Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "43d1d134-0f5f-4b71-b99a-602b858526d0"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "28dfddd8-02d2-460b-afa4-0c2b3947497c",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "3cd09bb2-70f0-4746-96e6-8238bef49649"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-8"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X227",
+                    "text": "Stroke Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "9fb6323e-3d2a-4fc3-ba61-f80f07aa8315"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "3fd9b7ea-9a1f-4498-ad49-f524daa03e3a",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "0beaa61d-3780-49bd-9b01-83c887b0c729"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-9"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X228",
+                    "text": "Traumatic Brain Injury Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "a6965a97-c0cc-4ee1-8d88-8a05535dd83c"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "date",
+                            "required": true,
+                            "linkId": "f8aa6a1a-ef75-45ec-8276-ce16ecf2f6fc",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "35f00e64-cb3e-4dc1-aeff-2d2db0006307"
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6572-10"
+                            },
+                            "question": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                            "operator": "="
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "text": "Clinical Condition(s) - Not Listed Before",
+            "linkId": "/X745",
+            "extension": [
+                {
+                    "baselineLinkId": "7b215b4f-e105-42a9-886a-4b9bf0f2dbf0"
+                }
+            ],
+            "item": [
+                {
+                    "type": "open-choice",
+                    "extension": [
+                        {
+                            "baselineLinkId": "21bdcf49-129e-4b4c-a60d-17a1dc05a8ea"
+                        }
+                    ],
+                    "required": true,
+                    "linkId": "67b7e33c-7fa5-4f26-97ec-7290c947e715",
+                    "text": "Have you ever suffered from a psychiatric, neurological of neuro-developmental condition that was not listed before?",
+                    "answerOption": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6574-0",
+                                "display": "Yes"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6574-1",
+                                "display": "No"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X131",
+                    "text": "Additional Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "2334eb23-9d09-4490-b035-e97ed99d6edd"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "string",
+                            "required": true,
+                            "linkId": "7d18cc94-f86f-4b4a-a26c-948e0aff29bc",
+                            "text": "Please indicate the condition here",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "ac276b3c-b1a9-454b-ba94-74029e4d4ed9"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "open-choice",
+                            "required": true,
+                            "linkId": "f3d2b2f7-92c7-45bf-b69e-13cc0e9dd136",
+                            "text": "Is this condition still acute?",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "1aad1f16-1db2-4067-bdc3-65a5bd2e59b7"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6575-0",
+                                        "display": "Yes"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6575-1",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6574-0"
+                            },
+                            "question": "21bdcf49-129e-4b4c-a60d-17a1dc05a8ea",
+                            "operator": "="
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "text": "Pain Condition(s)",
+            "linkId": "/X774",
+            "extension": [
+                {
+                    "baselineLinkId": "c02a144d-1bcb-422d-96b1-4c8db27805a6"
+                }
+            ],
+            "item": [
+                {
+                    "type": "open-choice",
+                    "required": true,
+                    "linkId": "e7afd976-ab5d-4791-84f4-58fa821ba5ff",
+                    "text": "Do you suffer from a chronic pain condition?",
+                    "extension": [
+                        {
+                            "baselineLinkId": "9e5d6711-09e5-45a6-b837-16b5baf3f292"
+                        }
+                    ],
+                    "answerOption": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6576-0",
+                                "display": "Yes"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6576-1",
+                                "display": "No"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X127",
+                    "text": "Chronic Pain Details",
+                    "extension": [
+                        {
+                            "baselineLinkId": "df3ce84e-fc36-4a86-b829-e48c9f7e9080"
+                        }
+                    ],
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "repeats": true,
+                            "required": true,
+                            "linkId": "6ff91c25-adab-47b8-bd9d-edcf4971c3f0",
+                            "text": "Please select the chronic pain condition here (can select multiple conditions)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "b5bde583-893d-458d-ac39-9c9b0121f430"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-0",
+                                        "display": "Arthitis"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-1",
+                                        "display": "Chronic Back Pain"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-2",
+                                        "display": "Cluster Headaches"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-3",
+                                        "display": "Diabetic Neuropathy Pain"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-4",
+                                        "display": "Fibromyalgia"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-5",
+                                        "display": "General Chronic Pain"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-6",
+                                        "display": "Migraines"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-7",
+                                        "display": "Other"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "group",
+                            "linkId": "/X178",
+                            "text": "Other Chronic Pain State",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "ff44a4d9-37af-45bd-b781-a85d4bcf9bd2"
+                                }
+                            ],
+                            "item": [
+                                {
+                                    "type": "string",
+                                    "required": true,
+                                    "linkId": "465013ca-bad0-452d-93a7-f2f019ca3c3e",
+                                    "text": "If other, please state the chronic pain condition: ",
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "766fdb82-6cc0-479f-89e5-8754490529a3"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA6577-7"
+                                    },
+                                    "question": "b5bde583-893d-458d-ac39-9c9b0121f430",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6576-0"
+                            },
+                            "question": "9e5d6711-09e5-45a6-b837-16b5baf3f292",
+                            "operator": "="
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "text": "Sleeping Disorder(s)",
+            "linkId": "/X781",
+            "extension": [
+                {
+                    "baselineLinkId": "0c720b0a-fb60-4cc0-8c27-1dd637a120af"
+                }
+            ],
+            "item": [
+                {
+                    "type": "open-choice",
+                    "extension": [
+                        {
+                            "baselineLinkId": "bf7d6228-f5d2-4492-b781-07ed301a46db"
+                        }
+                    ],
+                    "required": true,
+                    "linkId": "5a3394a3-8157-4734-84d1-06b253d48c81",
+                    "text": "Do you suffer from a sleeping disorder?",
+                    "answerOption": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6578-0",
+                                "display": "Yes"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6578-1",
+                                "display": "No"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "linkId": "/X128",
+                    "extension": [
+                        {
+                            "baselineLinkId": "9610573d-0d56-40a4-8ae0-ae56ea47e057"
+                        }
+                    ],
+                    "text": "Sleeping Disorder Details",
+                    "item": [
+                        {
+                            "type": "open-choice",
+                            "repeats": true,
+                            "required": true,
+                            "linkId": "78be1e41-cc89-4364-9d0c-d877103bc464",
+                            "text": "Please select the sleeping disorder(s) here (you can select multiple conditions)",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "16fdf424-c76b-4fe5-b932-9b7bc126e011"
+                                }
+                            ],
+                            "answerOption": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-0",
+                                        "display": "Insomnia"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-1",
+                                        "display": "Sleep Apnea"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-2",
+                                        "display": "Narcolepsy"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-3",
+                                        "display": "Restless Leg Syndrome"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-4",
+                                        "display": "Parasomnias"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-5",
+                                        "display": "REM Sleep Behavior Disorder"
+                                    }
+                                },
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-7",
+                                        "display": "Other"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "group",
+                            "linkId": "/X179",
+                            "text": "Other Sleeping Order State",
+                            "extension": [
+                                {
+                                    "baselineLinkId": "1690e042-4b78-4db1-84c3-d2970976414e"
+                                }
+                            ],
+                            "item": [
+                                {
+                                    "type": "string",
+                                    "extension": [
+                                        {
+                                            "baselineLinkId": "9bdd997b-68f9-46bd-a74a-96ae95bf841d"
+                                        }
+                                    ],
+                                    "required": true,
+                                    "linkId": "b27a0d85-5583-4f3b-93af-3c85bde959b4",
+                                    "text": "If other, please state the sleeping disorder here: "
+                                }
+                            ],
+                            "enableWhen": [
+                                {
+                                    "answerCoding": {
+                                        "code": "LA6579-7"
+                                    },
+                                    "question": "16fdf424-c76b-4fe5-b932-9b7bc126e011",
+                                    "operator": "="
+                                }
+                            ]
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6578-0"
+                            },
+                            "question": "bf7d6228-f5d2-4492-b781-07ed301a46db",
+                            "operator": "="
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "text": "Medication(s) Not Listed Before",
+            "linkId": "/X786",
+            "extension": [
+                {
+                    "baselineLinkId": "829bcfdb-0c58-4763-b290-b9e31b064238"
+                }
+            ],
+            "item": [
+                {
+                    "type": "open-choice",
+                    "required": true,
+                    "linkId": "930d5efa-c981-49e3-adf6-97338bdd459a",
+                    "text": "Do you currently take any medication on a daily basis that was not part of this questionnaire yet?",
+                    "extension": [
+                        {
+                            "baselineLinkId": "f196acb4-652a-4db2-b93a-ddf04ac0a7da"
+                        }
+                    ],
+                    "answerOption": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6579-0",
+                                "display": "Yes"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6579-1",
+                                "display": "No"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "string",
+                    "linkId": "42e110a3-3e43-4766-96d9-52a7d44b968f",
+                    "repeats": true,
+                    "text": "Medication Name",
+                    "extension": [
+                        {
+                            "baselineLinkId": "7a5fd010-2b22-4e24-980c-01976422c310"
+                        }
+                    ],
+                    "enableWhen": [
+                        {
+                            "answerCoding": {
+                                "code": "LA6579-0"
+                            },
+                            "question": "f196acb4-652a-4db2-b93a-ddf04ac0a7da",
+                            "operator": "="
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
