@@ -1,6 +1,7 @@
 {
   "baseline": { "qID": "02f8b6c1-3768-4f30-902e-5e3677955bb8"},
-  "followUp": {"qID": "c40f5137-fb19-4306-b18b-d40cb81151b2"},
+  "baselineClinicalQuestions":  {"clinicalPartA": "9e0f5ddf-ef43-414b-a246-9dacf2a41ac6", "clinicalPartB": "bdda441e-d6aa-4227-9727-0da3ca863b73"},
+  "followup": {"qID": "c40f5137-fb19-4306-b18b-d40cb81151b2"},
   "PHQ-9": {
     "qID": "33805677-47df-4a77-bd01-f6f01bd82ab0",
     "aID": "LA6568-6",

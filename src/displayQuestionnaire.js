@@ -1,32 +1,20 @@
 
+import * as utilities from "../src/utilities.js";
 
-let questions = null
+const patientID = window.location.search.substring(1).split("=")[1];
 let questions_id = null
-
-// document.body.addEventListener("mousemove", isResponseChanged)
-let initalResponse = null
+let encounterID = null
 let qDetails = await fetch("./resources/conditionToQID.json")
 qDetails = await qDetails.json()
-let current_qID = qDetails.baseline.qID
 let displaySelfAssessment = []
-// try {
-//     console.log("here")
-//     questions = await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='"+current_qID+"'")
-//         .then(response => response.json())
-//         .then(async fhirQ => {
-//             fhirQ = fhirQ[0]
-//             questions_id = fhirQ.id
-//             LForms.Util.addFormToPage(fhirQ, 'formContainer');
-//             setTimeout(function() { createButton(); }, 1000);
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         });
-// }
-// catch (e){
-//     console.log(e)
-// }
 presentQuestionnaire("baseline")
+
+
+
+//////////////////////////////////////
+// document.body.addEventListener("mousemove", isResponseChanged)
+let initalResponse = null
+let current_qID = qDetails.baseline.qID
 function getCurrentResponseWithoutDate(){
     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
     delete response.authored;
@@ -98,7 +86,6 @@ let one_ans = {
         }
     ]
 }
-// console.log(deepEqual(inital, inital))
 function deepEqual(x, y) {
     // if (x && y && typeof x === 'object' && typeof y === 'object'){
     //     if(Object.keys(x).length === Object.keys(y).length){
@@ -110,32 +97,17 @@ function deepEqual(x, y) {
     // }
     return (x && y && typeof x === 'object' && typeof y === 'object') ?
         (Object.keys(x).length === Object.keys(y).length) &&
-        Object.keys(x).reduce(function(isEqual, key) {
+        Object.keys(x).reduce(function (isEqual, key) {
             return isEqual && deepEqual(x[key], y[key]);
         }, true) : (x === y);
 }
-
 function unhideButton(){
     let btn = document.getElementById("submitButton");
     btn.disabled = false;
 }
+///////////////////////////////////////
 
-function createButton(qName, lastQuestionnaire){
-    lastQuestionnaire ? console.log(getEventListeners(window)) : null
-    let div = document.getElementById("submitDiv");
-    let btn = document.createElement("button");
-    btn.innerHTML = !lastQuestionnaire ? "Submit and continue to the next form" : "Submit and finish"
-    btn.className = "btn btn-primary"
-    btn.id = "submitButton"
-    btn.addEventListener("click", function(){
-        handleResponse(qName)
-    });
-    div.appendChild(btn)
-    // let btn = document.getElementById("submitButton");
-    // btn.removeAttribute("hidden");
 
-    // btn.disabled = true;
-}
 
 
 function hideSubmitButton(){
@@ -157,27 +129,35 @@ async function handleResponse(qName){
         })
     }
     else {
-        response.subject = {"reference": "Patient/patient_id"};
-        response.extension = {
-            "score": await getScore(response),
-            "questionnaire_id": questions_id,
-            "encounter_id": "73d0da36-e27f-4dec-b443-a948bd404a28",
-            // "is_follow_up": true
+        try{
+            if(!encounterID) //first time of getting encounterID
+                encounterID = await utilities.getEncounterID(patientID, response, qDetails).catch(response => console.log(response))
+            response.subject = {"reference": "Patient/".concat(patientID)};
+            console.log(response.subject, encounterID)
+            response.extension = {
+                "score": await utilities.getScore(response),
+                "questionnaire_id": questions_id,
+                "encounter_id": encounterID,
+            }
+            // downloadResponseAsFile(response, "response_testing_followup")
+            console.log(response);
+            document.getElementById("submitButton").remove();
+            if(qName === "baseline")
+                displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails)
+            if (displaySelfAssessment){
+                qName = displaySelfAssessment.splice(0, 1)[0]
+                let lastQuestionnaire = !displaySelfAssessment.length
+                if(qName)
+                    presentQuestionnaire(qName, lastQuestionnaire)
+                //else window.location.replace("approval.html"); //Need to do only if approval was sent from the post
+            }
+            // hideSubmitButton()
+            // postQuestionnaireResponse(response)
         }
-        // downloadResponseAsFile(response, "response_baseline_bucket")
-        
-        console.log(response);
-        document.getElementById("submitButton").remove();
-        if(qName === "baseline")
-            displaySelfAssessment = checkResponseOfBaseline(response)
-        if (displaySelfAssessment){
-            qName = displaySelfAssessment.splice(0, 1)[0]
-            let lastQuestionnaire = !displaySelfAssessment.length
-            qName ? presentQuestionnaire(qName, lastQuestionnaire) :
-                window.location.replace("approval.html"); //Need to do only if approval was sent from the post
+        catch (e){
+            console.log(e, "rrrrr")
         }
-        // hideSubmitButton()
-        // postQuestionnaireResponse(response)
+
     }
 }
 
@@ -190,11 +170,11 @@ async function presentQuestionnaire(qName, lastQuestionnaire) {
                 fhirQ = fhirQ[0]
                 questions_id = fhirQ.id
                 window.scrollTo(0, 0);
-                window.addEventListener('beforeunload', (event) => {
-                    event.returnValue = 'There is unsaved response. Are you sure you want to leave?';
-                });
+                // window.addEventListener('beforeunload', (event) => {
+                //     event.returnValue = 'There is unsaved response. Are you sure you want to leave?';
+                // });
                 LForms.Util.addFormToPage(fhirQ, 'formContainer');
-                setTimeout(function() { createButton(qName, lastQuestionnaire); }, 1000);
+                setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
             })
             .catch((error) => {
                 console.log(error)
@@ -289,48 +269,6 @@ function postQuestionnaire(questionnaire){
     }
 }
 
-function ifAnswerInSelfAssessment(answerCode){
-    let conditions = Object.keys(qDetails)
-    conditions.splice(0,2)
-    for(let i = 0; i < conditions.length; i++){
-        let curr_code = qDetails[conditions[i]].aID
-        if(curr_code === answerCode){
-            return conditions[i]
-        }
-    }
-    return null
-}
-
-function checkResponseOfBaseline(response){
-    let answersPartA = response.item[1].item[0].answer
-    let displaySelfAssessment = []
-    if(answersPartA){
-        for (let i = 0; i < answersPartA.length; i++){
-            let answer = answersPartA[i].valueCoding.code
-            let condition = ifAnswerInSelfAssessment(answer)
-            if(condition)
-                displaySelfAssessment.push(condition)
-        }
-    }
-    if(!displaySelfAssessment.includes("PHQ-9"))
-        displaySelfAssessment.push("PHQ-9")
-    return displaySelfAssessment
-}
-
-async function getScore(response) {
-    let scoreIDs = await fetch("./resources/scoresIDS.json")
-    scoreIDs = await scoreIDs.json()
-    scoreIDs = scoreIDs.scoreIDs
-    let lastQuestion = response.item[response.item.length - 1]
-    let score;
-    let linkID = lastQuestion.linkId
-    if(scoreIDs.includes(linkID)){
-        score = lastQuestion.answer[0].valueDecimal
-        return Number.isInteger(score) ? score : null
-    }
-    return null
-}
-
 function postQuestionnaireResponse(response){
     try {
         fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
@@ -348,9 +286,9 @@ function postQuestionnaireResponse(response){
     }
 }
 
+
+
+
+
 export {presentQuestionnaire, displaySelfAssessment}
-
-
-
-
 

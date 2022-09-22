@@ -1,0 +1,106 @@
+{
+    "resourceType": "QuestionnaireResponse",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
+        ],
+        "tag": [
+            {
+                "code": "lformsVersion: 30.0.0"
+            }
+        ]
+    },
+    "status": "completed",
+    "authored": "2022-09-21T04:05:20.828Z",
+    "item": [
+        {
+            "linkId": "6bf1251b-3219-4076-b71a-1198779846f5",
+            "text": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?",
+            "answer": [
+                {
+                    "valueCoding": {
+                        "code": 1,
+                        "display": "Rarely"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "94a87021-8ad2-4db8-935e-bade984a78bb",
+            "text": "How often do you have difficulty getting things in order when you have to do a task that requires organization?",
+            "answer": [
+                {
+                    "valueCoding": {
+                        "code": 0,
+                        "display": "Never"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "feceedf0-a231-4712-9555-1b08e6f5d0cc",
+            "text": "How often do you have problems remembering appointments or obligations?",
+            "answer": [
+                {
+                    "valueCoding": {
+                        "code": 1,
+                        "display": "Rarely"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "0dd1fa68-91cc-4d85-9b26-a4be3fe50827",
+            "text": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
+            "answer": [
+                {
+                    "valueCoding": {
+                        "code": 1,
+                        "display": "Rarely"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "9af34a3d-4198-42cc-8fc6-1121e5842f01",
+            "text": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?",
+            "answer": [
+                {
+                    "valueCoding": {
+                        "code": 4,
+                        "display": "Very Often"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "0f9ae405-8d5e-4c05-860c-5df81a0ac5c4",
+            "text": "How often do you feel overly active and compelled to do things, like you were driven by a motor?",
+            "answer": [
+                {
+                    "valueCoding": {
+                        "code": 1,
+                        "display": "Rarely"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "6d5a9f6c-cc2c-4f1a-9784-722ef2123c83",
+            "text": "",
+            "answer": [
+                {
+                    "valueDecimal": 8
+                }
+            ]
+        }
+    ],
+    "subject": {
+        "reference": "Patient/594d3e7029488f18cacad39b"
+    },
+    "extension": {
+        "score": 8,
+        "questionnaire_id": "dab738d2-2202-44ef-a613-bdac369d3bb5",
+        "encounter_id": "c248e968-a6e5-4c37-91f4-729d40c85500"
+    }
+}

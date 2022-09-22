@@ -1,0 +1,319 @@
+{
+    "resourceType": "QuestionnaireResponse",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
+        ],
+        "tag": [
+            {
+                "code": "lformsVersion: 30.0.0"
+            }
+        ]
+    },
+    "status": "completed",
+    "authored": "2022-09-21T04:03:53.437Z",
+    "item": [
+        {
+            "linkId": "618cc88b-1c09-4564-bcee-adba7a3d546e",
+            "text": "Active Symptom(s)",
+            "item": [
+                {
+                    "linkId": "cb6dd1b6-3e50-4599-a1fa-2c0b15eb4341",
+                    "text": "Have you been frequently experiencing any of the symptoms listed below in the past month? (Please select all that apply, multiple responses are possible)?",
+                    "answer": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6571-15",
+                                "display": "No Symptoms"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "9e0f5ddf-ef43-414b-a246-9dacf2a41ac6",
+            "text": "Clinical Condition(s) - Part A",
+            "item": [
+                {
+                    "linkId": "2c39aa4b-5530-4d13-bf7a-a78e09a92b00",
+                    "text": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)",
+                    "answer": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-1",
+                                "display": "Addiction"
+                            }
+                        },
+                        {
+                            "valueCoding": {
+                                "code": "LA6568-0",
+                                "display": "Attention deficit disorder (ADHD)"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "b4119c0f-c798-45b2-b9b7-ccaa514c5687",
+                    "text": "Attention deficit disorder (ADHD) Diagnosis Details",
+                    "item": [
+                        {
+                            "linkId": "c5516dd9-af27-46a4-bf0c-1d27b6617b84",
+                            "text": "Was the Attention deficit disorder (ADHD) diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2400-2",
+                                        "display": "No, but is seems to fit my experiences"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "052448b4-2801-4c88-82c2-594e51bf8146",
+                            "text": "When was the last time you had symptoms related to the Attention deficit disorder (ADHD)?",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2600-0",
+                                        "display": "Within the last 48h"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "6527d3ae-ac2f-43ad-bcab-9f4a454e2072",
+                            "text": "Do you currently take medication for Attention deficit disorder (ADHD)?",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA2700-2",
+                                        "display": "No"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "linkId": "26d36a0a-e700-4fb3-a3f7-06568c06eef7",
+                    "text": "Addiction Diagnosis Details",
+                    "item": [
+                        {
+                            "linkId": "086329b2-6068-484d-a03d-34d580215bb7",
+                            "text": "Was the Addiction diagnosed by a clinician (e.g., physician or psychologist)?",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3400-0",
+                                        "display": "Yes"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "e6f491c6-8a8b-4011-b073-9c00673b5a41",
+                            "text": "Please state the date of the first diagnosis (if you don't remember the exact date, please choose 01/01/YYYY)",
+                            "answer": [
+                                {
+                                    "valueDate": "2022-09-05"
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "b694ece0-86c8-40db-b61b-71bdac0a4ed7",
+                            "text": "When was the last time you had symptoms related to Addiction?",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3600-1",
+                                        "display": "Between 2 days - 1 month ago"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "bbf86d82-15be-433c-9fc6-f292893a1553",
+                            "text": "Do you currently take medication for Addiction?",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA3700-0",
+                                        "display": "Yes"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "4c20787e-0222-43b6-80ad-beee202a3711",
+                            "text": "Medications",
+                            "item": [
+                                {
+                                    "linkId": "c2389e24-6c8b-45a8-aa6d-b9aa02a21539",
+                                    "text": "Medication Name",
+                                    "answer": [
+                                        {
+                                            "valueCoding": {
+                                                "code": "K-TAB XR (Oral Pill)",
+                                                "display": "K-TAB XR (Oral Pill)"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "bdda441e-d6aa-4227-9727-0da3ca863b73",
+            "text": "Clinical Condition(s) - Part B",
+            "item": [
+                {
+                    "linkId": "97bcc72f-33ce-4ad6-beb1-b0c3764f2cc0",
+                    "text": "Have you ever suffered from any of the following conditions? (Please select all that apply, multiple responses are possible)",
+                    "answer": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6572-2",
+                                "display": "Ataxia"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "d655a646-23e4-4f1b-9ed7-4663be45029d",
+                    "text": "Ataxia Diagnosis Details",
+                    "item": [
+                        {
+                            "linkId": "7cad09e1-e866-44da-b462-d005c6a0192a",
+                            "text": "Please state the date of the first diagnosis (if the exact date is unknown, please select only the month and year or only the year)",
+                            "answer": [
+                                {
+                                    "valueDate": "2022-09-20"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "7b215b4f-e105-42a9-886a-4b9bf0f2dbf0",
+            "text": "Clinical Condition(s) - Not Listed Before",
+            "item": [
+                {
+                    "linkId": "21bdcf49-129e-4b4c-a60d-17a1dc05a8ea",
+                    "text": "Have you ever suffered from a psychiatric, neurological of neuro-developmental condition that was not listed before?",
+                    "answer": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6574-1",
+                                "display": "No"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "c02a144d-1bcb-422d-96b1-4c8db27805a6",
+            "text": "Pain Condition(s)",
+            "item": [
+                {
+                    "linkId": "9e5d6711-09e5-45a6-b837-16b5baf3f292",
+                    "text": "Do you suffer from a chronic pain condition?",
+                    "answer": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6576-0",
+                                "display": "Yes"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "df3ce84e-fc36-4a86-b829-e48c9f7e9080",
+                    "text": "Chronic Pain Details",
+                    "item": [
+                        {
+                            "linkId": "b5bde583-893d-458d-ac39-9c9b0121f430",
+                            "text": "Please select the chronic pain condition here (can select multiple conditions)",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6577-1",
+                                        "display": "Chronic Back Pain"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "0c720b0a-fb60-4cc0-8c27-1dd637a120af",
+            "text": "Sleeping Disorder(s)",
+            "item": [
+                {
+                    "linkId": "bf7d6228-f5d2-4492-b781-07ed301a46db",
+                    "text": "Do you suffer from a sleeping disorder?",
+                    "answer": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6578-0",
+                                "display": "Yes"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "9610573d-0d56-40a4-8ae0-ae56ea47e057",
+                    "text": "Sleeping Disorder Details",
+                    "item": [
+                        {
+                            "linkId": "16fdf424-c76b-4fe5-b932-9b7bc126e011",
+                            "text": "Please select the sleeping disorder(s) here (you can select multiple conditions)",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "code": "LA6579-5",
+                                        "display": "REM Sleep Behavior Disorder"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "829bcfdb-0c58-4763-b290-b9e31b064238",
+            "text": "Medication(s) Not Listed Before",
+            "item": [
+                {
+                    "linkId": "f196acb4-652a-4db2-b93a-ddf04ac0a7da",
+                    "text": "Do you currently take any medication on a daily basis that was not part of this questionnaire yet?",
+                    "answer": [
+                        {
+                            "valueCoding": {
+                                "code": "LA6579-1",
+                                "display": "No"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "subject": {
+        "reference": "Patient/594d3e7029488f18cacad39b"
+    },
+    "extension": {
+        "score": null,
+        "questionnaire_id": "02f8b6c1-3768-4f30-902e-5e3677955bb8",
+        "encounter_id": "c248e968-a6e5-4c37-91f4-729d40c85500"
+    }
+}
