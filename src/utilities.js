@@ -66,12 +66,8 @@ export function checkResponseOfBaseline(response, qDetails, responsesUnderThresh
     }
     if(responsesUnderThresholdArray){
         // Firstly, merge between answers and score threshold
-        let mergedArray = displaySelfAssessment.concat(responsesUnderThresholdArray)
-        displaySelfAssessment = mergedArray.filter((item, pos) => mergedArray.indexOf(item) === pos)
-
-        // Secondly, merge between answers and timeRange threshold
         let standsInTimeRange = checkResponsesTimeRange(displaySelfAssessment, response, qDetails)
-        mergedArray = displaySelfAssessment.concat(standsInTimeRange)
+        let mergedArray = standsInTimeRange.concat(responsesUnderThresholdArray)
         displaySelfAssessment = mergedArray.filter((item, pos) => mergedArray.indexOf(item) === pos)
     }
     return displaySelfAssessment
