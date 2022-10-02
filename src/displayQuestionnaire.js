@@ -4,9 +4,11 @@ import * as utilities from "../src/utilities.js";
 const patientID = window.location.search.substring(1).split("=")[1];
 let questions_id = null
 let encounterID = null
+let PATIENTID = "578a5228a0aa5d5d70b91606"
 let qDetails = await fetch("./resources/conditionToQID.json")
 qDetails = await qDetails.json()
 let displaySelfAssessment = []
+let isFormCompleted = false
 presentQuestionnaire("baseline")
 
 
@@ -117,10 +119,16 @@ function hideSubmitButton(){
 
 async function handleResponse(qName){
     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-    // console.log(response);
-    // let missingQuestions = validationCheck(questions, response);
-    let missingQuestions = [];
-    if(missingQuestions.length !==0 ) {
+    let missingQuestions;
+    if(!response.item){
+        missingQuestions = "None of the questions were answered, please review the questionnaire again."
+    }
+    else {
+        missingQuestions = LForms.Util.checkValidity('formContainer')
+        if(missingQuestions)
+            missingQuestions = utilities.adjuctErrors(missingQuestions)
+    }
+    if(missingQuestions) {
         swal({
             title: "Missing answers",
             text: missingQuestions,
@@ -130,9 +138,10 @@ async function handleResponse(qName){
     }
     else {
         try{
+            utilities.handleLoadingSubmitButton()
             if(!encounterID) //first time of getting encounterID
-                encounterID = await utilities.getEncounterID(patientID, response, qDetails).catch(response => console.log(response))
-            response.subject = {"reference": "Patient/".concat(patientID)};
+                encounterID = await utilities.getEncounterID(PATIENTID, response, qDetails).catch(response => console.log(response))
+            response.subject = {"reference": "Patient/".concat(PATIENTID)};
             console.log(response.subject, encounterID)
             response.extension = {
                 "score": await utilities.getScore(response),
@@ -147,15 +156,18 @@ async function handleResponse(qName){
             if (displaySelfAssessment){
                 qName = displaySelfAssessment.splice(0, 1)[0]
                 let lastQuestionnaire = !displaySelfAssessment.length
-                if(qName)
+                if(qName){
                     presentQuestionnaire(qName, lastQuestionnaire)
-                //else window.location.replace("approval.html"); //Need to do only if approval was sent from the post
+                }
+                else {
+                    isFormCompleted = true
+                    window.location.replace("approval.html");
+                } //Need to do only if approval was sent from the post
             }
             // hideSubmitButton()
             // postQuestionnaireResponse(response)
         }
         catch (e){
-            console.log(e, "rrrrr")
         }
 
     }
@@ -163,17 +175,21 @@ async function handleResponse(qName){
 
 async function presentQuestionnaire(qName, lastQuestionnaire) {
     try {
+        let questionnaire = {}
         let qID = qDetails[qName].qID
         await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='"+qID+"'")
             .then(response => response.json())
             .then(async fhirQ => {
-                fhirQ = fhirQ[0]
-                questions_id = fhirQ.id
+                questionnaire = fhirQ[0]
+                questions_id = questionnaire.id
                 window.scrollTo(0, 0);
-                // window.addEventListener('beforeunload', (event) => {
-                //     event.returnValue = 'There is unsaved response. Are you sure you want to leave?';
-                // });
-                LForms.Util.addFormToPage(fhirQ, 'formContainer');
+                window.addEventListener('beforeunload', (event) => {
+                    if(!isFormCompleted)
+                        event.returnValue = 'There is unsaved response. Are you sure you want to leave?';
+                });
+                if(qName === "baseline")
+                    utilities.removeSpinnerDiv()
+                LForms.Util.addFormToPage(questionnaire, 'formContainer');
                 setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
             })
             .catch((error) => {
@@ -193,61 +209,57 @@ function downloadResponseAsFile(response, fileName){
     a.click();
 }
 
-function flatItem(item, dic, questions){
-    if(!item["item"]){
-        if(Array.isArray(item)){
-            // console.log(item)
-            for(let i = 0; i < item.length; i++){
-                if(questions && item[i].required || !questions){
-                    dic[item[i].linkId] = item[i].text;
-                }
-            }
-            return dic;
-        }
-        else{
-            if(questions && item.required || !questions)
-                dic[item.linkId] = item.text;
-            // console.log(dic)
-            return dic
-        }
-    }
-    else
-        return flatItem(item["item"], dic);
-}
-
-function extractDictOfItems(object, questions = true){
-    let items = object["item"];
-    let dic = {};
-    for(let i = 0; i < items.length; i++){
-        dic = flatItem(items[i], dic, questions);
-    }
-    return dic;
-}
-
-function validationCheck(questions, response){
-    let missingQuestions = ""
-    if(!response.item){
-        missingQuestions = "None of the questions were answered, please review the questionnaire again."
-    }
-    else{
-        missingQuestions = "Please answer the following question(s) before continuing:\n"
-        let questionsDic = extractDictOfItems(questions)
-        console.log(questionsDic)
-        let answersDic = extractDictOfItems(response, false)
-        for(const question in questionsDic){
-            if(!answersDic.hasOwnProperty(question)){
-                missingQuestions = missingQuestions.concat(questionsDic[question]+"\n");
-            }
-        }
-        console.log(missingQuestions);
-    }
-    return missingQuestions;
-}
+// function flatItem(item, dic, questions){
+//     if(!item["item"]){
+//         if(Array.isArray(item)){
+//             for(let i = 0; i < item.length; i++){
+//                 if(questions && item[i].required || !questions){
+//                     dic[item[i].linkId] = item[i].text;
+//                 }
+//             }
+//             return dic;
+//         }
+//         else{
+//             if(questions && item.required || !questions)
+//                 dic[item.linkId] = item.text;
+//             return dic
+//         }
+//     }
+//     else
+//         return flatItem(item["item"], dic);
+// }
+//
+// function extractDictOfItems(object, questions = true){
+//     let items = object["item"];
+//     let dic = {};
+//     for(let i = 0; i < items.length; i++){
+//         dic = flatItem(items[i], dic, questions);
+//     }
+//     return dic;
+// }
+//
+// function validationCheck(questions, response){
+//     let missingQuestions = ""
+//     if(!response.item){
+//         missingQuestions = "None of the questions were answered, please review the questionnaire again."
+//     }
+//     else{
+//         missingQuestions = "Please answer the following question(s) before continuing:\n"
+//         let questionsDic = extractDictOfItems(questions)
+//         console.log(questionsDic)
+//         let answersDic = extractDictOfItems(response, false)
+//         for(const question in questionsDic){
+//             if(!answersDic.hasOwnProperty(question)){
+//                 missingQuestions = missingQuestions.concat(questionsDic[question]+"\n");
+//             }
+//         }
+//         console.log(missingQuestions);
+//     }
+//     return missingQuestions;
+// }
 
 function postQuestionnaire(questionnaire){
     try {
-        console.log("posting...")
-        console.log(questionnaire)
         let statusCode
         const result = fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire', {
             method: 'POST',
@@ -255,7 +267,6 @@ function postQuestionnaire(questionnaire){
             headers: {'Content-Type': 'application/json'}
         }).then(response => response.json())
             .then(async fhirQ => {
-                console.log(fhirQ)
                 if(statusCode === 200)
                     downloadResponseAsFile(fhirQ, "baselineBucket")
             })
@@ -285,9 +296,6 @@ function postQuestionnaireResponse(response){
         console.log(e)
     }
 }
-
-
-
 
 
 export {presentQuestionnaire, displaySelfAssessment}

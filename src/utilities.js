@@ -12,20 +12,22 @@ export async function getQuestionnaireResponse(parameter, value){
 }
 
 export function createButton(qName, lastQuestionnaire, handler){
-    // lastQuestionnaire ? console.log(getEventListeners(window)) : null
     let div = document.getElementById("submitDiv");
     let btn = document.createElement("button");
-    btn.innerHTML = !lastQuestionnaire ? "Submit and continue to the next form" : "Submit and finish"
     btn.className = "btn btn-primary"
     btn.id = "submitButton"
+    btn.innerHTML = !lastQuestionnaire ? "Submit and continue to the next form " : "Submit and finish "
+
     btn.addEventListener("click", function(){
         handler(qName)
     });
-    div.appendChild(btn)
-    // let btn = document.getElementById("submitButton");
-    // btn.removeAttribute("hidden");
+    let spinner = document.createElement("span")
+    spinner.id = "loadingSpinner"
+    spinner.className = "spinner-border spinner-border-sm"
+    spinner.hidden = true
+    btn.appendChild(spinner)
 
-    // btn.disabled = true;
+    div.appendChild(btn)
 }
 
 export async function getScore(response) {
@@ -42,21 +44,54 @@ export async function getScore(response) {
     return null
 }
 
-export function checkResponseOfBaseline(response, qDetails){
+export function checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray = null){
     // TODO: add check for partB as well
     let answersPartA = response.item[1].item[0].answer
     let displaySelfAssessment = []
     if(answersPartA){
         for (let i = 0; i < answersPartA.length; i++){
-            let answer = answersPartA[i].valueCoding.code
-            let condition = ifAnswerInSelfAssessment(answer, qDetails)
+            let answerCode = answersPartA[i].valueCoding.code
+            let condition = ifAnswerInSelfAssessment(answerCode, qDetails)
             if(condition)
                 displaySelfAssessment.push(condition)
         }
     }
-    if(!displaySelfAssessment.includes("PHQ-9"))
-        displaySelfAssessment.push("PHQ-9")
+    if(!responsesUnderThresholdArray){
+        if(!displaySelfAssessment.includes("PHQ-9"))
+            displaySelfAssessment.unshift("PHQ-9")
+        else{
+            let first = "PHQ-9";
+            displaySelfAssessment.sort(function(x,y){ return x === first ? -1 : y === first ? 1 : 0; });
+        }
+    }
+    if(responsesUnderThresholdArray){
+        // Firstly, merge between answers and score threshold
+        let mergedArray = displaySelfAssessment.concat(responsesUnderThresholdArray)
+        displaySelfAssessment = mergedArray.filter((item, pos) => mergedArray.indexOf(item) === pos)
+
+        // Secondly, merge between answers and timeRange threshold
+        let standsInTimeRange = checkResponsesTimeRange(displaySelfAssessment, response, qDetails)
+        mergedArray = displaySelfAssessment.concat(standsInTimeRange)
+        displaySelfAssessment = mergedArray.filter((item, pos) => mergedArray.indexOf(item) === pos)
+    }
     return displaySelfAssessment
+}
+
+function checkResponsesTimeRange(displaySelfAssessment, response, qDetails){
+    let standsInTimeRange = []
+    for(let i = 0; i < displaySelfAssessment.length; i++){
+        let detailsQID = qDetails[displaySelfAssessment[i]].detailsQID
+        let questions = response.item[1].item
+        for(let j = 1; j < questions.length; j++){
+            if(questions[j].linkId === detailsQID){
+                let levelThreshold = qDetails[displaySelfAssessment[i]].timeRange
+                let currentLevel  = qDetails.timeRangeAnswers[questions[j].item[1].answer[0].valueCoding.display]
+                if(currentLevel <= levelThreshold)
+                    standsInTimeRange.push(displaySelfAssessment[i])
+            }
+        }
+    }
+    return standsInTimeRange
 }
 
 function ifAnswerInSelfAssessment(answerCode, qDetails){
@@ -71,11 +106,15 @@ function ifAnswerInSelfAssessment(answerCode, qDetails){
     return null
 }
 
-export async function getEncounterID(patientId, response, qDetails) {
+function getCurrentTimestamp(){
     let today = new Date()
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-    let encounterDate = date + ' ' + time
+    return date + ' ' + time
+}
+
+export async function getEncounterID(patientId, response, qDetails) {
+    let encounterDate = getCurrentTimestamp()
     let conditionsList = getConditionsList(response, qDetails)
     let encounterID = null
     let url = "https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/" +
@@ -109,3 +148,76 @@ function getConditionsList(response, qDetails){
     }
     return conditionsListString
 }
+
+export function handleLoadingSubmitButton(){
+    let button = document.getElementById("submitButton")
+    let spinner = document.getElementById("loadingSpinner")
+    spinner.hidden = false;
+    button.disabled = true;
+}
+
+export function removeSpinnerDiv(){
+    const element = document.getElementById("spinnerDiv");
+    element.remove();
+}
+
+
+// function flatItem(item, dic, questions){
+//     if(!item["item"]){
+//         if(Array.isArray(item)){
+//             for(let i = 0; i < item.length; i++){
+//                 if(questions && item[i].required || !questions){
+//                     dic[item[i].linkId] = item[i].text;
+//                 }
+//             }
+//             return dic;
+//         }
+//         else{
+//             if(questions && item.required || !questions)
+//                 dic[item.linkId] = item.text;
+//             return dic
+//         }
+//     }
+//     else
+//         return flatItem(item["item"], dic);
+// }
+//
+// function extractDictOfItems(object, questions = true){
+//     let items = object["item"];
+//     let dic = {};
+//     for(let i = 0; i < items.length; i++){
+//         dic = flatItem(items[i], dic, questions);
+//     }
+//     return dic;
+// }
+//
+// export function validationCheck(questions, response){
+//     let missingQuestions = ""
+//     if(!response.item){
+//         missingQuestions = "None of the questions were answered, please review the questionnaire again."
+//     }
+//     else{
+//         missingQuestions = "Please answer the following question(s) before continuing:\n"
+//         let questionsDic = extractDictOfItems(questions)
+//         console.log(questionsDic)
+//         let answersDic = extractDictOfItems(response, false)
+//         for(const question in questionsDic){
+//             if(!answersDic.hasOwnProperty(question)){
+//                 missingQuestions = missingQuestions.concat(questionsDic[question]+"\n");
+//             }
+//         }
+//         console.log(missingQuestions);
+//     }
+//     return missingQuestions;
+// }
+
+export function adjuctErrors(errors){
+    let result = "Please answer the following question(s) before continuing:\n\n"
+    for (let i = 0; i < errors.length; i++){
+        result = result.concat("- "+errors[i].split("requires")[0].split("(")[0]+"\n");
+    }
+    return result
+}
+
+
+

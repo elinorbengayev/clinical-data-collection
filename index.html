@@ -1,37 +1,37 @@
-<!doctype html>
+<html>
+
 <head>
-    <title>Display Questionnaire</title>
+<title>Send Questionnaire</title>
 <!--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
-<!--    <link rel="stylesheet" href="src/resources/css.css">-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--    <link rel="stylesheet" href="src/resources/css.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-<link href="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/styles.css" media="screen" rel="stylesheet" />
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center">
-        </div>
-    </div>
-    <div class="container" id="formContainer"></div>
-    <div class="row">
-    <div class="col-md-12 text-center" id="submitDiv">
-<!--        <button id="submitButton" class="btn btn-primary" hidden>Submit and continue to the next form</button>-->
-    </div>
-    </div>
-</div>
-<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/assets/lib/zone.min.js"></script>
-<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/scripts.js"></script>
-<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/runtime-es5.js"></script>
-<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/polyfills-es5.js"></script>
-<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/main-es5.js"></script>
-<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/fhir/R4/lformsFHIR.min.js"></script>
-</body>
-<!--<script src='https://kit.fontawesome.com/8c5b839f7d.js'></script>-->
-<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-<!--<script type="module" src="src/displayQuestionnaire.js"></script>-->
-<script type="module" src="src/displayQuestionnaire.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--<link href="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/styles.css" media="screen" rel="stylesheet" />-->
 
+<div class="container mt-4">
+
+    <div class="form-group">
+        <label>Patient ID</label>
+        <input type="text" class="form-control" id="inputPatientID" placeholder="Patient ID">
+    </div>
+    <button id="submitButton" type="button" class="btn btn-primary">
+        Submit
+        <span id="loadingSpinner" class="spinner-border spinner-border-sm" hidden></span>
+    </button>
+</div>
+<!--<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/assets/lib/zone.min.js"></script>-->
+<!--<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/scripts.js"></script>-->
+<!--<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/runtime-es5.js"></script>-->
+<!--<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/polyfills-es5.js"></script>-->
+<!--<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/webcomponent/main-es5.js"></script>-->
+<!--<script src="https://clinicaltables.nlm.nih.gov/lforms-versions/30.0.0/fhir/R4/lformsFHIR.min.js"></script>-->
+<!--<script src='https://kit.fontawesome.com/8c5b839f7d.js'></script>-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="module" src="src/redirectToQuestionnaire.js"></script>
+</body>
+
+</html>
 
 
 

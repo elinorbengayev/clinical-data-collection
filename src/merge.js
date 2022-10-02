@@ -5,36 +5,43 @@ qDetails = await qDetails.json()
 let questions_id = null
 let encounterID = null;
 let displaySelfAssessment = []
-
-var patientID = window.location.search.substring(1).split("=")[1].split("&")[0];
-var lastEncounterID = window.location.search.substring(1).split("=")[2];
+let patientID = window.location.search.substring(1).split("=")[1].split("&")[0];
+let lastEncounterID = window.location.search.substring(1).split("=")[2];
 let allResponses = await utilities.getQuestionnaireResponse("encounter_id", lastEncounterID)
-let indexToQType = responsesToIDs(allResponses)
+let responsesUnderThresholdArray = responsesUnderThreshold(allResponses, qDetails)
+let isFormCompleted = false
 presentQuestionnaire("followup")
 
 /////Working fetching code/////////////
 async function presentQuestionnaire(qName, lastQuestionnaire){
     let qID = qDetails[qName].qID
-    let fhirQ = null
+    let questionnaire = {}
+
+    window.addEventListener('beforeunload', (event) => {
+        if(!isFormCompleted)
+            event.returnValue = 'There is unsaved response. Are you sure you want to leave?';
+    });
+
     await fetch(
         "https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='".concat(qID,"'"))
         .then(response => response.json())
         .then(async result => {
-            fhirQ = result[0]
+            questionnaire = result[0]
             questions_id = result.id
     })
     if(qName === "followup"){
         await fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/linkid_convertor', {
             method: 'POST',
-            body: JSON.stringify(fhirQ),
+            body: JSON.stringify(questionnaire),
             headers: {'Content-Type': 'application/json'}
         }).then(response => response.json())
             .then(async result => {
-                fhirQ = LForms.Util.convertFHIRQuestionnaireToLForms(result, 'R4');
+                questionnaire = LForms.Util.convertFHIRQuestionnaireToLForms(result, 'R4');
                 let qr = allResponses[0];
                 qr.item.splice(0, 1)
-                fhirQ = LForms.Util.mergeFHIRDataIntoLForms("QuestionnaireResponse", qr, fhirQ, "R4");
-                LForms.Util.addFormToPage(fhirQ, 'formContainer');
+                questionnaire = LForms.Util.mergeFHIRDataIntoLForms("QuestionnaireResponse", qr, questionnaire, "R4");
+                utilities.removeSpinnerDiv()
+                LForms.Util.addFormToPage(questionnaire, 'formContainer');
                 setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
             })
             .catch((error) => {
@@ -42,18 +49,25 @@ async function presentQuestionnaire(qName, lastQuestionnaire){
             });
     }
     else{
-        fhirQ = LForms.Util.convertFHIRQuestionnaireToLForms(fhirQ, 'R4');
-        LForms.Util.addFormToPage(fhirQ, 'formContainer');
+        questionnaire = LForms.Util.convertFHIRQuestionnaireToLForms(questionnaire, 'R4');
+        window.scrollTo(0, 0);
+        LForms.Util.addFormToPage(questionnaire, 'formContainer');
         setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
     }
 }
 
 async function handleResponse(qName){
     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-    // console.log(response);
-    // let missingQuestions = validationCheck(questions, response);
-    let missingQuestions = [];
-    if(missingQuestions.length !==0 ) {
+    let missingQuestions;
+    if(!response.item){
+        missingQuestions = "None of the questions were answered, please review the questionnaire again."
+    }
+    else {
+        missingQuestions = LForms.Util.checkValidity('formContainer')
+        if(missingQuestions)
+            missingQuestions = utilities.adjuctErrors(missingQuestions)
+    }
+    if(missingQuestions) {
         swal({
             title: "Missing answers",
             text: missingQuestions,
@@ -63,6 +77,7 @@ async function handleResponse(qName){
     }
     else {
         try{
+            utilities.handleLoadingSubmitButton()
             if(!encounterID) //first time of getting encounterID
                 encounterID = await utilities.getEncounterID(patientID, response, qDetails).catch(response => console.log(response))
             response.subject = {"reference": "Patient/".concat(patientID)};
@@ -74,26 +89,28 @@ async function handleResponse(qName){
             }
             // downloadResponseAsFile(response, "response_testing_followup")
             console.log(response);
-            document.getElementById("submitButton").remove();
             if(qName === "followup")
-                displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails)
+                displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray)
             if (displaySelfAssessment){
                 qName = displaySelfAssessment.splice(0, 1)[0]
                 let lastQuestionnaire = !displaySelfAssessment.length
-                if(qName)
+                if(qName){
+                    document.getElementById("submitButton").remove();
                     presentQuestionnaire(qName, lastQuestionnaire)
-                //else window.location.replace("approval.html"); //Need to do only if approval was sent from the post
+                }
+                else {
+                    isFormCompleted = true
+                    window.location.replace("approval.html");  //Need to do only if approval was sent from the post
+                }
             }
             // hideSubmitButton()
             // postQuestionnaireResponse(response)
         }
         catch (e){
-            console.log(e, "rrrrr")
+            console.log(e)
         }
-
     }
 }
-
 
 function responsesToIDs(responses){
     let indexToQType = {}
@@ -104,11 +121,26 @@ function responsesToIDs(responses){
             if(qID === qDetails[type]["qID"]){
                 if(type === "baseline")
                     type = "followup"
-                indexToQType[type] = i
+                indexToQType[i] = type
             }
         }
     }
     return indexToQType
+}
+
+function responsesUnderThreshold(allResponses, qDetails){
+    let indexToQType = responsesToIDs(allResponses)
+    let responsesUnderThresholdArray = []
+    for(let i = 0; i < allResponses.length; i++){
+        let score = allResponses[i].extension.score
+        if(score){
+            if(score >=  qDetails[indexToQType[i]].threshold){
+                responsesUnderThresholdArray.push(indexToQType[i])
+            }
+        }
+
+    }
+    return responsesUnderThresholdArray
 }
 
 
