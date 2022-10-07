@@ -1,12 +1,14 @@
 import * as utilities from "../src/utilities.js";
+import {medicationsValidation} from "../src/utilities.js";
 
 let qDetails = await fetch("./resources/conditionToQID.json")
 qDetails = await qDetails.json()
 let questions_id = null
 let encounterID = null;
 let displaySelfAssessment = []
-let patientID = window.location.search.substring(1).split("=")[1].split("&")[0];
-let lastEncounterID = window.location.search.substring(1).split("=")[2];
+let patientID = window.location.search.substring(1).split("=")[2].split("&")[0];
+console.log("patientID ", patientID)
+let lastEncounterID = window.location.search.substring(1).split("=")[3];
 let allResponses = await utilities.getQuestionnaireResponse("encounter_id", lastEncounterID)
 let responsesUnderThresholdArray = responsesUnderThreshold(allResponses, qDetails)
 let isFormCompleted = false
@@ -58,19 +60,26 @@ async function presentQuestionnaire(qName, lastQuestionnaire){
 
 async function handleResponse(qName){
     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-    let missingQuestions;
+    let validationMsg;
     if(!response.item){
-        missingQuestions = "None of the questions were answered, please review the questionnaire again."
+        validationMsg = "None of the questions were answered, please review the questionnaire again."
     }
     else {
-        missingQuestions = LForms.Util.checkValidity('formContainer')
-        if(missingQuestions)
-            missingQuestions = utilities.adjuctErrors(missingQuestions)
+        validationMsg = LForms.Util.checkValidity('formContainer')
+        console.log(qName, validationMsg)
+
+        if(validationMsg){
+            validationMsg = utilities.adjuctErrors(validationMsg)
+        }
+        else{
+            if(qName === "followup")
+                validationMsg = utilities.answersValidation(response)
+        }
     }
-    if(missingQuestions) {
+    if(validationMsg) {
         swal({
-            title: "Missing answers",
-            text: missingQuestions,
+            title: "Invalid Response",
+            text: validationMsg,
             icon: "warning",
             button: "Got it",
         })

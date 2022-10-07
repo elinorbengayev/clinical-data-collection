@@ -8,11 +8,12 @@ async function redirect(){
     let questionnairesIDs = await getAllQuestionnaireIDs()
     let responses = await utilities.getQuestionnaireResponse("patient_id", pID)
     let lastResponse = responses[responses.length - 1]
-    if(!questionnairesIDs.includes(lastResponse.extension.questionnaire_id) || responses.length === 0)
-        window.location.href = "baseline.html".concat("?patient_id=", pID); //Need to do only if approval was sent from the post
+    if(!questionnairesIDs.includes(lastResponse.extension.questionnaire_id) || responses.length === 0){
+        window.location.href = "questionnaire.html".concat("?type=baseline&patient_id=", pID); //Need to do only if approval was sent from the post
+    }
     else {
         let encounterID = responses[responses.length - 1].extension.encounter_id;
-        window.location.href = "merge.html".concat("?patient_id=", pID, "&encounter_id=", encounterID);
+        window.location.href = "questionnaire.html".concat("?type=followup&patient_id=", pID, "&encounter_id=", encounterID); //Need to do only if approval was sent from the post
     }
 }
 

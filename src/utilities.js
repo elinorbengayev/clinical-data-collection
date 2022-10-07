@@ -1,6 +1,4 @@
 
-
-
 export async function getQuestionnaireResponse(parameter, value){
     let responses = null;
     await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse?".concat(parameter,"='", value, "'"))
@@ -29,6 +27,66 @@ export function createButton(qName, lastQuestionnaire, handler){
 
     div.appendChild(btn)
 }
+
+// async function handleResponse(qName, isFormCompleted, encounterID, patientID, responsesUnderThresholdArray = null){
+//     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
+//     let missingQuestions;
+//     if(!response.item) {
+//         missingQuestions = "None of the questions were answered, please review the questionnaire again."
+//     }
+//     else {
+//         missingQuestions = LForms.Util.checkValidity('formContainer')
+//         if(missingQuestions)
+//             missingQuestions = utilities.adjuctErrors(missingQuestions)
+//         else {
+//             missingQuestions = medicationsValidation(response)
+//         }
+//     }
+//     if(missingQuestions) {
+//         swal({
+//             title: "Missing answers",
+//             text: missingQuestions,
+//             icon: "warning",
+//             button: "Got it",
+//         })
+//     }
+//     else {
+//         try {
+//             utilities.handleLoadingSubmitButton()
+//             if(!encounterID) //first time of getting encounterID
+//                 encounterID = await utilities.getEncounterID(patientID, response, qDetails).catch(response => console.log(response))
+//             response.subject = {"reference": "Patient/".concat(patientID)};
+//             console.log(response.subject, encounterID)
+//             response.extension = {
+//                 "score": await utilities.getScore(response),
+//                 "questionnaire_id": questions_id,
+//                 "encounter_id": encounterID,
+//             }
+//             // downloadResponseAsFile(response, "response_testing_followup")
+//             console.log(response);
+//             document.getElementById("submitButton").remove();
+//             if(qName === "baseline" || qName === "followup")
+//                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray)
+//             if (displaySelfAssessment){
+//                 qName = displaySelfAssessment.splice(0, 1)[0]
+//                 let lastQuestionnaire = !displaySelfAssessment.length
+//                 if(qName){
+//                     presentQuestionnaire(qName, lastQuestionnaire)
+//                 }
+//                 else {
+//                     isFormCompleted = true
+//                     window.location.replace("approval.html");
+//                 } //Need to do only if approval was sent from the post
+//             }
+//             // hideSubmitButton()
+//             // postQuestionnaireResponse(response)
+//         }
+//         catch (e){
+//         }
+//
+//     }
+// }
+
 
 export async function getScore(response) {
     let scoreIDs = await fetch("./resources/scoresIDS.json")
@@ -158,62 +216,96 @@ export function removeSpinnerDiv(){
 }
 
 
-// function flatItem(item, dic, questions){
-//     if(!item["item"]){
-//         if(Array.isArray(item)){
-//             for(let i = 0; i < item.length; i++){
-//                 if(questions && item[i].required || !questions){
-//                     dic[item[i].linkId] = item[i].text;
-//                 }
-//             }
-//             return dic;
-//         }
-//         else{
-//             if(questions && item.required || !questions)
-//                 dic[item.linkId] = item.text;
-//             return dic
-//         }
-//     }
-//     else
-//         return flatItem(item["item"], dic);
-// }
-//
-// function extractDictOfItems(object, questions = true){
-//     let items = object["item"];
-//     let dic = {};
-//     for(let i = 0; i < items.length; i++){
-//         dic = flatItem(items[i], dic, questions);
-//     }
-//     return dic;
-// }
-//
-// export function validationCheck(questions, response){
-//     let missingQuestions = ""
-//     if(!response.item){
-//         missingQuestions = "None of the questions were answered, please review the questionnaire again."
-//     }
-//     else{
-//         missingQuestions = "Please answer the following question(s) before continuing:\n"
-//         let questionsDic = extractDictOfItems(questions)
-//         console.log(questionsDic)
-//         let answersDic = extractDictOfItems(response, false)
-//         for(const question in questionsDic){
-//             if(!answersDic.hasOwnProperty(question)){
-//                 missingQuestions = missingQuestions.concat(questionsDic[question]+"\n");
-//             }
-//         }
-//         console.log(missingQuestions);
-//     }
-//     return missingQuestions;
-// }
-
 export function adjuctErrors(errors){
-    let result = "Please answer the following question(s) before continuing:\n\n"
+    let result = "Please answer the following question(s) before continuing:\n"
     for (let i = 0; i < errors.length; i++){
         result = result.concat("- "+errors[i].split("requires")[0].split("(")[0]+"\n");
     }
     return result
 }
+
+export function answersValidation(response){
+    let result = "";
+    let missingMeds = medicationsValidation(response)
+    if(missingMeds)
+        result = result.concat(missingMeds)
+    let symptoms = symptomsValidationMain(response)
+    if(symptoms)
+        result = result.concat(symptoms)
+    return result
+}
+
+export function medicationsValidation(response) {
+    // check for missing medications at clinical conditions question
+    let answers = response.item[1].item
+    let medsMissing = []
+    for (let i = 1; i < answers.length; i++){
+        for(let j = 2 ; j < 4 ; j++) {
+            if(answers[i].item[j].text.includes("medication")){
+                let isTakingMeds = answers[i].item[j].answer[0].valueCoding.display
+                if(isTakingMeds === "Yes"){
+                    if(answers[i].item[j+1] === undefined){
+                        medsMissing.push(answers[i].text.split("Diagnosis Details")[0].trim())
+                    }
+                }
+                break;
+            }
+        }
+    }
+    let result = ""
+    if(medsMissing.length !== 0)
+        result = "- Missing medications for the following clinical condition(s):\n".concat(
+            medsMissing.join(", ")
+        );
+    // check for missing medications in the 'not listed medications' question (last one)
+    let otherMedications = response.item[response.item.length - 1].item
+    if(otherMedications[0].answer[0].valueCoding.display === "Yes"){
+        if(otherMedications[1] === undefined){
+            if(result.length !== 0)
+                result = result.concat("\n")
+            result = result.concat("- You replied 'Yes' for taking not listed medications, please fill at least one medication.")
+        }
+    }
+    return result
+}
+
+function symptomsValidationMain(response){
+    let questionsDetails = {
+        0: {'questionName': 'Active Symptoms', 'phrase':'No Symptoms'},
+        1: {'questionName': 'Clinical Condition(s) - Part A', 'phrase':'I have never suffered from any of the conditions listed above'},
+        2: {'questionName': 'Clinical Condition(s) - Part B', 'phrase':'I have never suffered from any of the conditions listed above'}
+    }
+    let result = ""
+    for(let i = 0; i < 3; i++){
+        let answers = response.item[i].item[0].answer
+        let answersArray = []
+        for(let j = 0; j < answers.length; j++)
+            answersArray.push(answers[j].valueCoding.display)
+        let symptomsResult = symptomsValidationSub(answersArray, questionsDetails[i].phrase, questionsDetails[i].questionName)
+        result = result.concat(symptomsResult)
+    }
+    return result
+}
+
+function symptomsValidationSub(answersArray, phrase, question){
+    let result = ""
+    if(answersArray.includes(phrase) && answersArray.length > 1){
+        var index = answersArray.indexOf(phrase);
+        if (index !== -1) {
+            answersArray.splice(index, 1);
+        }
+        let symptoms = ""
+        for(let j = 0; j < answersArray.length; j++){
+            if( j !== answersArray.length - 1)
+                symptoms = symptoms.concat("'" + answersArray[j] + "', ")
+            else symptoms = symptoms.concat("'" + answersArray[j] + "'")
+        }
+        result = result.concat(question + " - can't have '" + phrase + "' and " + symptoms + " as answers")
+    }
+    return result
+}
+
+
 
 
 
