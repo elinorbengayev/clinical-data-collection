@@ -1,6 +1,6 @@
 
 import * as utilities from "../src/utilities.js";
-let patientID = window.location.search.substring(1).split("&")[0].split("=")[1];
+const patientID = window.location.search.substring(1).split("=")[2].split("&")[0];
 let questions_id = null
 let encounterID = null
 let PATIENTID = "578a5228a0aa5d5d70b91606"
@@ -26,34 +26,38 @@ async function handleResponse(qName){
         }
     }
     if(validationMsg) {
-        swal({
-            title: "Invalid Response",
-            text: validationMsg,
-            icon: "warning",
-            button: "Got it",
-        })
+        utilities.showMessage(validationMsg, "Invalid Response")
     }
     else {
         try {
             utilities.handleLoadingSubmitButton()
-            if(!encounterID) //first time of getting encounterID
-                encounterID = await utilities.getEncounterID(PATIENTID, response, qDetails).catch(response => console.log(response))
-            response.subject = {"reference": "Patient/".concat(PATIENTID)};
-            console.log(response.subject, encounterID)
+            if(!encounterID) { //first time of getting encounterID
+                encounterID = await utilities.getEncounterID(patientID, response, qDetails)
+                if(!encounterID)
+                    throw Error("Error creating encounter_id")
+            }
+            response.subject = {"reference": "Patient/".concat(patientID)};
             response.extension = {
                 "score": await utilities.getScore(response),
                 "questionnaire_id": questions_id,
                 "encounter_id": encounterID,
             }
+
+            let responseStatusCode  = await utilities.postQuestionnaireResponse(response)
+            console.log(responseStatusCode)
+            if(responseStatusCode !== 200)
+                throw Error("Error sending questionnaire response")
+            // utilities.postQuestionnaireResponse(response)
+
             // downloadResponseAsFile(response, "response_testing_followup")
             console.log(response);
-            document.getElementById("submitButton").remove();
             if(qName === "baseline")
                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails)
             if (displaySelfAssessment){
                 qName = displaySelfAssessment.splice(0, 1)[0]
                 let lastQuestionnaire = !displaySelfAssessment.length
                 if(qName){
+                    document.getElementById("submitButton").remove();
                     presentQuestionnaire(qName, lastQuestionnaire)
                 }
                 else {
@@ -61,50 +65,45 @@ async function handleResponse(qName){
                     window.location.replace("approval.html");
                 } //Need to do only if approval was sent from the post
             }
-            // hideSubmitButton()
-            // postQuestionnaireResponse(response)
         }
-        catch (e){
+        catch (error){
+            utilities.handleUnLoadingSubmitButton()
+            error = error.toString()
+            console.error(error)
+            if(error.includes("Failed to fetch"))
+                alert("Problem with loading content, please check your connection.\n");
+            else utilities.showMessage("Encountered an internal server error, response wasn't sent", "Error while Submitting Response", "error")
         }
-
     }
 }
 
 async function presentQuestionnaire(qName, lastQuestionnaire) {
-    try {
-        let questionnaire = {}
-        let qID = qDetails[qName].qID
-        await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='"+qID+"'")
-            .then(response => response.json())
-            .then(async fhirQ => {
-                questionnaire = fhirQ[0]
-                questions_id = questionnaire.id
-                window.scrollTo(0, 0);
-                window.addEventListener('beforeunload', (event) => {
-                    if(!isFormCompleted)
-                        event.returnValue = 'There is unsaved response. Are you sure you want to leave?';
-                });
-                if(qName === "baseline")
-                    utilities.removeSpinnerDiv()
-                LForms.Util.addFormToPage(questionnaire, 'formContainer');
-                setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
-            })
-            .catch((error) => {
-                console.log(error)
+    let questionnaire = {}
+    let qID = qDetails[qName].qID
+    await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='"+qID+"'")
+        .then(response => response.json())
+        .then(async fhirQ => {
+            questionnaire = fhirQ[0]
+            questions_id = questionnaire.id
+            window.scrollTo(0, 0);
+            window.addEventListener('beforeunload', (event) => {
+                if(!isFormCompleted)
+                    event.returnValue = 'There is unsaved response. Are you sure you want to leave?';
             });
-
-    } catch (e) {
-        console.log(e)
-    }
-
+            if(qName === "baseline")
+                utilities.removeSpinnerDiv()
+            LForms.Util.addFormToPage(questionnaire, 'formContainer');
+            setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
+        })
+        .catch((error) => {
+            error = error.toString()
+            console.error(error)
+            if(error.includes("Failed to fetch"))
+                alert("Problem with loading content, please check your connection.\n");
+            else utilities.showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
+        })
 }
-function downloadResponseAsFile(response, fileName){
-    const a = document.createElement("a");
-    const file = new Blob([JSON.stringify(response,null,4)], {type : 'application/json'});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName+'.json';
-    a.click();
-}
+
 
 
 function postQuestionnaire(questionnaire){
@@ -129,22 +128,7 @@ function postQuestionnaire(questionnaire){
     }
 }
 
-function postQuestionnaireResponse(response){
-    try {
-        fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
-            method: 'POST',
-            body: JSON.stringify(response),
-            headers: {'Content-Type': 'application/json'}
-        }).then(result => console.log(result))
-            .catch((error) => {
-                console.log(error)
-            });
 
-        // window.location.replace("approval.html"); //Need to do only if approval was sent from the post
-    } catch (e) {
-        console.log(e)
-    }
-}
 
 
 export {presentQuestionnaire, displaySelfAssessment}

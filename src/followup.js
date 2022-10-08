@@ -1,18 +1,19 @@
 import * as utilities from "../src/utilities.js";
-import {medicationsValidation} from "../src/utilities.js";
-
 let qDetails = await fetch("./resources/conditionToQID.json")
 qDetails = await qDetails.json()
 let questions_id = null
 let encounterID = null;
 let displaySelfAssessment = []
-let patientID = window.location.search.substring(1).split("=")[2].split("&")[0];
-console.log("patientID ", patientID)
-let lastEncounterID = window.location.search.substring(1).split("=")[3];
-let allResponses = await utilities.getQuestionnaireResponse("encounter_id", lastEncounterID)
-let responsesUnderThresholdArray = responsesUnderThreshold(allResponses, qDetails)
-let isFormCompleted = false
-presentQuestionnaire("followup")
+const patientID = window.location.search.substring(1).split("=")[2].split("&")[0];
+const lastEncounterID = window.location.search.substring(1).split("=")[3];
+const allResponses = await utilities.getQuestionnaireResponse("encounter_id", lastEncounterID)
+let responsesUnderThresholdArray, isFormCompleted;
+if(allResponses){
+    responsesUnderThresholdArray = responsesUnderThreshold(allResponses, qDetails)
+    isFormCompleted = false
+    presentQuestionnaire("followup")
+}
+
 
 /////Working fetching code/////////////
 async function presentQuestionnaire(qName, lastQuestionnaire){
@@ -29,14 +30,23 @@ async function presentQuestionnaire(qName, lastQuestionnaire){
         .then(response => response.json())
         .then(async result => {
             questionnaire = result[0]
-            questions_id = result.id
-    })
+            questions_id = questionnaire.id
+        })
+        .catch((error) => {
+            error = error.toString()
+            console.error(error)
+            if(error.includes("Failed to fetch"))
+                alert("Problem with loading content, please check your connection.\n");
+            else utilities.showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
+        })
     if(qName === "followup"){
         await fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/linkid_convertor', {
             method: 'POST',
             body: JSON.stringify(questionnaire),
             headers: {'Content-Type': 'application/json'}
-        }).then(response => response.json())
+        })
+            .then(response => utilities.checkFetch(response))
+            .then(response => response.json())
             .then(async result => {
                 questionnaire = LForms.Util.convertFHIRQuestionnaireToLForms(result, 'R4');
                 let qr = allResponses[0];
@@ -46,8 +56,12 @@ async function presentQuestionnaire(qName, lastQuestionnaire){
                 LForms.Util.addFormToPage(questionnaire, 'formContainer');
                 setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
             })
-            .catch((error) => {
-                console.log(error)
+            .catch(function(error) {
+                error = error.toString()
+                console.error(error)
+                if(error.includes("Failed to fetch"))
+                    alert("Problem with loading content, please check your connection.\n");
+                utilities.showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
             });
     }
     else{
@@ -66,8 +80,6 @@ async function handleResponse(qName){
     }
     else {
         validationMsg = LForms.Util.checkValidity('formContainer')
-        console.log(qName, validationMsg)
-
         if(validationMsg){
             validationMsg = utilities.adjuctErrors(validationMsg)
         }
@@ -77,27 +89,28 @@ async function handleResponse(qName){
         }
     }
     if(validationMsg) {
-        swal({
-            title: "Invalid Response",
-            text: validationMsg,
-            icon: "warning",
-            button: "Got it",
-        })
+        utilities.showMessage(validationMsg, "Invalid Response")
     }
     else {
         try{
             utilities.handleLoadingSubmitButton()
-            if(!encounterID) //first time of getting encounterID
-                encounterID = await utilities.getEncounterID(patientID, response, qDetails).catch(response => console.log(response))
+            if(!encounterID) { //first time of getting encounterID
+                encounterID = await utilities.getEncounterID(patientID, response, qDetails)
+                if(!encounterID)
+                    throw Error("Error creating encounter_id")
+            }
             response.subject = {"reference": "Patient/".concat(patientID)};
-            console.log(response.subject, encounterID)
             response.extension = {
                 "score": await utilities.getScore(response),
                 "questionnaire_id": questions_id,
                 "encounter_id": encounterID,
             }
-            // downloadResponseAsFile(response, "response_testing_followup")
             console.log(response);
+
+            // let responseStatusCode  = await utilities.postQuestionnaireResponse(response)
+            // console.log(responseStatusCode)
+            // if(responseStatusCode !== 200)
+            //     throw Error("Error sending questionnaire response")
             if(qName === "followup")
                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray)
             if (displaySelfAssessment){
@@ -112,11 +125,14 @@ async function handleResponse(qName){
                     window.location.replace("approval.html");  //Need to do only if approval was sent from the post
                 }
             }
-            // hideSubmitButton()
-            // postQuestionnaireResponse(response)
         }
-        catch (e){
-            console.log(e)
+        catch (error){
+            utilities.handleUnLoadingSubmitButton()
+            error = error.toString()
+            console.error(error)
+            if(error.includes("Failed to fetch"))
+                alert("Problem with loading content, please check your connection.\n");
+            else utilities.showMessage("Encountered an internal server error, response wasn't sent", "Error while Submitting Response", "error")
         }
     }
 }

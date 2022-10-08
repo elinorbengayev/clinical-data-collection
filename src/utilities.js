@@ -1,11 +1,27 @@
+export function showMessage(text, title, icon = 'warning'){
+    swal({
+        title: title,
+        text:text,
+        icon: icon,
+        button: 'Got it',
+    })
+}
 
 export async function getQuestionnaireResponse(parameter, value){
     let responses = null;
     await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse?".concat(parameter,"='", value, "'"))
+        .then(response => checkFetch(response))
         .then(response => response.json())
         .then(async fhirQ => {
             responses = fhirQ
         })
+        .catch((error) =>{
+            error = error.toString()
+                console.error(error)
+                if(error.includes("Failed to fetch"))
+                    alert("Problem with loading content, please check your connection.\n");
+                else showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
+        });
     return responses;
 }
 
@@ -28,33 +44,38 @@ export function createButton(qName, lastQuestionnaire, handler){
     div.appendChild(btn)
 }
 
-// async function handleResponse(qName, isFormCompleted, encounterID, patientID, responsesUnderThresholdArray = null){
+// async function handleResponse(qName, presentQuestionnaireFunc, isFormCompleted, encounterID, patientID, responsesUnderThresholdArray = null){
 //     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-//     let missingQuestions;
-//     if(!response.item) {
-//         missingQuestions = "None of the questions were answered, please review the questionnaire again."
+//     let validationMsg;
+//     if(!response.item){
+//         validationMsg = "None of the questions were answered, please review the questionnaire again."
 //     }
 //     else {
-//         missingQuestions = LForms.Util.checkValidity('formContainer')
-//         if(missingQuestions)
-//             missingQuestions = utilities.adjuctErrors(missingQuestions)
-//         else {
-//             missingQuestions = medicationsValidation(response)
+//         validationMsg = LForms.Util.checkValidity('formContainer')
+//         if(validationMsg){
+//             validationMsg = utilities.adjuctErrors(validationMsg)
+//         }
+//         else{
+//             if(qName === "followup")
+//                 validationMsg = utilities.answersValidation(response)
 //         }
 //     }
-//     if(missingQuestions) {
+//     if(validationMsg) {
 //         swal({
-//             title: "Missing answers",
-//             text: missingQuestions,
+//             title: "Invalid Response",
+//             text: validationMsg,
 //             icon: "warning",
 //             button: "Got it",
 //         })
 //     }
 //     else {
-//         try {
+//         try{
 //             utilities.handleLoadingSubmitButton()
-//             if(!encounterID) //first time of getting encounterID
-//                 encounterID = await utilities.getEncounterID(patientID, response, qDetails).catch(response => console.log(response))
+//             if(!encounterID) { //first time of getting encounterID
+//                 encounterID = await utilities.getEncounterID(patientID, response, qDetails)
+//                 if(!encounterID)
+//                     throw Error("Error creating encounter_id")
+//             }
 //             response.subject = {"reference": "Patient/".concat(patientID)};
 //             console.log(response.subject, encounterID)
 //             response.extension = {
@@ -62,31 +83,36 @@ export function createButton(qName, lastQuestionnaire, handler){
 //                 "questionnaire_id": questions_id,
 //                 "encounter_id": encounterID,
 //             }
+//             // utilities.postQuestionnaireResponse(response)
+//
 //             // downloadResponseAsFile(response, "response_testing_followup")
 //             console.log(response);
-//             document.getElementById("submitButton").remove();
-//             if(qName === "baseline" || qName === "followup")
+//             let displaySelfAssessment = []
+//             if(qName === "followup")
 //                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray)
 //             if (displaySelfAssessment){
 //                 qName = displaySelfAssessment.splice(0, 1)[0]
 //                 let lastQuestionnaire = !displaySelfAssessment.length
 //                 if(qName){
-//                     presentQuestionnaire(qName, lastQuestionnaire)
+//                     document.getElementById("submitButton").remove();
+//                     presentQuestionnaireFunc(qName, lastQuestionnaire, isFormCompleted)
 //                 }
 //                 else {
 //                     isFormCompleted = true
-//                     window.location.replace("approval.html");
-//                 } //Need to do only if approval was sent from the post
+//                     window.location.replace("approval.html");  //Need to do only if approval was sent from the post
+//                 }
 //             }
-//             // hideSubmitButton()
-//             // postQuestionnaireResponse(response)
 //         }
-//         catch (e){
+//         catch (error){
+//             utilities.handleUnLoadingSubmitButton()
+//             error = error.toString()
+//             console.error(error.toString())
+//             if(error.includes("Failed to fetch"))
+//                 alert("Problem with loading content, please check your connection.\n");
+//             else showMessage("Encountered an internal server error, response wasn't sent", "Error while Submitting Response", "error")
 //         }
-//
 //     }
 // }
-
 
 export async function getScore(response) {
     let scoreIDs = await fetch("./resources/scoresIDS.json")
@@ -174,10 +200,17 @@ export async function getEncounterID(patientId, response, qDetails) {
     let url = "https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/" +
         "test/create_questionnaire_encounter?".concat("encounter_date=", encounterDate, conditionsList, "&", "patient_id=", patientId)
     await fetch(url)
+        .then(result => checkFetch(result))
         .then(response => response.json())
         .then(async result => {
             encounterID = result.encounter_id
         })
+        .catch((error) =>{
+            error = error.toString()
+            console.error(error)
+            if(error.includes("Failed to fetch"))
+                alert("Problem with loading content, please check your connection.\n");
+        });
     return encounterID
 }
 
@@ -208,6 +241,13 @@ export function handleLoadingSubmitButton(){
     let spinner = document.getElementById("loadingSpinner")
     spinner.hidden = false;
     button.disabled = true;
+}
+
+export function handleUnLoadingSubmitButton(){
+    let button = document.getElementById("submitButton")
+    let spinner = document.getElementById("loadingSpinner")
+    spinner.hidden = true;
+    button.disabled = false;
 }
 
 export function removeSpinnerDiv(){
@@ -303,6 +343,60 @@ function symptomsValidationSub(answersArray, phrase, question){
         result = result.concat(question + " - can't have '" + phrase + "' and " + symptoms + " as answers")
     }
     return result
+}
+
+export function checkFetch(response) {
+    let errorText = ""
+    if (!response.ok) {
+        if (response.statusText.includes("Failed to fetch") || response.status === 404){
+            errorText = "Problem with loading content, please check your connection.\n";
+        }
+        else if(response.status === 400)
+            errorText = "Error with request's parameters[" + response.status + "]\n"
+        else if (response.status === 403)
+            errorText = "Problem with fetching content, please check the fetch url\n";
+        else {
+            errorText = "Problem with request [" + response.status + "]\n"
+        }
+        console.log(errorText)
+        throw Error(errorText)
+    }
+    return response
+}
+
+
+
+export async function postQuestionnaireResponse(response){
+    let statusCode = ""
+    await fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/questionnaireResponse', {
+        method: 'POST',
+        body: JSON.stringify(response),
+        headers: {'Content-Type': 'application/json'}
+        })
+        .then(result =>  checkFetch(result))
+        .then(async result => {
+            let response = await result.json()
+            console.log(response)
+            return result.status
+        })
+        .then(async result => {
+            statusCode = result
+        })
+        .catch((error) =>{
+            error = error.toString()
+            console.error(error)
+            if(error.includes("Failed to fetch"))
+                alert("Problem with loading content, please check your connection.\n");
+        });
+    return statusCode;
+}
+
+function downloadResponseAsFile(response, fileName){
+    const a = document.createElement("a");
+    const file = new Blob([JSON.stringify(response,null,4)], {type : 'application/json'});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName+'.json';
+    a.click();
 }
 
 
