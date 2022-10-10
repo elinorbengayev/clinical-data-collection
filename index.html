@@ -4,11 +4,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script type="text/javascript">
         function getParams() {
-            console.log(document.URL.substring(idx+1, document.URL.length))
             var idx = document.URL.indexOf('?');
             let type =''
             if (idx !== -1) {
                 type = document.URL.substring(idx+1, document.URL.length).split('=')[1].split('&')[0];
+            }
+            else{
+                console.error("Missing type and patientID parameters.")
+                swal({
+                    title: "Unable to load Questionnaire",
+                    text:"Internal system error",
+                    icon: "error",
+                    button: 'Got it',
+                })
             }
             if (type === "followup")
                 document.title = "Follow-up Questionnaire"
