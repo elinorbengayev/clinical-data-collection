@@ -319,10 +319,15 @@ export function diagnosisAnswersValidation(response) {
         result = "- Missing medications for the following clinical condition(s):\n".concat(
             medsMissing.join(", ")
         );
+
+
     if(datesFuture.length !== 0){
         let dateMsg = "- Invalid diagnosis date (future value) for the following clinical condition(s):\n".concat(
             datesFuture.join(", ")
         );
+
+        if(result.length !== 0)
+            result = result.concat("\n")
         result = result.concat(dateMsg)
     }
     // check for missing medications in the 'not listed medications' question (last one)
