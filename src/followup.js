@@ -112,10 +112,10 @@ async function handleResponse(qName){
                 "encounter_id": encounterID,
             }
 
-            // let responseStatusCode  = await utilities.postQuestionnaireResponse(response)
-            // console.log(responseStatusCode)
-            // if(responseStatusCode !== 200)
-            //     throw Error("Error sending questionnaire response")
+            let responseStatusCode  = await utilities.postQuestionnaireResponse(response)
+            console.log(responseStatusCode)
+            if(responseStatusCode !== 200)
+                throw Error("Error sending questionnaire response")
             console.log(response)
             if(qName === "followup")
                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray)
