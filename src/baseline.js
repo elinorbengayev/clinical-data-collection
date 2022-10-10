@@ -1,5 +1,6 @@
 
 import * as utilities from "../src/utilities.js";
+import {showErrorDiv} from "../src/utilities.js";
 const patientID = window.location.search.substring(1).split("=")[2].split("&")[0];
 let questions_id = null
 let encounterID = null
@@ -43,14 +44,14 @@ async function handleResponse(qName){
                 "encounter_id": encounterID,
             }
 
-            let responseStatusCode  = await utilities.postQuestionnaireResponse(response)
-            console.log(responseStatusCode)
-            if(responseStatusCode !== 200)
-                throw Error("Error sending questionnaire response")
-            // utilities.postQuestionnaireResponse(response)
+            // let responseStatusCode  = await utilities.postQuestionnaireResponse(response)
+            // console.log(responseStatusCode)
+            // if(responseStatusCode !== 200)
+            //     throw Error("Error sending questionnaire response")
 
             // downloadResponseAsFile(response, "response_testing_followup")
-            console.log(response);
+            console.log(response)
+
             if(qName === "baseline")
                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails)
             if (displaySelfAssessment){
@@ -81,6 +82,7 @@ async function presentQuestionnaire(qName, lastQuestionnaire) {
     let questionnaire = {}
     let qID = qDetails[qName].qID
     await fetch("https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/Questionnaire?questionnaire_id='"+qID+"'")
+        .then(response => utilities.checkFetch(response))
         .then(response => response.json())
         .then(async fhirQ => {
             questionnaire = fhirQ[0]
@@ -101,6 +103,7 @@ async function presentQuestionnaire(qName, lastQuestionnaire) {
             if(error.includes("Failed to fetch"))
                 alert("Problem with loading content, please check your connection.\n");
             else utilities.showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
+            utilities.showErrorDiv()
         })
 }
 

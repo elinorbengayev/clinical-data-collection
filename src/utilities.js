@@ -130,7 +130,7 @@ export async function getScore(response) {
 
 export function checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray = null){
     // TODO: add check for partB as well
-    let answersPartA = response.item[1].item[0].answer
+    let answersPartA = response.item[1].item[0].item[0].answer
     let displaySelfAssessment = []
     if(answersPartA){
         for (let i = 0; i < answersPartA.length; i++){
@@ -216,7 +216,7 @@ export async function getEncounterID(patientId, response, qDetails) {
 
 function getConditionsList(response, qDetails){
     let conditionsList = []
-    let relevantQuestions = [response.item[1], response.item[2]]
+    let relevantQuestions = [response.item[1].item[0], response.item[1].item[1]]
     let qIDs = Object.keys(qDetails.baselineClinicalQuestions)
     for(let i = 0; i < relevantQuestions.length; i++){
         if(relevantQuestions[i].linkId === qDetails.baselineClinicalQuestions[qIDs[i]]) { //maybe redundant
@@ -226,6 +226,7 @@ function getConditionsList(response, qDetails){
             }
         }
     }
+
     if(conditionsList === []){ //maybe redundant
         throw "Conditions list is empty"
     }
@@ -266,30 +267,51 @@ export function adjuctErrors(errors){
 
 export function answersValidation(response){
     let result = "";
-    let missingMeds = medicationsValidation(response)
+    let missingMeds = diagnosisAnswersValidation(response)
     if(missingMeds)
         result = result.concat(missingMeds)
     let symptoms = symptomsValidationMain(response)
-    if(symptoms)
+    if(symptoms){
+        if(result.length !== 0)
+            result = result.concat("\n")
         result = result.concat(symptoms)
+    }
     return result
 }
 
-export function medicationsValidation(response) {
-    // check for missing medications at clinical conditions question
-    let answers = response.item[1].item
+export function diagnosisAnswersValidation(response) {
+    // check for missing medications or future date values at clinical conditions - part A question
+    let answers = response.item[1].item[0].item
     let medsMissing = []
+    let datesFuture = []
     for (let i = 1; i < answers.length; i++){
-        for(let j = 2 ; j < 4 ; j++) {
+        for(let j = 0 ; j < 4 ; j++) {
+            let condition = answers[i].text.split("Diagnosis Details")[0].trim()
+            if(answers[i].item[j].text.includes("date")) {
+                let date = new Date(answers[i].item[j].answer[0].valueDate)
+                if(date > new Date())
+                    datesFuture.push(condition)
+            }
             if(answers[i].item[j].text.includes("medication")){
                 let isTakingMeds = answers[i].item[j].answer[0].valueCoding.display
                 if(isTakingMeds === "Yes"){
                     if(answers[i].item[j+1] === undefined){
-                        medsMissing.push(answers[i].text.split("Diagnosis Details")[0].trim())
+                        medsMissing.push(condition)
                     }
                 }
                 break;
             }
+        }
+    }
+    // check for future date values at clinical conditions - part B question
+    answers = response.item[1].item[1].item
+    let conditions = answers[0].answer.map((element) => {return element.valueCoding.display})
+    if(conditions){
+        for (let i = 1; i < answers.length; i++){
+            let condition = conditions[i -1]
+            let date = new Date(answers[i].item[0].answer[0].valueDate)
+            if(date > new Date())
+                datesFuture.push(condition)
         }
     }
     let result = ""
@@ -297,8 +319,14 @@ export function medicationsValidation(response) {
         result = "- Missing medications for the following clinical condition(s):\n".concat(
             medsMissing.join(", ")
         );
+    if(datesFuture.length !== 0){
+        let dateMsg = "- Invalid diagnosis date (future value) for the following clinical condition(s):\n".concat(
+            datesFuture.join(", ")
+        );
+        result = result.concat(dateMsg)
+    }
     // check for missing medications in the 'not listed medications' question (last one)
-    let otherMedications = response.item[response.item.length - 1].item
+    let otherMedications = response.item[1].item[response.item[1].item.length - 1].item
     if(otherMedications[0].answer[0].valueCoding.display === "Yes"){
         if(otherMedications[1] === undefined){
             if(result.length !== 0)
@@ -309,6 +337,11 @@ export function medicationsValidation(response) {
     return result
 }
 
+function isInTheFuture(date) {
+    const today = new Date();
+    return date > today;
+}
+
 function symptomsValidationMain(response){
     let questionsDetails = {
         0: {'questionName': 'Active Symptoms', 'phrase':'No Symptoms'},
@@ -317,7 +350,9 @@ function symptomsValidationMain(response){
     }
     let result = ""
     for(let i = 0; i < 3; i++){
-        let answers = response.item[i].item[0].answer
+        let answers = []
+        if(i === 0) answers = response.item[i].item[0].answer
+        else answers = response.item[1].item[i].item[0].answer
         let answersArray = []
         for(let j = 0; j < answers.length; j++)
             answersArray.push(answers[j].valueCoding.display)
@@ -340,7 +375,7 @@ function symptomsValidationSub(answersArray, phrase, question){
                 symptoms = symptoms.concat("'" + answersArray[j] + "', ")
             else symptoms = symptoms.concat("'" + answersArray[j] + "'")
         }
-        result = result.concat(question + " - can't have '" + phrase + "' and " + symptoms + " as answers")
+        result = result.concat("- "+question + " - can't have '" + phrase + "' and " + symptoms + " as answers.\n")
     }
     return result
 }
@@ -358,7 +393,6 @@ export function checkFetch(response) {
         else {
             errorText = "Problem with request [" + response.status + "]\n"
         }
-        console.log(errorText)
         throw Error(errorText)
     }
     return response
@@ -397,6 +431,13 @@ function downloadResponseAsFile(response, fileName){
     a.href = URL.createObjectURL(file);
     a.download = fileName+'.json';
     a.click();
+}
+
+export function showErrorDiv(){
+    let element = document.getElementById("spinnerDiv");
+    element.remove();
+    element = document.getElementById("ErrorLoadingDiv");
+    element.hidden = false;
 }
 
 

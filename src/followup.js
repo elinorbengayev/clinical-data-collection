@@ -1,6 +1,8 @@
 import * as utilities from "../src/utilities.js";
+
 let qDetails = await fetch("./resources/conditionToQID.json")
 qDetails = await qDetails.json()
+
 let questions_id = null
 let encounterID = null;
 let displaySelfAssessment = []
@@ -8,14 +10,17 @@ const patientID = window.location.search.substring(1).split("=")[2].split("&")[0
 const lastEncounterID = window.location.search.substring(1).split("=")[3];
 const allResponses = await utilities.getQuestionnaireResponse("encounter_id", lastEncounterID)
 let responsesUnderThresholdArray, isFormCompleted;
-if(allResponses){
+if(allResponses && patientID && lastEncounterID){
     responsesUnderThresholdArray = responsesUnderThreshold(allResponses, qDetails)
     isFormCompleted = false
     presentQuestionnaire("followup")
 }
+else{
+    console.error("Problem with given url's parameters")
+    utilities.showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
+    utilities.showErrorDiv()
+}
 
-
-/////Working fetching code/////////////
 async function presentQuestionnaire(qName, lastQuestionnaire){
     let qID = qDetails[qName].qID
     let questionnaire = {}
@@ -31,6 +36,36 @@ async function presentQuestionnaire(qName, lastQuestionnaire){
         .then(async result => {
             questionnaire = result[0]
             questions_id = questionnaire.id
+            return questionnaire;
+        })
+        .then(async questionnaire => {
+            if (qName === "followup") {
+                await fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/linkid_convertor', {
+                    method: 'POST',
+                    body: JSON.stringify(questionnaire),
+                    headers: {'Content-Type': 'application/json'}
+                })
+                    .then(response => utilities.checkFetch(response))
+                    .then(response => response.json())
+                    .then(async result => {
+                        questionnaire = LForms.Util.convertFHIRQuestionnaireToLForms(result, 'R4');
+                        let qr = allResponses[0];
+                        qr.item.splice(0, 1)
+                        questionnaire = LForms.Util.mergeFHIRDataIntoLForms("QuestionnaireResponse", qr, questionnaire, "R4");
+                        utilities.removeSpinnerDiv()
+                        LForms.Util.addFormToPage(questionnaire, 'formContainer');
+                        setTimeout(function () {
+                            utilities.createButton(qName, lastQuestionnaire, handleResponse);
+                        }, 1000);
+                    })
+            } else {
+                questionnaire = LForms.Util.convertFHIRQuestionnaireToLForms(questionnaire, 'R4');
+                window.scrollTo(0, 0);
+                LForms.Util.addFormToPage(questionnaire, 'formContainer');
+                setTimeout(function () {
+                    utilities.createButton(qName, lastQuestionnaire, handleResponse);
+                }, 1000);
+            }
         })
         .catch((error) => {
             error = error.toString()
@@ -38,38 +73,9 @@ async function presentQuestionnaire(qName, lastQuestionnaire){
             if(error.includes("Failed to fetch"))
                 alert("Problem with loading content, please check your connection.\n");
             else utilities.showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
+            utilities.showErrorDiv()
         })
-    if(qName === "followup"){
-        await fetch('https://czp2w6uy37-vpce-0bdf8d65b826a59e3.execute-api.us-east-1.amazonaws.com/test/linkid_convertor', {
-            method: 'POST',
-            body: JSON.stringify(questionnaire),
-            headers: {'Content-Type': 'application/json'}
-        })
-            .then(response => utilities.checkFetch(response))
-            .then(response => response.json())
-            .then(async result => {
-                questionnaire = LForms.Util.convertFHIRQuestionnaireToLForms(result, 'R4');
-                let qr = allResponses[0];
-                qr.item.splice(0, 1)
-                questionnaire = LForms.Util.mergeFHIRDataIntoLForms("QuestionnaireResponse", qr, questionnaire, "R4");
-                utilities.removeSpinnerDiv()
-                LForms.Util.addFormToPage(questionnaire, 'formContainer');
-                setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
-            })
-            .catch(function(error) {
-                error = error.toString()
-                console.error(error)
-                if(error.includes("Failed to fetch"))
-                    alert("Problem with loading content, please check your connection.\n");
-                utilities.showMessage("Encountered an internal system error, unable to load questionnaire", "Problem Loading Questionnaire", "error")
-            });
-    }
-    else{
-        questionnaire = LForms.Util.convertFHIRQuestionnaireToLForms(questionnaire, 'R4');
-        window.scrollTo(0, 0);
-        LForms.Util.addFormToPage(questionnaire, 'formContainer');
-        setTimeout(function() { utilities.createButton(qName, lastQuestionnaire, handleResponse); }, 1000);
-    }
+
 }
 
 async function handleResponse(qName){
@@ -105,12 +111,12 @@ async function handleResponse(qName){
                 "questionnaire_id": questions_id,
                 "encounter_id": encounterID,
             }
-            console.log(response);
 
             // let responseStatusCode  = await utilities.postQuestionnaireResponse(response)
             // console.log(responseStatusCode)
             // if(responseStatusCode !== 200)
             //     throw Error("Error sending questionnaire response")
+            console.log(response)
             if(qName === "followup")
                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray)
             if (displaySelfAssessment){
