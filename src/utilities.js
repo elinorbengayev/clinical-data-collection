@@ -1,3 +1,6 @@
+//helper functions for baseline and follow-up
+
+//show pop-up window with the given message using the sweetAlert library
 export function showMessage(text, title, icon = 'warning'){
     swal({
         title: title,
@@ -25,102 +28,37 @@ export async function getQuestionnaireResponse(parameter, value){
     return responses;
 }
 
-export function createButton(qName, lastQuestionnaire, handler){
+//add submit button to the page, when clicking a spinner element is displayed inside
+export function createSubmitButton(qName, lastQuestionnaire, handler){
     let div = document.getElementById("submitDiv");
     let btn = document.createElement("button");
     btn.className = "btn btn-primary"
     btn.id = "submitButton"
     btn.innerHTML = !lastQuestionnaire ? "Submit and continue to the next form " : "Submit and finish "
-
     btn.addEventListener("click", function(){
         handler(qName)
     });
+
     let spinner = document.createElement("span")
     spinner.id = "loadingSpinner"
     spinner.className = "spinner-border spinner-border-sm"
     spinner.hidden = true
-    btn.appendChild(spinner)
 
+    btn.appendChild(spinner)
     div.appendChild(btn)
 }
 
-// async function handleResponse(qName, presentQuestionnaireFunc, isFormCompleted, encounterID, patientID, responsesUnderThresholdArray = null){
-//     let response = LForms.Util.getFormFHIRData("QuestionnaireResponse", "R4");
-//     let validationMsg;
-//     if(!response.item){
-//         validationMsg = "None of the questions were answered, please review the questionnaire again."
-//     }
-//     else {
-//         validationMsg = LForms.Util.checkValidity('formContainer')
-//         if(validationMsg){
-//             validationMsg = utilities.adjuctErrors(validationMsg)
-//         }
-//         else{
-//             if(qName === "followup")
-//                 validationMsg = utilities.answersValidation(response)
-//         }
-//     }
-//     if(validationMsg) {
-//         swal({
-//             title: "Invalid Response",
-//             text: validationMsg,
-//             icon: "warning",
-//             button: "Got it",
-//         })
-//     }
-//     else {
-//         try{
-//             utilities.handleLoadingSubmitButton()
-//             if(!encounterID) { //first time of getting encounterID
-//                 encounterID = await utilities.getEncounterID(patientID, response, qDetails)
-//                 if(!encounterID)
-//                     throw Error("Error creating encounter_id")
-//             }
-//             response.subject = {"reference": "Patient/".concat(patientID)};
-//             console.log(response.subject, encounterID)
-//             response.extension = {
-//                 "score": await utilities.getScore(response),
-//                 "questionnaire_id": questions_id,
-//                 "encounter_id": encounterID,
-//             }
-//             // utilities.postQuestionnaireResponse(response)
-//
-//             // downloadResponseAsFile(response, "response_testing_followup")
-//             console.log(response);
-//             let displaySelfAssessment = []
-//             if(qName === "followup")
-//                 displaySelfAssessment = utilities.checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray)
-//             if (displaySelfAssessment){
-//                 qName = displaySelfAssessment.splice(0, 1)[0]
-//                 let lastQuestionnaire = !displaySelfAssessment.length
-//                 if(qName){
-//                     document.getElementById("submitButton").remove();
-//                     presentQuestionnaireFunc(qName, lastQuestionnaire, isFormCompleted)
-//                 }
-//                 else {
-//                     isFormCompleted = true
-//                     window.location.replace("approval.html");  //Need to do only if approval was sent from the post
-//                 }
-//             }
-//         }
-//         catch (error){
-//             utilities.handleUnLoadingSubmitButton()
-//             error = error.toString()
-//             console.error(error.toString())
-//             if(error.includes("Failed to fetch"))
-//                 alert("Problem with loading content, please check your connection.\n");
-//             else showMessage("Encountered an internal server error, response wasn't sent", "Error while Submitting Response", "error")
-//         }
-//     }
-// }
-
+//get score from the compatible question in the questionnaire, usually the last one
+//those questions IDs are stored in scoresIDS.json
+//Not all questionnaires have scores (for example, baseline and followup)
 export async function getScore(response) {
     let scoreIDs = await fetch("./resources/scoresIDS.json")
     scoreIDs = await scoreIDs.json()
     scoreIDs = scoreIDs.scoreIDs
+
     let lastQuestion = response.item[response.item.length - 1]
-    let score;
     let linkID = lastQuestion.linkId
+    let score;
     if(scoreIDs.includes(linkID)){
         score = lastQuestion.answer[0].valueDecimal
         return Number.isInteger(score) ? score : null
@@ -128,8 +66,10 @@ export async function getScore(response) {
     return null
 }
 
+//checks which questionnaires to present after the followup/baseline
 export function checkResponseOfBaseline(response, qDetails, responsesUnderThresholdArray = null){
-    // TODO: add check for partB as well
+    // TODO: add check for clinical conditions partB as well (Alzheimer etc.)
+    //Checking if the patient responded having the conditions with needed questionnaires
     let answersPartA = response.item[1].item[0].item[0].answer
     let displaySelfAssessment = []
     if(answersPartA){
@@ -140,6 +80,8 @@ export function checkResponseOfBaseline(response, qDetails, responsesUnderThresh
                 displaySelfAssessment.push(condition)
         }
     }
+
+    //in case of baseline, make sure the phq-9 is included and set it to be the first questionnaire
     if(!responsesUnderThresholdArray){
         if(!displaySelfAssessment.includes("PHQ-9"))
             displaySelfAssessment.unshift("PHQ-9")
@@ -148,15 +90,19 @@ export function checkResponseOfBaseline(response, qDetails, responsesUnderThresh
             displaySelfAssessment.sort(function(x,y){ return x === first ? -1 : y === first ? 1 : 0; });
         }
     }
+    //in case of followup and there responses score under the thresholds
     if(responsesUnderThresholdArray){
         // Firstly, merge between answers and score threshold
         let standsInTimeRange = checkResponsesTimeRange(displaySelfAssessment, response, qDetails)
         let mergedArray = standsInTimeRange.concat(responsesUnderThresholdArray)
+        //remove duplicates
         displaySelfAssessment = mergedArray.filter((item, pos) => mergedArray.indexOf(item) === pos)
     }
     return displaySelfAssessment
 }
 
+//check if the response of the question when was the last time the patient experienced the condition symptoms
+//every condition has it's own time range threshold
 function checkResponsesTimeRange(displaySelfAssessment, response, qDetails){
     let standsInTimeRange = []
     for(let i = 0; i < displaySelfAssessment.length; i++){
@@ -174,6 +120,7 @@ function checkResponsesTimeRange(displaySelfAssessment, response, qDetails){
     return standsInTimeRange
 }
 
+//if the answered response is included in the needed self-assessment questionnaire
 function ifAnswerInSelfAssessment(answerCode, qDetails){
     let conditions = Object.keys(qDetails)
     conditions.splice(0,2)
@@ -214,6 +161,8 @@ export async function getEncounterID(patientId, response, qDetails) {
     return encounterID
 }
 
+//create a conditions list from the response questions - clinical conditions - part A&B
+//to send as a parameter in the getEncounterID request
 function getConditionsList(response, qDetails){
     let conditionsList = []
     let relevantQuestions = [response.item[1].item[0], response.item[1].item[1]]
@@ -256,7 +205,7 @@ export function removeSpinnerDiv(){
     element.remove();
 }
 
-
+//adjust the errors message
 export function adjuctErrors(errors){
     let result = "Please answer the following question(s) before continuing:\n"
     for (let i = 0; i < errors.length; i++){
@@ -340,11 +289,6 @@ export function diagnosisAnswersValidation(response) {
         }
     }
     return result
-}
-
-function isInTheFuture(date) {
-    const today = new Date();
-    return date > today;
 }
 
 function symptomsValidationMain(response){
